@@ -1,2 +1,5 @@
-# Grupo_6
-Repositorio del grupo 6 para el reto 3
+# GRUPO 6 - RETO 3
+
+Hugo Barrios
+Igor Lopez
+Alejandro Heredero
