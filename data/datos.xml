@@ -719,7 +719,7 @@
 		</temporada>
 		<temporada anoInicio="2003" anoFin="2004">
 			<plantillas>
-				<equipo ref="E1" escudo="liga\fotos\equipos\2003 - 2004\1_Santutxu_Bulls.jpg">
+				<equipo ref="E1">
 					<jugador ref="J4" dorsal="15" foto=""/>
 					<jugador ref="J10" dorsal="25" foto=""/>
 					<jugador ref="J13" dorsal="10" foto=""/>
@@ -728,7 +728,7 @@
 					<jugador ref="J23" dorsal="19" foto=""/>
 					<jugador ref="J19" dorsal="20" foto=""/>
 				</equipo>
-				<equipo ref="E2" escudo="liga\fotos\equipos\2003 - 2004\2_Lobos_de_otxar.jpg">
+				<equipo ref="E2">
 					<jugador ref="J17" dorsal="9" foto=""/>
 					<jugador ref="J18" dorsal="13" foto=""/>
 					<jugador ref="J12" dorsal="6" foto=""/>
@@ -737,7 +737,7 @@
 					<jugador ref="J25" dorsal="44" foto=""/>
 					<jugador ref="J7" dorsal="8" foto=""/>
 				</equipo>
-				<equipo ref="E3" escudo="liga\fotos\equipos\2003 - 2004\3_Los_lejanos_de_kabiezes.jpg">
+				<equipo ref="E3">
 					<jugador ref="J24" dorsal="22" foto=""/>
 					<jugador ref="J16" dorsal="2" foto=""/>
 					<jugador ref="J27" dorsal="17" foto=""/>
@@ -746,7 +746,7 @@
 					<jugador ref="J29" dorsal="27" foto=""/>
 					<jugador ref="J26" dorsal="0" foto=""/>
 				</equipo>
-				<equipo ref="E4" escudo="liga\fotos\equipos\2003 - 2004\4_Guerreros_Zigoriel.jpg">
+				<equipo ref="E4">
 					<jugador ref="J9" dorsal="18" foto=""/>
 					<jugador ref="J20" dorsal="30" foto=""/>
 					<jugador ref="J22" dorsal="16" foto=""/>

@@ -54,7 +54,7 @@
             <img src="assets/img/iconos/cross.svg" />
           </label>
           <li>
-            <a class="menuItem isActive" href="?inicio" data-page="inicio">Inicio</a>
+            <a class="menuItem" href="?inicio" data-page="inicio">Inicio</a>
           </li>
           <li>
             <a class="menuItem" href="?clasificacion" data-page="clasificacion">Clasificacion</a>
