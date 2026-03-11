@@ -60,19 +60,19 @@
             <a class="menuItem" href="?clasificacion" data-page="clasificacion">Clasificacion</a>
           </li>
           <li>
-            <a class="menuItem" href="#" data-page="calendario">Calendario</a>
+            <a class="menuItem" href="?calendario" data-page="calendario">Calendario</a>
           </li>
           <li>
-            <a class="menuItem" href="#" data-page="resultados">Resultados</a>
+            <a class="menuItem" href="?resultados" data-page="resultados">Resultados</a>
           </li>
           <li>
-            <a class="menuItem" href="#" data-page="equipos">Equipos</a>
+            <a class="menuItem" href="?equipos" data-page="equipos">Equipos</a>
           </li>
           <li>
-            <a class="menuItem" href="#" data-page="jugadores">Jugadores</a>
+            <a class="menuItem" href="?jugadores" data-page="jugadores">Jugadores</a>
           </li>
           <li>
-            <a class="menuItem" href="#" data-page="informacion">Informacion</a>
+            <a class="menuItem" href="?informacion" data-page="informacion">Informacion</a>
           </li>
           <li>
             <label for="contacto-check" class="abrir-contacto">

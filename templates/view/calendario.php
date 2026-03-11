@@ -1,6 +1,6 @@
-<section class="contenedor-clasificacion">
+<section class="contenedor-calendario">
     <form method="GET" action="" class="form-selector">
-        <input type="hidden" name="clasificacion" value="" />
+        <input type="hidden" name="calendario" value="" />
         <div class="temporada-selector">     
             <label for="temporada-select">Temporada:</label>
             <select id="temporada-select" name="inicio" onchange="this.form.submit()">
@@ -16,8 +16,8 @@
                     $seleccionada = $_GET['inicio'] ?? $xpath->evaluate("string(/federacion/temporadas/temporada[last()]/@anoInicio)");
 
                     foreach ($temporadas as $nodo) {
-                        $valInicio = $xpath->evaluate("string(@anoInicio)", $nodo);
-                        $valFin    = $xpath->evaluate("string(@anoFin)", $nodo);
+                            $valInicio = $nodo->getAttribute('anoInicio');
+                            $valFin    = $nodo->getAttribute('anoFin');
                         $isSel     = ($valInicio === $seleccionada) ? 'selected' : '';
 
                         echo "<option value='$valInicio' $isSel>$valInicio - $valFin</option>";
@@ -39,7 +39,7 @@
 
                 // 3. Procesamos el XSLT
                 $xsl = new DOMDocument();
-                $xsl->load('./templates/xsl/clasificacion.xsl'); // Asegúrate de la ruta correcta
+                $xsl->load('./templates/xsl/calendario.xsl'); // Asegúrate de la ruta correcta
 
                 $proc = new XSLTProcessor();
                 $proc->importStylesheet($xsl);
