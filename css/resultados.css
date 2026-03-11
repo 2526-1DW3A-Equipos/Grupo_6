@@ -1,0 +1,125 @@
+.contenido h2 {
+  color: var(--blanco);
+}
+.resultadosContenedor {
+  width: 100%;
+  display: flex;
+  flex-flow: column nowrap;
+  gap: 4vw;
+  margin-top: 3vw;
+}
+.resultadosJornada {
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+}
+.jornadaPartidos {
+  width: 100%;
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+  justify-content: center;
+}
+.jornadaPartido {
+  width: 100%;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+  align-items: center;
+  gap: 2vw;
+  padding: 0.5vw 0;
+  border-radius: 15px;
+}
+.jornadaPartido:hover {
+  box-shadow: 0 0 10px var(--naranja);
+}
+.jornadaEquipo {
+  width: 30%;
+  display: flex;
+  align-items: center;
+  justify-content: end;
+  gap: 2vw;
+  padding: 0 2vw;
+}
+.local {
+  justify-content: start;
+}
+.jornadaEquipo p {
+  font-size: clamp(1rem, 1.1vw, 1.4vw);
+}
+.jornadaEquipo img {
+  height: 10vh;
+}
+.jornadaMarcador {
+  width: 20%;
+  display: flex;
+  justify-content: center;
+  gap: 1vw;
+}
+.jornadaPuntos {
+  display: flex;
+  align-items: center;
+  padding: 1vw 2vw;
+  font-size: clamp(1.1rem, 1.2vw, 1.5vw);
+  border: 2px solid var(--blanco);
+  border-radius: 10px;
+  color: var(--blanco);
+}
+.ganador {
+  background-color: var(--naranja);
+  border: none;
+  font-weight: 700;
+  justify-content: center;
+}
+.proximosPartidos {
+  margin: 5vw 0;
+  align-self: center;
+}
+
+@media (max-width: 1200px) {
+  .jornadaPartido {
+    justify-content: space-between;
+    gap: 0;
+  }
+  .jornadaPartido:hover {
+    box-shadow: none;
+  }
+  .jornadaEquipo p {
+    /* font-size: .8rem; */
+  }
+}
+
+@media (max-width: 600px) {
+  .resultadosContenedor {
+    margin: 20vw 0 10vw;
+    gap: 15vw;
+  }
+  .jornadaPartidos {
+    flex-flow: column;
+    gap: 10vw;
+  }
+  .jornadaPartido {
+    flex-flow: column;
+    align-items: center;
+    justify-content: center;
+  }
+  .jornadaEquipo {
+    flex-flow: row-reverse;
+    width: 100%;
+    justify-content: start;
+  }
+  .local {
+    flex-flow: row;
+  }
+  .jornadaMarcador {
+    width: auto;
+    flex-flow: column;
+  }
+  .jornadaPuntos {
+    align-items: center;
+    padding: 3vw;
+  }
+  .boton {
+    padding: 3vw 5vw;
+  }
+}

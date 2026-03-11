@@ -1,0 +1,119 @@
+.calendarioContenedor {
+  width: 100%;
+  display: flex;
+  align-items: center;
+}
+.calendarioPartidos {
+  width: 100%;
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+}
+.calendarioPartido {
+  position: relative;
+  width: 100%;
+  border-radius: 10px;
+  padding: 2vw 3vw;
+
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
+  justify-content: space-between;
+  margin: 2vh;
+  overflow: hidden;
+
+  background-color: rgb(172, 112, 0);
+  border: 2px solid;
+  border-color: var(--naranja);
+  box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.3);
+  transition: all 0.5s ease-in;
+}
+.partidoOverlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 50%;
+  background-color: var(--naranja);
+  z-index: 1;
+  transition: all 0.5s ease-in;
+}
+.calendarioPartido:hover .partidoOverlay {
+  width: 100%;
+}
+
+.calendarioPartido:hover {
+  border-color: white;
+}
+.partidoEquipo {
+  width: 40%;
+  display: flex;
+  flex-flow: row-reverse nowrap;
+  align-items: center;
+  gap: 2vw;
+  z-index: 2;
+}
+.local {
+  flex-flow: row;
+}
+.local p {
+  text-align: start;
+}
+.partidoEquipo img {
+  height: 10vw;
+}
+.partidoEquipo p {
+  font-family: "Rajdhani", sans-serif;
+  font-weight: 600;
+  font-size: clamp(0.6rem, 1.5vw, 1.5vw);
+  text-align: end;
+}
+.partidoFecha {
+  width: 20%;
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+  gap: 1vw;
+  z-index: 2;
+}
+.partidoHora {
+  font-weight: 700;
+  font-size: clamp(0.8rem, 2.5vw, 2.5vw);
+  font-family: "Rajdhani", sans-serif;
+}
+.partidoInfo {
+  font-size: clamp(0.4rem, 1vw, 1.3vw);
+  font-family: "Rajdhani", sans-serif;
+  text-align: center;
+}
+.calendarioPartidos a {
+  margin-top: 2vw;
+}
+
+@media (max-width: 1200px) {
+  .partidoEquipo p {
+    font-size: 2vw;
+  }
+  .partidoHora {
+    font-size: 3.5vw;
+  }
+  .partidoInfo {
+    font-size: 1.5vw;
+    text-align: center;
+  }
+}
+
+@media (max-width: 600px) {
+  .partidoEquipo {
+    width: 30%;
+  }
+  .partidoFecha {
+    width: 30%;
+  }
+  .local p {
+    text-align: start;
+  }
+  .partidoInfo {
+    text-align: center;
+  }
+}

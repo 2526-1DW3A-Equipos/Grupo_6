@@ -1,0 +1,251 @@
+/* ============================================
+   PAGINA DE JUGADORES
+   ============================================ */
+
+.jugadoresContenedor {
+  width: 100%;
+  padding: 2vw 0;
+}
+
+.listaJugadores {
+  list-style: none;
+  display: flex;
+  flex-flow: row wrap;
+  gap: 2vw;
+  justify-content: flex-start;
+}
+
+/* Tarjeta individual de jugador */
+.jugadorTarjeta {
+  width: calc(50% - 1vw);
+  background-color: rgb(37, 46, 62);
+  border-radius: 10px;
+  overflow: hidden;
+  display: flex;
+  flex-flow: column nowrap;
+}
+
+.jugadorCabecera {
+  background-color: orange;
+  padding: 1.5vw 2vw;
+  display: flex;
+  align-items: center;
+  gap: 1.5vw;
+}
+
+.jugadorCabecera .jugadorFotoPrincipal {
+  width: 6vw;
+  height: 6vw;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid white;
+  background-color: whitesmoke;
+}
+
+.jugadorCabecera .jugadorNombreCompleto {
+  flex: 1;
+}
+
+.jugadorCabecera .jugadorNombreCompleto h3 {
+  font-size: 1.8vw;
+  color: rgb(37, 46, 62);
+  margin: 0;
+  display: flex;
+  align-items: center;
+  gap: 0.8vw;
+}
+
+.jugadorCabecera .jugadorNombreCompleto h3 .jugadorDorsal {
+  background-color: rgb(37, 46, 62);
+  color: orange;
+  padding: 0.2vw 0.6vw;
+  border-radius: 5px;
+  font-size: 1.2vw;
+  font-weight: 600;
+}
+
+.jugadorCabecera .jugadorNombreCompleto p {
+  font-size: 1.2vw;
+  color: rgb(37, 46, 62);
+  opacity: 0.8;
+  margin: 0;
+}
+
+/* Historial de temporadas */
+.jugadorHistorial {
+  padding: 1.5vw 2vw;
+}
+
+.jugadorHistorial h4 {
+  font-size: 1.2vw;
+  color: orange;
+  margin-bottom: 1vw;
+  border-bottom: 1px solid rgba(255, 165, 0, 0.3);
+  padding-bottom: 0.5vw;
+}
+
+.historialTemporadas {
+  display: flex;
+  flex-flow: row wrap;
+  gap: 1vw;
+}
+
+/* Cada temporada del jugador */
+.temporadaItem {
+  background-color: rgba(255, 255, 255, 0.05);
+  border-radius: 8px;
+  padding: 1vw;
+  display: flex;
+  align-items: center;
+  gap: 1vw;
+  flex: calc(50% - 0.5vw);
+  min-width: 200px;
+}
+
+.temporadaItem:hover {
+  background-color: rgba(255, 165, 0, 0.1);
+}
+
+.temporadaFoto {
+  width: 4vw;
+  height: 4vw;
+  border-radius: 8px;
+  object-fit: cover;
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.temporadaInfo {
+  flex: 1;
+  display: flex;
+  flex-flow: column nowrap;
+  gap: 0.3vw;
+}
+
+.temporadaInfo .temporadaAnio {
+  font-size: 0.9vw;
+  color: orange;
+  font-weight: 600;
+}
+
+.temporadaInfo .temporadaEquipo {
+  font-size: 1vw;
+  color: whitesmoke;
+  display: flex;
+  align-items: center;
+  gap: 0.5vw;
+}
+
+.temporadaInfo .temporadaEquipo img {
+  width: 1.5vw;
+  height: 1.5vw;
+  object-fit: contain;
+}
+
+/* Mensaje cuando no hay historial */
+.sinHistorial {
+  color: rgba(255, 255, 255, 0.5);
+  font-style: italic;
+  padding: 1vw 0;
+}
+
+/* ============================================
+   RESPONSIVE
+   ============================================ */
+
+@media (max-width: 1200px) {
+  .jugadorTarjeta {
+    width: 100%;
+  }
+
+  .jugadorCabecera .jugadorFotoPrincipal {
+    width: 80px;
+    height: 80px;
+  }
+
+  .jugadorCabecera .jugadorNombreCompleto h3 {
+    font-size: 1.5rem;
+    gap: 10px;
+  }
+
+  .jugadorCabecera .jugadorNombreCompleto h3 .jugadorDorsal {
+    font-size: 1rem;
+    padding: 2px 8px;
+  }
+
+  .jugadorCabecera .jugadorNombreCompleto p {
+    font-size: 1rem;
+  }
+
+  .jugadorHistorial h4 {
+    font-size: 1rem;
+  }
+
+  .temporadaItem {
+    flex: 100%;
+  }
+
+  .temporadaFoto {
+    width: 50px;
+    height: 50px;
+  }
+
+  .temporadaInfo .temporadaAnio {
+    font-size: 0.9rem;
+  }
+
+  .temporadaInfo .temporadaEquipo {
+    font-size: 0.85rem;
+  }
+
+  .temporadaInfo .temporadaEquipo img {
+    width: 20px;
+    height: 20px;
+  }
+}
+
+@media (max-width: 600px) {
+  .jugadorCabecera {
+    padding: 4vw;
+  }
+
+  .jugadorCabecera .jugadorFotoPrincipal {
+    width: 60px;
+    height: 60px;
+  }
+
+  .jugadorCabecera .jugadorNombreCompleto h3 {
+    font-size: 1.2rem;
+    gap: 8px;
+  }
+
+  .jugadorCabecera .jugadorNombreCompleto h3 .jugadorDorsal {
+    font-size: 0.85rem;
+    padding: 2px 6px;
+  }
+
+  .jugadorCabecera .jugadorNombreCompleto p {
+    font-size: 0.85rem;
+  }
+
+  .jugadorHistorial {
+    padding: 4vw;
+  }
+
+  .jugadorHistorial h4 {
+    font-size: 0.95rem;
+    margin-bottom: 3vw;
+  }
+
+  .historialTemporadas {
+    gap: 3vw;
+  }
+
+  .temporadaItem {
+    padding: 3vw;
+  }
+
+  .temporadaFoto {
+    width: 45px;
+    height: 45px;
+  }
+}

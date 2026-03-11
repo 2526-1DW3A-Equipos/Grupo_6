@@ -1,0 +1,21 @@
+# El objetivo de este archivo es modificar el comportamiento original de Apache, 
+# forzando a enviar el trafico a index.php, para gestionar la carga de archivos
+
+# Evitar que se listen las carpetas si no hay un index
+Options -Indexes
+
+# Activar el motor de reescritura de URLs
+RewriteEngine On
+
+# Definir la base (opcional, ajusta si tu web está en una subcarpeta)
+# RewriteBase /mi-proyecto/
+
+# Si lo que piden NO es un archivo físico (imagen, css, js...)
+RewriteCond %{REQUEST_FILENAME} !-f
+
+# Si lo que piden NO es una carpeta física
+RewriteCond %{REQUEST_FILENAME} !-d
+
+# El [L] significa que es la última regla (Last)
+# El [QSA] asegura que los parámetros (?liga) se mantengan (Query String Append)
+RewriteRule ^(.*)$ index.php [L,QSA]

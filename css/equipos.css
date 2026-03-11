@@ -1,0 +1,94 @@
+.cajaEquipo {
+  width: 100%;
+  display: flex;
+  flex-flow: row nowrap;
+  margin-bottom: 3vw;
+}
+.equipoMedia {
+  width: 30%;
+  padding: 3vw;
+  background-color: orange;
+  border-radius: 10px 0 0 10px;
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 2vw;
+}
+.equipoMedia h2 {
+  font-size: 3vw;
+  /* align-self: flex-start; */
+}
+.equipoMedia img {
+  height: 17vw;
+}
+.equipoInfo {
+  width: 70%;
+  border: 4px solid orange;
+  border-radius: 0 10px 10px 0;
+  padding: 3vw;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: flex-start;
+  gap: 5%;
+}
+.equipoInfo h3 {
+  font-size: 1.7vw;
+}
+.equipoInfo p {
+  flex: 100%;
+  margin-bottom: 3vw;
+}
+.mediaVideo {
+  flex: 45%;
+}
+.mediaVideo video {
+  width: 100%;
+}
+.mediaAudio {
+  flex: 45%;
+}
+
+/* Ajustes para equipos cargados dinamicamente */
+.equipos {
+  list-style: none;
+  width: 100%;
+}
+
+.equipoInfo h3 {
+  width: 100%;
+  margin-top: 1.5rem;
+}
+
+/* Contenedor de jugadores para carga dinamica */
+.jugadores-container {
+  width: 100%;
+  flex: 100%;
+}
+
+@media (max-width: 600px) {
+  .cajaEquipo {
+    flex-wrap: wrap;
+    margin-bottom: 10vw;
+  }
+  .equipoMedia {
+    flex: 100%;
+    border-radius: 10px 10px 0 0;
+  }
+  .equipoMedia h2 {
+    font-size: 1.8rem;
+  }
+  .equipoMedia img {
+    height: 6rem;
+  }
+  .equipoInfo {
+    flex: 100%;
+    border-radius: 0 0 10px 10px;
+  }
+  .equipoInfo h3 {
+    font-size: 1rem;
+  }
+  .equipoInfo p {
+    font-size: 0.8rem;
+  }
+}

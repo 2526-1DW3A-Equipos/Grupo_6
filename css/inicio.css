@@ -1,0 +1,71 @@
+#hero-inicio {
+  position: relative;
+  width: 100%;
+  min-height: 85vh; /* Casi toda la pantalla */
+  display: flex;
+  align-items: center;
+  padding: 0 5vw;
+
+  /* Imagen de fondo con degradado para que el texto se lea */
+  background:
+    linear-gradient(to right, rgba(3, 3, 20, 0.9) 30%, transparent 70%),
+    url("../assets/imagen_fondo_inicio.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  overflow: hidden;
+}
+
+#hero-inicio h1 {
+  font-size: clamp(2.5rem, 5vw, 4.5rem);
+  line-height: 1;
+  margin: 1.5rem 0;
+  font-family: "Rajdhani", sans-serif;
+  font-weight: 800;
+  font-style: italic; /* Ese toque deportivo de la imagen */
+  color: var(--blanco);
+}
+
+#hero-inicio h1 span {
+  color: var(--naranja);
+}
+
+#hero-inicio p {
+  width: 70%;
+  color: var(--blanco);
+}
+.hero-links {
+  display: flex;
+  flex-direction: row;
+  padding: 5px;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.hero-links a {
+  padding: 1vw 2.2vw;
+  border-radius: 0.4vw 0.4vw 0.4vw;
+  text-decoration: none;
+  color: rgb(0, 0, 0);
+
+  /* Animacion para rellenar el color del boton progresivamente */
+  background: linear-gradient(
+      to left,
+      var(--naranja),
+      50%,
+      rgb(235, 233, 233) 50%
+    )
+    right;
+  background-size: 202%;
+  transition: background 0.3s ease-out;
+  font-size: clamp(1rem, 1vw, 1vw);
+  font-weight: bold;
+
+  /* centrar verticalmente */
+  display: flex;
+  align-items: center;
+}
+
+.hero-links a:hover {
+  background-position: left;
+}

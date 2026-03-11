@@ -1,0 +1,640 @@
+/* 
+    El * nos sirve parar dar estilos por defecto a los componentes, le quitamos el margen y padding para evitar que tengan uno por defecto
+    Por defecto el elemento *html* tiene padding y este afecta a la altura del body que le he puesto 100vh
+
+    Estructura
+    Vamos a usar vh y vw para los tamaños casi siempre ya que son relativos a la pantalla
+        vw = viewport width (ancho de la pantalla)
+        vh = viewport height (altura de la pantalla)
+    
+*/
+
+/* Cuando le demos click al boton que nos lleva a una id hara el scroll poco a poco */
+html {
+  scroll-behavior: smooth;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box; /* No me acuerdo muy bien que hacía esto exactamente pero hace que funcionen mejor los paddings, margins, etc */
+}
+
+body {
+  font-family: "Montserrat", sans-serif;
+  background: rgb(37, 46, 62);
+  height: 100vh;
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+  justify-content: space-between;
+}
+
+main {
+  width: 100%;
+}
+
+/* Aquí definimos los colores que vamos a utilizar en toda la web.  */
+:root {
+  --naranja: #f8af27;
+  --blanco: whitesmoke;
+  --azul-oscuro: rgb(37, 46, 62);
+}
+
+a {
+  padding: 1vh;
+}
+
+a:hover {
+  cursor: pointer;
+}
+
+/* Cada vez que alguien seleccione algo de texto se va a pintar de naranja
+   y el texto va a ser blanco */
+*::selection {
+  background: var(--naranja);
+  color: #ffffff;
+}
+
+/* La clase contenido nos sirve para dar estilos a los elementos que van dentro del cuerpo de la pagina */
+.contenido {
+  display: flex;
+  flex-flow: column wrap;
+  align-items: flex-start;
+  width: 90vw;
+  margin: 2vw;
+}
+
+/* .contenido * {
+  /* margin: 0.2rem;
+} */
+
+.contenido h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "Rajdhani", sans-serif;
+  color: whitesmoke;
+  margin-bottom: calc(0.15vh + 0.4rem);
+  font-weight: 500;
+}
+
+.contenido h1 {
+  font-family: "Rajdhani", sans-serif;
+  font-size: calc(2vw + 1rem);
+  font-weight: 700;
+  color: var(--naranja);
+}
+
+.contenido p {
+  color: var(--blanco);
+}
+
+.cabecera {
+  width: 90vw;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1vh 0;
+}
+
+/* Quito el padding ya que sino este nos permitia hacer click al enlace, sin que este el raton encima de la imagen.
+De esta forma siempre que se puede clickar el logo hace la animacion de hover */
+.cabeceraLogo {
+  padding: 0;
+}
+
+.cabeceraLogo img {
+  height: clamp(5rem, 6vw, 10rem);
+}
+
+.cabeceraLogo img:hover {
+  transform: scale(1.05);
+  transition: all 0.2s linear;
+}
+.cabeceraNav {
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 4rem;
+}
+
+.cabeceraNav ul {
+  list-style: none;
+  display: flex;
+  flex-flow: row wrap;
+  gap: 0.7vw;
+  align-items: center;
+}
+
+.menuItem {
+  display: flex;
+  flex-flow: column nowrap;
+  text-decoration: none;
+  font-size: clamp(0.8rem, 1vw, 1vw);
+  font-weight: 400;
+  color: var(--blanco);
+}
+.menuItem::after {
+  content: "";
+  display: block;
+  margin-top: 0.2vh;
+  height: clamp(0.06rem, 0.11vh, 0.8rem);
+  width: 0;
+  background: linear-gradient(to right, var(--naranja), rgb(255, 255, 255));
+
+  background-size: 200% 100%;
+  background-position: right;
+  background-repeat: no-repeat;
+
+  /* La animacion de width hace que el _ se abra poco a poco, y el background position va a hacer la animacion de que el color se rellene */
+  transition:
+    width 0.3s ease-out,
+    background-position 1.2s ease-out;
+}
+.menuItem:hover::after {
+  width: 100%;
+  background-position: left;
+}
+/* Especificamos que si el menuItem es ademas parte de la clase isActive le cambie el color */
+.menuItem.isActive {
+  color: var(--naranja);
+  font-weight: 600;
+}
+.cabeceraCnt {
+  padding: 0.5vw 1.2vw;
+  border-radius: 0.4vw 0.4vw 0.4vw;
+  text-decoration: none;
+  color: rgb(0, 0, 0);
+
+  /* Animacion para rellenar el color del boton progresivamente */
+  background: linear-gradient(
+      to left,
+      var(--naranja),
+      50%,
+      rgb(235, 233, 233) 50%
+    )
+    right;
+  background-size: 202%;
+  transition: background 0.3s ease-out;
+  font-size: clamp(0.9rem, 0.9vw, 0.9vw);
+
+  /* centrar verticalmente */
+  display: flex;
+  align-items: center;
+}
+.cabeceraCnt:hover {
+  background-position: left;
+}
+/* Estilos del footer */
+footer {
+  background-color: rgb(3, 3, 20);
+  width: 100%;
+  padding-bottom: 5vh;
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+  gap: 2vh;
+  padding: 2vh;
+  margin-top: auto;
+}
+/* Damos estilo solo a los enlances que esten dentro de la lista (de esta forma el logo no tiene efecto) */
+.footerNav ul a:hover {
+  background-color: rgba(128, 128, 128, 0.349);
+  border-radius: 0.4vw 0.4vw 0.4vw;
+}
+
+/* Estilos de la zona de redes sociales */
+
+.footerNav .footerRRSS {
+  color: var(--blanco);
+  gap: 1.4vw;
+}
+
+.footerRRSS li img {
+  width: 1.5vw;
+}
+
+/* Estilos de el separador de la zona inferior */
+
+footer hr {
+  height: 0.2vh;
+  width: 90vw;
+  border-color: rgba(109, 103, 103, 0.527);
+}
+
+/* Estilos de las listas del footer */
+
+.footerNav {
+  width: 90vw;
+  align-items: center; /* Nos permite centrar los items de manera vertical en un flex*/
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+}
+
+/* A todos los comomentes del footerNav les decimos que son parte del flex */
+.footerNav * {
+  display: flex;
+  font-size: clamp(0.6rem, 0.8vw, 0.8vw);
+}
+
+.footerNav ul li a {
+  text-decoration: none;
+  color: var(--blanco);
+  font-weight: 500;
+  list-style: none;
+  padding: 0.8vw;
+}
+
+.footerNav .footerCopy {
+  color: var(--blanco);
+  font-size: clamp(0.6rem, 0.8vw, 0.8vw);
+}
+
+#menulateral-check {
+  display: none;
+}
+
+#contacto-check {
+  display: none;
+}
+
+.abrir-menulateral,
+.cerrar-menulateral {
+  display: none;
+  cursor: pointer;
+  text-align: center;
+}
+
+/* Clases globales para usar en todas las paginas 
+   En estas clases evitamos poner tamaños fijos
+   en caso de querer cambiar tamaños, se hara en su respectivo css con otra clase o id 
+*/
+
+/* Esta es la clase boton
+  Un boton basico sin animaciones avanzadas 
+*/
+.boton {
+  border-radius: 0.4vw 0.4vw 0.4vw;
+  text-decoration: none;
+  color: rgb(0, 0, 0);
+  padding: 1vw 2vw;
+
+  /* Animacion para rellenar el color del boton progresivamente */
+  background: orange;
+  text-align: center;
+  font-size: clamp(0.8rem, 1vw, 1.3vw);
+}
+
+.boton:hover {
+  background: rgb(236, 189, 102);
+  transition: all 0.3s ease-out;
+  cursor: pointer;
+}
+
+#contacto-check:checked ~ .overlayContacto {
+  opacity: 1;
+  pointer-events: all; /* ahora sí podemos interactuar */
+}
+
+#contacto-check:checked ~ .overlayContacto .contacto {
+  opacity: 1;
+  transform: translateY(0); /* sube al centro */
+}
+
+/* Ocultar overlay por defecto */
+.overlayContacto {
+  position: fixed;
+  display: flex;
+  width: 100vw;
+  height: 100vh;
+  top: 0;
+  left: 0;
+
+  background-color: rgba(0, 0, 0, 0.644);
+  backdrop-filter: blur(10px);
+
+  justify-content: center;
+  align-items: center;
+
+  z-index: 10;
+  opacity: 0; /* invisible por defecto */
+  pointer-events: none; /* no interactúa mientras está oculto */
+  transition: opacity 0.3s ease; /* animación de fade */
+}
+.iconoCerrar {
+  position: absolute;
+  top: 1.5rem;
+  right: 1.5rem;
+  height: 1.3rem;
+  cursor: pointer;
+  transform: rotate(0deg);
+}
+.iconoCerrar:hover {
+  transform: rotate(12192192deg);
+  transition: transform 40000s linear;
+}
+.contacto {
+  position: fixed;
+  width: clamp(35rem, 30vw, 40rem);
+  height: clamp(40rem, 80vh, 70rem);
+  border-radius: 2rem;
+  background-color: rgba(0, 0, 0, 0.63);
+
+  display: flex;
+  flex-flow: column wrap;
+  align-items: center;
+  justify-content: center;
+
+  z-index: 10;
+
+  opacity: 0; /* invisible por defecto */
+  transform: translateY(-50px); /* sube arriba */
+  transition:
+    opacity 0.3s ease,
+    transform 0.3s ease; /* animación */
+}
+
+.contacto input,
+textarea {
+  width: 100%;
+  height: 2rem;
+  resize: none;
+  border: none;
+  size: 100%;
+  padding: 0.5rem;
+
+  color: white;
+  background-color: rgba(36, 36, 36, 0.63);
+}
+
+.contacto textarea {
+  height: 20vh;
+}
+
+.contacto h1 {
+  margin-top: 1vh;
+  font-size: calc(1vw + 3.5rem);
+}
+
+.contacto p {
+  font-family: "Rajdhani", sans-serif;
+}
+
+.formContacto {
+  align-items: center;
+  display: flex;
+  flex-flow: column wrap;
+  width: 100%;
+  /* margin: 1rem; */
+}
+.formContacto ul {
+  width: 70%;
+}
+
+.formContacto ul li {
+  list-style: none;
+  color: white;
+  padding: 1rem;
+  width: 100%;
+}
+#botonArriba {
+  color: orange;
+}
+
+@media (max-width: 880px) {
+  .cabecera {
+    width: 90vw;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+  }
+
+  .cabeceraLogo {
+    justify-self: right;
+  }
+
+  .cabeceraNav {
+    display: flex;
+    width: 80vw;
+    right: -100%;
+
+    list-style: none;
+    flex-flow: column wrap;
+    align-items: flex-end;
+    position: fixed;
+    z-index: 10;
+
+    background-color: rgba(0, 0, 0, 0.619);
+    height: 100vh;
+    width: 80vw;
+    padding: 2.5rem 2rem 2.5rem 2.5rem;
+    gap: 1.7vw;
+    top: 0;
+    transition: all 0.3s ease-out;
+    backdrop-filter: blur(5px);
+  }
+  .cabeceraNav ul {
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 1rem;
+  }
+  .menuItem {
+    padding: 0;
+  }
+
+  .menuItem,
+  .cabeceraCnt {
+    font-size: clamp(1.6rem, 5vw, 5vw);
+    font-family: "Rajdhani", sans-serif;
+  }
+
+  .menuItem::after {
+    height: 0.1rem;
+  }
+
+  .abrir-menulateral,
+  .cerrar-menulateral {
+    display: block;
+  }
+
+  #menulateral-check:checked ~ .cabeceraNav {
+    right: 0;
+  }
+
+  #menulateral-check:checked ~ .abrir-menulateral {
+    display: none;
+  }
+  .contacto {
+    width: 90%;
+    padding: 2rem;
+  }
+  .contacto h1 {
+    font-size: 2rem;
+  }
+  .contacto h2 {
+    font-size: 1.3rem;
+  }
+  .formContacto ul {
+    padding: 0;
+    margin: 0;
+    width: 100%;
+  }
+  .formContacto ul li {
+    width: 100%;
+    padding: 0;
+    margin-bottom: 1rem;
+  }
+  .formContacto ul li input {
+    margin-top: 0.5rem;
+  }
+  .footerNav:first-of-type {
+    height: 9vh;
+  }
+  .footerNav:last-of-type,
+  footer hr {
+    display: none;
+  }
+}
+
+@media (max-width: 540px) {
+  .footerNav:first-of-type {
+    height: 8vh;
+    padding: 1vh 0;
+    flex-direction: column;
+    gap: 0;
+  }
+  .footerNav:first-of-type ul {
+    gap: 0.6rem;
+  }
+}
+
+/*ERROR 404*/
+.error-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  width: 100%;
+  padding: 5vh 0;
+  gap: 2vh;
+}
+
+.error-header h1 {
+  /* Usamos tu variable naranja y fuente Rajdhani por cascada */
+  font-size: clamp(6rem, 15vw, 12rem);
+  line-height: 0.8;
+  opacity: 0.8;
+  margin-bottom: 1rem;
+  color: var(--blanco);
+}
+
+.error-header h2 {
+  font-size: clamp(1.5rem, 4vw, 3rem);
+  letter-spacing: 0.2rem;
+  color: var(--blanco);
+}
+
+.error-body p {
+  max-width: 500px;
+  margin: 0 auto 3vh auto;
+  font-size: clamp(1rem, 1.2vw, 1.5vw);
+  line-height: 1.6;
+  color: var(--blanco);
+}
+
+.error-footer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2vh;
+}
+
+/* Ajuste para que el menuItem se vea bien como enlace de error */
+.error-footer .menuItem {
+  font-size: 1rem;
+  text-transform: uppercase;
+}
+
+/* Animación sutil para el H1 */
+.error-header h1 {
+  animation: glitch 3s infinite;
+}
+
+@keyframes glitch {
+  0%,
+  10% {
+    transform: translate(0);
+    text-shadow: 0 0 0 transparent;
+  }
+  11% {
+    transform: translate(-3px, 2px);
+    text-shadow:
+      2px 0 var(--naranja),
+      -2px 0 #00fff9; /* Capas naranja y cian */
+  }
+  12% {
+    transform: translate(3px, -1px);
+    text-shadow:
+      -2px 0 var(--naranja),
+      2px 0 #00fff9;
+  }
+  13% {
+    transform: translate(0);
+    text-shadow: 0 0 0 transparent;
+  }
+  /* Pequeña distorsión extra a mitad de ciclo */
+  48% {
+    transform: scale(1);
+  }
+  49% {
+    transform: scale(1.05) skewX(5deg);
+    color: var(--naranja);
+  }
+  50% {
+    transform: scale(1) skewX(0);
+    color: var(--blanco);
+  }
+  100% {
+    transform: translate(0);
+  }
+}
+
+.error-wrapper {
+  animation: flicker 10s infinite;
+}
+
+@keyframes flicker {
+  0%,
+  19%,
+  21%,
+  23%,
+  25%,
+  54%,
+  56%,
+  100% {
+    opacity: 1;
+  }
+  20%,
+  22%,
+  24%,
+  55% {
+    opacity: 0.95;
+  }
+}
+/* Responsividad extra para móviles */
+@media (max-width: 880px) {
+  .error-wrapper {
+    padding: 2vh;
+  }
+  .error-header h1 {
+    font-size: 8rem;
+  }
+}

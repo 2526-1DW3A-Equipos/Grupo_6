@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?xml-stylesheet type="text/xsl" href="liga.xsl"?>
+<?xml-model href="datos-liga.xsd" type="application/xml" schematypens="http://www.w3.org/2001/XMLSchema"?>
 <federacion>
 	<equipos>
 		<equipo id="E1">
