@@ -12,15 +12,7 @@
             <head>
                 <meta charset="UTF-8"/>
                 <title>Prima League - Resultados</title>
-                <style>
-                    body { font-family: Arial, sans-serif; background: #252e3e; color: white; padding: 20px; }
-                    h1, h2 { color: #d4941c; }
-                    .jornada { margin: 20px 0; padding: 15px; background: rgba(255,255,255,0.05); border-radius: 8px; }
-                    .partido { display: flex; justify-content: space-between; align-items: center; padding: 10px; margin: 5px 0; background: rgba(255,255,255,0.05); border-radius: 4px; }
-                    .equipo { flex: 1; text-align: center; }
-                    .marcador { font-size: 1.5em; font-weight: bold; color: #d4941c; min-width: 80px; text-align: center; }
-                    .ganador { color: #4CAF50; }
-                </style>
+                <link rel="stylesheet" type="text/css" href="../css/resultados.css"/>
             </head>
             <body>
                 <h1>Resultados</h1>
@@ -33,24 +25,35 @@
 
     <!-- Plantilla para procesar una temporada -->
     <xsl:template match="temporada">
-        <xsl:for-each select="jornadas/jornada">
-            <xsl:variable name="jornadaNum" select="position()"/>
-            <xsl:variable name="partidosJugados" select="partido[puntosLocal != '' and puntosVisitante != '']"/>
+        <xsl:variable name="partidosJugados" select="jornadas/jornada/partido[puntosLocal != '' and puntosVisitante != '']"/>
 
-            <!-- Solo mostrar jornadas con partidos jugados -->
-            <xsl:if test="count($partidosJugados) > 0">
-                <div class="jornada">
-                    <h3>Jornada <xsl:value-of select="$jornadaNum"/></h3>
+        <xsl:choose>
+            <xsl:when test="count($partidosJugados) = 0">
+                <p class="no-partidos">No hay resultados disponibles en esta temporada.</p>
+            </xsl:when>
+            <xsl:otherwise>
+                <div class="resultadosContenedor">
+                    <xsl:for-each select="jornadas/jornada">
+                        <xsl:variable name="jornadaNum" select="position()"/>
+                        <xsl:variable name="jugados" select="partido[puntosLocal != '' and puntosVisitante != '']"/>
 
-                    <xsl:for-each select="$partidosJugados">
-                        <xsl:call-template name="mostrar-partido"/>
+                        <xsl:if test="count($jugados) > 0">
+                            <div class="resultadosJornada">
+                                <h3>Jornada <xsl:value-of select="$jornadaNum"/></h3>
+                                <div class="jornadaPartidos">
+                                    <xsl:for-each select="$jugados">
+                                        <xsl:call-template name="mostrar-partido"/>
+                                    </xsl:for-each>
+                                </div>
+                            </div>
+                        </xsl:if>
                     </xsl:for-each>
                 </div>
-            </xsl:if>
-        </xsl:for-each>
+            </xsl:otherwise>
+        </xsl:choose>
     </xsl:template>
 
-    <!-- Plantilla para mostrar un partido -->
+    <!-- Plantilla para mostrar un partido jugado con marcador -->
     <xsl:template name="mostrar-partido">
         <xsl:variable name="localRef" select="equipoLocal/@ref"/>
         <xsl:variable name="visitanteRef" select="equipoVisitante/@ref"/>
@@ -59,21 +62,38 @@
         <xsl:variable name="pLocal" select="number(puntosLocal)"/>
         <xsl:variable name="pVisitante" select="number(puntosVisitante)"/>
 
-        <div class="partido">
-            <div class="equipo">
-                <xsl:attribute name="class">
-                    equipo <xsl:if test="$pLocal > $pVisitante">ganador</xsl:if>
-                </xsl:attribute>
-                <xsl:value-of select="$localNombre"/>
+        <div class="jornadaPartido">
+            <!-- Equipo local -->
+            <div class="jornadaEquipo">
+                <p><xsl:value-of select="$localNombre"/></p>
             </div>
-            <div class="marcador">
-                <xsl:value-of select="puntosLocal"/> - <xsl:value-of select="puntosVisitante"/>
+
+            <!-- Marcador -->
+            <div class="jornadaMarcador">
+                <div>
+                    <xsl:attribute name="class">
+                        <xsl:choose>
+                            <xsl:when test="$pLocal > $pVisitante">jornadaPuntos ganador</xsl:when>
+                            <xsl:otherwise>jornadaPuntos</xsl:otherwise>
+                        </xsl:choose>
+                    </xsl:attribute>
+                    <xsl:value-of select="puntosLocal"/>
+                </div>
+                <span class="marcadorSeparador">-</span>
+                <div>
+                    <xsl:attribute name="class">
+                        <xsl:choose>
+                            <xsl:when test="$pVisitante > $pLocal">jornadaPuntos ganador</xsl:when>
+                            <xsl:otherwise>jornadaPuntos</xsl:otherwise>
+                        </xsl:choose>
+                    </xsl:attribute>
+                    <xsl:value-of select="puntosVisitante"/>
+                </div>
             </div>
-            <div class="equipo">
-                <xsl:attribute name="class">
-                    equipo <xsl:if test="$pVisitante > $pLocal">ganador</xsl:if>
-                </xsl:attribute>
-                <xsl:value-of select="$visitanteNombre"/>
+
+            <!-- Equipo visitante -->
+            <div class="jornadaEquipo local">
+                <p><xsl:value-of select="$visitanteNombre"/></p>
             </div>
         </div>
     </xsl:template>

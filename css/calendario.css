@@ -1,119 +1,173 @@
-.calendarioContenedor {
-  width: 100%;
-  display: flex;
-  align-items: center;
-}
-.calendarioPartidos {
-  width: 100%;
+
+/* ── Página de calendario ──────────────────────────────── */
+.contenedor-calendario {
   display: flex;
   flex-flow: column nowrap;
   align-items: center;
-}
-.calendarioPartido {
-  position: relative;
   width: 100%;
-  border-radius: 10px;
-  padding: 2vw 3vw;
-
-  display: flex;
-  flex-flow: row nowrap;
-  align-items: center;
-  justify-content: space-between;
-  margin: 2vh;
-  overflow: hidden;
-
-  background-color: rgb(172, 112, 0);
-  border: 2px solid;
-  border-color: var(--naranja);
-  box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.3);
-  transition: all 0.5s ease-in;
+  padding: 2rem 1rem;
+  gap: 1.5rem;
 }
-.partidoOverlay {
-  position: absolute;
-  top: 0;
-  left: 0;
-  height: 100%;
-  width: 50%;
-  background-color: var(--naranja);
-  z-index: 1;
-  transition: all 0.5s ease-in;
-}
-.calendarioPartido:hover .partidoOverlay {
+
+.contenedor-calendario .form-selector {
   width: 100%;
+  display: flex;
+  justify-content: center;
 }
 
-.calendarioPartido:hover {
-  border-color: white;
+/* ── Contenedor generado por el XSL ───────────────────── */
+.contenedor-calendario .tabla-resultados {
+  width: min(95vw, 900px);
+  margin: 0 auto;
+  gap: 10px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
 }
-.partidoEquipo {
-  width: 40%;
-  display: flex;
-  flex-flow: row-reverse nowrap;
-  align-items: center;
-  gap: 2vw;
-  z-index: 2;
-}
-.local {
-  flex-flow: row;
-}
-.local p {
-  text-align: start;
-}
-.partidoEquipo img {
-  height: 10vw;
-}
-.partidoEquipo p {
+
+.contenedor-calendario .tabla-resultados h1 {
   font-family: "Rajdhani", sans-serif;
-  font-weight: 600;
-  font-size: clamp(0.6rem, 1.5vw, 1.5vw);
-  text-align: end;
-}
-.partidoFecha {
-  width: 20%;
-  display: flex;
-  flex-flow: column nowrap;
-  align-items: center;
-  gap: 1vw;
-  z-index: 2;
-}
-.partidoHora {
+  font-size: clamp(1.4rem, 3vw, 2.2rem);
   font-weight: 700;
-  font-size: clamp(0.8rem, 2.5vw, 2.5vw);
-  font-family: "Rajdhani", sans-serif;
+  color: var(--naranja);
+  margin-bottom: 0.25rem;
 }
-.partidoInfo {
-  font-size: clamp(0.4rem, 1vw, 1.3vw);
+
+.contenedor-calendario .tabla-resultados h2 {
   font-family: "Rajdhani", sans-serif;
+  font-size: clamp(0.9rem, 1.8vw, 1.3rem);
+  font-weight: 400;
+  color: rgba(255, 255, 255, 0.6);
+  margin-bottom: 2rem;
+  letter-spacing: 0.04em;
+}
+
+/* ── Jornada ──────────────────────────────────────────── */
+.contenedor-calendario .jornada {
+  margin-bottom: 2rem;
+}
+
+.contenedor-calendario .jornada h3 {
+  font-family: "Rajdhani", sans-serif;
+  font-size: clamp(0.85rem, 1.5vw, 1.1rem);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--naranja);
+  padding: 0.4rem 0.9rem;
+  margin-bottom: 0.75rem;
+  border-left: 3px solid var(--naranja);
+  background: rgba(248, 175, 39, 0.07);
+  border-radius: 0 6px 6px 0;
+}
+
+/* ── Tarjeta de partido ────────────────────────────────── */
+.contenedor-calendario .partido {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+  padding: clamp(0.7rem, 1.5vw, 1.2rem) clamp(1rem, 2.5vw, 2rem);
+  margin-bottom: 0.6rem;
+  background: rgb(29, 45, 71);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3);
+  transition: transform 0.18s ease, box-shadow 0.18s ease, border-color 0.18s ease;
+  overflow: hidden;
+  position: relative;
+}
+
+.contenedor-calendario .partido::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 3px;
+  background: var(--naranja);
+  border-radius: 10px 0 0 10px;
+}
+
+.contenedor-calendario .partido:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 28px rgba(0, 0, 0, 0.45);
+  border-color: rgba(248, 175, 39, 0.4);
+}
+
+/* ── Equipos dentro de la tarjeta ─────────────────────── */
+.contenedor-calendario .equipo {
+  display: flex;
+  flex-flow: column nowrap;
+  gap: 0.15rem;
+}
+
+.contenedor-calendario .equipo strong {
+  font-family: "Rajdhani", sans-serif;
+  font-size: clamp(0.75rem, 1.6vw, 1.1rem);
+  font-weight: 700;
+  color: white;
+  letter-spacing: 0.02em;
+}
+
+.contenedor-calendario .equipo small {
+  font-size: clamp(0.55rem, 1vw, 0.75rem);
+  color: rgba(255, 255, 255, 0.45);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+.contenedor-calendario .equipo.local {
+  text-align: right;
+  padding-right: 1.5rem;
+  align-items: flex-end;
+}
+
+.contenedor-calendario .equipo.visitante {
+  text-align: left;
+  padding-left: 1.5rem;
+  align-items: flex-start;
+}
+
+/* ── Separador VS ─────────────────────────────────────── */
+.contenedor-calendario .vs {
+  font-family: "Rajdhani", sans-serif;
+  font-weight: 900;
+  font-size: clamp(0.9rem, 2vw, 1.4rem);
+  color: var(--naranja);
+  min-width: 3rem;
   text-align: center;
-}
-.calendarioPartidos a {
-  margin-top: 2vw;
-}
-
-@media (max-width: 1200px) {
-  .partidoEquipo p {
-    font-size: 2vw;
-  }
-  .partidoHora {
-    font-size: 3.5vw;
-  }
-  .partidoInfo {
-    font-size: 1.5vw;
-    text-align: center;
-  }
+  background: rgba(248, 175, 39, 0.1);
+  border: 1px solid rgba(248, 175, 39, 0.25);
+  border-radius: 6px;
+  padding: 0.3rem 0.6rem;
+  letter-spacing: 0.05em;
 }
 
+/* ── Sin partidos ─────────────────────────────────────── */
+.contenedor-calendario .no-partidos {
+  text-align: center;
+  padding: 3rem 1rem;
+  color: rgba(255, 255, 255, 0.5);
+  font-style: italic;
+  font-size: clamp(0.85rem, 1.4vw, 1rem);
+}
+
+/* ── Responsive ───────────────────────────────────────── */
 @media (max-width: 600px) {
-  .partidoEquipo {
-    width: 30%;
+  .contenedor-calendario .partido {
+    grid-template-columns: 1fr auto 1fr;
+    padding: 0.8rem;
   }
-  .partidoFecha {
-    width: 30%;
+
+  .contenedor-calendario .equipo.local {
+    padding-right: 0.5rem;
   }
-  .local p {
-    text-align: start;
+
+  .contenedor-calendario .equipo.visitante {
+    padding-left: 0.5rem;
   }
-  .partidoInfo {
-    text-align: center;
+
+  .contenedor-calendario .vs {
+    min-width: 2rem;
+    padding: 0.2rem 0.4rem;
   }
 }

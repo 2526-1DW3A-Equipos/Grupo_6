@@ -23,6 +23,7 @@
     <link rel="icon" href="assets/img/prima-league-logo-transparente.png" />
 
     <!-- Estilos -->
+    <link rel="stylesheet" href="./css/app.css" />
     <link rel="stylesheet" href="./css/global.css" />
     <link rel="stylesheet" href="./css/inicio.css" />
     <link rel="stylesheet" href="./css/clasificacion.css" />
@@ -31,7 +32,7 @@
     <link rel="stylesheet" href="./css/equipos.css" />
     <link rel="stylesheet" href="./css/jugadores.css" />
     <link rel="stylesheet" href="./css/informacion.css" />
-    <link rel="stylesheet" href="./css/app.css" />
+
 
 
 </head>

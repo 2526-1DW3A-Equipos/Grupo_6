@@ -3,6 +3,8 @@
  */
 
 /* ========== SELECTOR DE TEMPORADA ========== */
+
+
 .temporada-selector {
     width: 90vw;
     display: flex;
@@ -11,6 +13,10 @@
     justify-content: flex-end;
     gap: 1rem;
     padding: 1rem 0;
+    align-items: center;
+    justify-content: center;
+    align-self: center;
+    margin: 0 auto;
 }
 
 .temporada-selector label {

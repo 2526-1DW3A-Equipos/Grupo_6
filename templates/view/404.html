@@ -7,7 +7,7 @@
   <div class="error-body">
     <p>
       Parece que has intentado un regate imposible. La página que buscas no
-      existe o ha sido elimina.
+      existe o ha sido eliminada.
     </p>
   </div>
 
@@ -16,3 +16,61 @@
     <a href="?informacion" class="menuItem">Consultar ayuda</a>
   </div>
 </section>
+
+<script>
+  (() => {
+    const title = document.querySelector(".error-header h1");
+    if (!title) return;
+
+    const code = (title.textContent || "").trim();
+    if (!code.includes("0")) return;
+
+    title.classList.add("error-code");
+    title.setAttribute("aria-label", code);
+
+    const left = code.slice(0, code.indexOf("0"));
+    const right = code.slice(code.indexOf("0") + 1);
+
+    title.innerHTML = `
+      <span class="error-digit">${left}</span>
+      <span class="error-ball" aria-hidden="true">🏀</span>
+      <span class="error-digit">${right}</span>
+    `;
+
+    const ball = title.querySelector(".error-ball");
+    if (!ball) return;
+
+    let start = performance.now();
+
+    const animate = (now) => {
+      const elapsed = (now - start) / 1000;
+      const period = 0.85;
+      const phase = (elapsed % period) / period;
+
+      const bounce = Math.abs(Math.sin(phase * Math.PI));
+      const y = -26 * bounce;
+      const impact = 1 - bounce;
+      const scaleX = 1 + impact * 0.12;
+      const scaleY = 1 - impact * 0.1;
+
+      ball.style.transform = `translateY(${y}px) scale(${scaleX}, ${scaleY})`;
+      requestAnimationFrame(animate);
+    };
+
+    requestAnimationFrame(animate);
+  })();
+</script>
+
+<style>
+  .error-header .error-code {
+    display: inline-flex;
+    align-items: flex-end;
+    gap: 1px;
+  }
+
+  .error-header .error-ball {
+    display: inline-block;
+    transform-origin: center bottom;
+    will-change: transform;
+  }
+</style>

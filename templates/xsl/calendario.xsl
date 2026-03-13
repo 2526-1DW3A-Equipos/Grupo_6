@@ -12,17 +12,7 @@
             <head>
                 <meta charset="UTF-8"/>
                 <title>Prima League - Calendario</title>
-                <style>
-                    body { font-family: Arial, sans-serif; background: #252e3e; color: white; padding: 20px; }
-                    h1, h2 { color: #d4941c; }
-                    .jornada { margin: 20px 0; padding: 15px; background: rgba(255,255,255,0.05); border-radius: 8px; }
-                    .partido { display: flex; justify-content: space-between; align-items: center; padding: 15px; margin: 10px 0; background: rgba(255,255,255,0.08); border-radius: 4px; border-left: 3px solid #d4941c; }
-                    .equipo { flex: 1; }
-                    .equipo.local { text-align: right; padding-right: 20px; }
-                    .equipo.visitante { text-align: left; padding-left: 20px; }
-                    .vs { color: #d4941c; font-weight: bold; font-size: 1.2em; min-width: 50px; text-align: center; }
-                    .no-partidos { text-align: center; padding: 30px; font-style: italic; opacity: 0.7; }
-                </style>
+                <link rel="stylesheet" type="text/css" href="../css/calendario.css"/>
             </head>
             <body>
                 <h1>Calendario - Proximos Partidos</h1>

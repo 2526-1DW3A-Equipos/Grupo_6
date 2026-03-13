@@ -719,15 +719,6 @@
 		</temporada>
 		<temporada anoInicio="2003" anoFin="2004">
 			<plantillas>
-				<equipo ref="E1">
-					<jugador ref="J4" dorsal="15" foto=""/>
-					<jugador ref="J10" dorsal="25" foto=""/>
-					<jugador ref="J13" dorsal="10" foto=""/>
-					<jugador ref="J15" dorsal="33" foto=""/>
-					<jugador ref="J39" dorsal="1" foto=""/>
-					<jugador ref="J23" dorsal="19" foto=""/>
-					<jugador ref="J19" dorsal="20" foto=""/>
-				</equipo>
 				<equipo ref="E2">
 					<jugador ref="J17" dorsal="9" foto=""/>
 					<jugador ref="J18" dorsal="13" foto=""/>

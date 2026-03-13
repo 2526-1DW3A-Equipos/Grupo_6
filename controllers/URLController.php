@@ -11,10 +11,10 @@ class URLController {
 
         $rutas = [
             'inicio'        => 'view/inicio.html',
-            'clasificacion' => 'view/clasificacion.php',
-            'calendario'    => 'view/calendario.php',
-            'resultados'    => 'view/resultados.php',
-            'equipos'       => 'view/equipos.php',
+            'clasificacion' => 'view/liga.php',
+            'calendario'    => 'view/liga.php',
+            'resultados'    => 'view/liga.php',
+            'equipos'       => 'view/liga.php',
             'jugadores'     => 'view/jugadores.php',
             'informacion'   => 'view/informacion.html',
             'login'         => 'view/login.html',
@@ -24,13 +24,13 @@ class URLController {
             $archivo = $rutas[$pagina];
             // Pasamos el título a la vista por si acaso lo usa dentro
             $titulo = ucfirst($pagina); 
-            $this->renderizar("./templates/" . $archivo, $titulo);
+            $this->renderizar("./templates/" . $archivo, $titulo, $pagina);
         } else {
             $this->error404();
         }
     }
 
-    private function renderizar($rutaCompleta, $titulo) {
+    private function renderizar($rutaCompleta, $titulo, $ruta = null) {
         if (file_exists($rutaCompleta)) {
             include $rutaCompleta;
         } else {
