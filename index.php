@@ -84,6 +84,44 @@
       </nav>
     </header>
     <main>
+      <!-- Dialogo de contacto -->
+      <input type="checkbox" id="contacto-check" />
+      <dialog class="overlayContacto">
+        <div class="contacto">
+          <label for="contacto-check">
+            <img
+              class="iconoCerrar"
+              src="assets/img/iconos/iconoCerrar.png"
+            />
+          </label>
+          <h1>Contacto</h1>
+          <h2>Envianos tus dudas o sugerencias</h2>
+          <form
+            class="formContacto"
+            action="mailto:contacto@primalleague.com"
+            method="post"
+          >
+            <ul>
+              <li>
+                <label for="name">Nombre</label>
+                <input type="text" id="name" name="user_name" />
+              </li>
+              <li>
+                <label for="mail">Correo electronico</label>
+                <input type="email" id="mail" name="user_mail" />
+              </li>
+              <li>
+                <label for="msg">Mensaje</label>
+                <textarea id="msg" name="user_message"></textarea>
+              </li>
+            </ul>
+            <label for="contacto-check" class="cerrar-contacto">
+              <a class="cabeceraCnt" type="submit">Enviar</a>
+            </label>
+          </form>
+        </div>
+      </dialog>
+
         <?php
             $controller->init();
         ?>
