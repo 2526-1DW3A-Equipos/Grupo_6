@@ -9,9 +9,42 @@
     
 */
 
+@font-face {
+  font-family: "Montserrat";
+  src: url("../assets/Montserrat.ttf") format("truetype");
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Rajdhani";
+  src: url("../assets/Montserrat.ttf") format("truetype");
+  font-style: normal;
+  font-display: swap;
+}
+
 /* Cuando le demos click al boton que nos lleva a una id hara el scroll poco a poco */
 html {
   scroll-behavior: smooth;
+  scrollbar-width:auto;
+  scrollbar-color: var(--naranja) rgba(255, 255, 255, 0.12);
+}
+
+html::-webkit-scrollbar {
+  width: 10px;
+}
+
+html::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.12);
+}
+
+html::-webkit-scrollbar-thumb {
+  background: var(--naranja);
+  border-radius: 10px;
+}
+
+html::-webkit-scrollbar-thumb:hover {
+  background: rgb(236, 189, 102);
 }
 
 * {

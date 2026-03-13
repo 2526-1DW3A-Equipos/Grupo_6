@@ -1,4 +1,5 @@
 <?php 
+  session_start();
   require_once './controllers/URLController.php';
   $controller = new URLController();
   // Obtenemos el título antes de que empiece el HTML
@@ -15,11 +16,6 @@
       <?php echo $tituloPagina; ?>
     </title>
 
-    <!-- Importamos fuentes de google -->
-    <link
-      href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Rajdhani:wght@300;400;500;600;700&display=swap"
-      rel="stylesheet"
-    />
     <link rel="icon" href="assets/img/prima-league-logo-transparente.png" />
 
     <!-- Estilos -->

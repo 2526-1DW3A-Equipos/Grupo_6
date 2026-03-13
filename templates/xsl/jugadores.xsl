@@ -8,16 +8,6 @@
             <head>
                 <meta charset="UTF-8"/>
                 <title>Prima League - Datos de la Liga</title>
-                <style>
-                    body { font-family: Arial, sans-serif; background: #252e3e; color: white; padding: 20px; }
-                    h1 { color: #d4941c; }
-                    h2 { color: #d4941c; margin-top: 30px; }
-                    table { border-collapse: collapse; width: 100%; margin: 10px 0; }
-                    th, td { border: 1px solid #555; padding: 8px; text-align: left; }
-                    th { background: rgba(212, 148, 28, 0.3); }
-                    tr:nth-child(even) { background: rgba(255, 255, 255, 0.05); }
-                    .equipo-card { display: inline-block; margin: 10px; padding: 15px; background: rgba(255,255,255,0.1); border-radius: 8px; }
-                </style>
             </head>
             <body>
                 <h1>Prima League - Datos de la Liga</h1>

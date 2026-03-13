@@ -12,18 +12,6 @@
             <head>
                 <meta charset="UTF-8"/>
                 <title>Prima League - Equipos</title>
-                <style>
-                    body { font-family: Arial, sans-serif; background: #252e3e; color: white; padding: 20px; }
-                    h1, h2, h3 { color: #d4941c; }
-                    .equipo-container { margin: 30px 0; padding: 20px; background: rgba(255,255,255,0.05); border-radius: 8px; }
-                    .equipo-header { display: flex; align-items: center; gap: 20px; margin-bottom: 15px; }
-                    .equipo-escudo { width: 80px; height: 80px; object-fit: contain; }
-                    .jugadores-horizontal { display: flex; flex-wrap: nowrap; overflow-x: auto; gap: 15px; padding: 15px 0; }
-                    .jugador-card { flex: 0 0 auto; width: 120px; background: rgba(255,255,255,0.08); border-radius: 8px; padding: 10px; text-align: center; }
-                    .jugador-foto { width: 80px; height: 80px; border-radius: 50%; object-fit: cover; background: rgba(255,255,255,0.1); margin: 0 auto 10px; }
-                    .jugador-dorsal { color: #d4941c; font-size: 1.2em; font-weight: bold; }
-                    .jugador-nombre { font-size: 0.9em; margin-top: 5px; }
-                </style>
             </head>
             <body>
                 <h1>Equipos</h1>

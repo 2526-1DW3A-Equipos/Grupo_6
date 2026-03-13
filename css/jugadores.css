@@ -1,251 +1,170 @@
-/* ============================================
-   PAGINA DE JUGADORES
-   ============================================ */
-
-.jugadoresContenedor {
+.contenedor-jugadores {
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
   width: 100%;
-  padding: 2vw 0;
+  padding: 2rem 1rem;
+  gap: 1.5rem;
 }
 
-.listaJugadores {
-  list-style: none;
+.contenedor-jugadores .form-selector {
+  width: 100%;
   display: flex;
-  flex-flow: row wrap;
-  gap: 2vw;
-  justify-content: flex-start;
+  justify-content: center;
 }
 
-/* Tarjeta individual de jugador */
-.jugadorTarjeta {
-  width: calc(50% - 1vw);
-  background-color: rgb(37, 46, 62);
-  border-radius: 10px;
+.contenedor-jugadores .temporada-selector {
+  margin: 0 auto;
+}
+
+.contenedor-jugadores .tabla-resultados {
+  width: min(95vw, 1100px);
+  margin: 0 auto;
+}
+
+.contenedor-jugadores .tabla-resultados h1 {
+  font-family: "Rajdhani", sans-serif;
+  font-size: clamp(1.6rem, 3vw, 2.4rem);
+  font-weight: 700;
+  color: var(--naranja);
+  margin-bottom: 0.25rem;
+}
+
+.contenedor-jugadores .tabla-resultados h2 {
+  font-family: "Rajdhani", sans-serif;
+  font-size: clamp(0.9rem, 1.8vw, 1.3rem);
+  font-weight: 400;
+  color: rgba(255, 255, 255, 0.65);
+  margin-bottom: 1.2rem;
+  letter-spacing: 0.04em;
+}
+
+/* XSL actual de jugadores: usa tabla + bloques de temporada/equipos */
+.contenedor-jugadores table {
+  border-collapse: collapse;
+  width: 100%;
+  margin: 0.8rem 0 1.4rem;
+  border-radius: 12px;
   overflow: hidden;
-  display: flex;
-  flex-flow: column nowrap;
+  box-shadow: 0 6px 26px rgba(0, 0, 0, 0.35);
 }
 
-.jugadorCabecera {
-  background-color: orange;
-  padding: 1.5vw 2vw;
-  display: flex;
-  align-items: center;
-  gap: 1.5vw;
+.contenedor-jugadores thead {
+  background: rgba(255, 255, 255, 0.08);
 }
 
-.jugadorCabecera .jugadorFotoPrincipal {
-  width: 6vw;
-  height: 6vw;
-  border-radius: 50%;
-  object-fit: cover;
-  border: 3px solid white;
-  background-color: whitesmoke;
+.contenedor-jugadores th,
+.contenedor-jugadores td {
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  color: white;
+  padding: 0.7rem 0.8rem;
+  text-align: left;
+  font-size: clamp(0.72rem, 1vw, 0.96rem);
 }
 
-.jugadorCabecera .jugadorNombreCompleto {
-  flex: 1;
+.contenedor-jugadores th {
+  font-family: "Rajdhani", sans-serif;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
 }
 
-.jugadorCabecera .jugadorNombreCompleto h3 {
-  font-size: 1.8vw;
-  color: rgb(37, 46, 62);
-  margin: 0;
-  display: flex;
-  align-items: center;
-  gap: 0.8vw;
+.contenedor-jugadores tbody tr {
+  background: rgba(255, 255, 255, 0.03);
 }
 
-.jugadorCabecera .jugadorNombreCompleto h3 .jugadorDorsal {
-  background-color: rgb(37, 46, 62);
-  color: orange;
-  padding: 0.2vw 0.6vw;
-  border-radius: 5px;
-  font-size: 1.2vw;
-  font-weight: 600;
+.contenedor-jugadores tbody tr:nth-child(even) {
+  background: rgba(255, 255, 255, 0.06);
 }
 
-.jugadorCabecera .jugadorNombreCompleto p {
-  font-size: 1.2vw;
-  color: rgb(37, 46, 62);
-  opacity: 0.8;
-  margin: 0;
+.contenedor-jugadores tbody tr:hover {
+  background: rgba(248, 175, 39, 0.22);
 }
 
-/* Historial de temporadas */
-.jugadorHistorial {
-  padding: 1.5vw 2vw;
-}
-
-.jugadorHistorial h4 {
-  font-size: 1.2vw;
-  color: orange;
-  margin-bottom: 1vw;
-  border-bottom: 1px solid rgba(255, 165, 0, 0.3);
-  padding-bottom: 0.5vw;
-}
-
-.historialTemporadas {
+.contenedor-jugadores .equipos-container {
   display: flex;
   flex-flow: row wrap;
-  gap: 1vw;
+  gap: 0.6rem;
+  margin-bottom: 1.2rem;
 }
 
-/* Cada temporada del jugador */
-.temporadaItem {
-  background-color: rgba(255, 255, 255, 0.05);
-  border-radius: 8px;
-  padding: 1vw;
-  display: flex;
-  align-items: center;
-  gap: 1vw;
-  flex: calc(50% - 0.5vw);
-  min-width: 200px;
-}
-
-.temporadaItem:hover {
-  background-color: rgba(255, 165, 0, 0.1);
-}
-
-.temporadaFoto {
-  width: 4vw;
-  height: 4vw;
-  border-radius: 8px;
-  object-fit: cover;
-  background-color: rgba(255, 255, 255, 0.1);
-}
-
-.temporadaInfo {
-  flex: 1;
-  display: flex;
+.contenedor-jugadores .equipo-card {
+  display: inline-flex;
   flex-flow: column nowrap;
-  gap: 0.3vw;
+  gap: 0.2rem;
+  padding: 0.6rem 0.8rem;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.13);
+  border-radius: 9px;
 }
 
-.temporadaInfo .temporadaAnio {
-  font-size: 0.9vw;
-  color: orange;
-  font-weight: 600;
+.contenedor-jugadores .equipo-card strong {
+  color: var(--naranja);
+  font-family: "Rajdhani", sans-serif;
+  font-size: clamp(0.86rem, 1.2vw, 1.05rem);
 }
 
-.temporadaInfo .temporadaEquipo {
-  font-size: 1vw;
-  color: whitesmoke;
-  display: flex;
-  align-items: center;
-  gap: 0.5vw;
+.contenedor-jugadores .equipo-card small {
+  color: rgba(255, 255, 255, 0.62);
+  font-size: clamp(0.65rem, 0.9vw, 0.78rem);
 }
 
-.temporadaInfo .temporadaEquipo img {
-  width: 1.5vw;
-  height: 1.5vw;
-  object-fit: contain;
+/* Bloques de temporada y bloques internos de plantilla */
+.contenedor-jugadores .tabla-resultados > div {
+  margin: 1rem 0;
+  padding: 0.9rem;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 10px;
 }
 
-/* Mensaje cuando no hay historial */
-.sinHistorial {
-  color: rgba(255, 255, 255, 0.5);
-  font-style: italic;
-  padding: 1vw 0;
+.contenedor-jugadores .tabla-resultados > div > h3 {
+  color: var(--naranja);
+  font-family: "Rajdhani", sans-serif;
+  font-size: clamp(0.95rem, 1.4vw, 1.2rem);
+  margin-bottom: 0.55rem;
 }
 
-/* ============================================
-   RESPONSIVE
-   ============================================ */
+.contenedor-jugadores .tabla-resultados > div > p {
+  color: rgba(255, 255, 255, 0.84);
+  margin-bottom: 0.7rem;
+  font-size: clamp(0.72rem, 1vw, 0.92rem);
+}
 
-@media (max-width: 1200px) {
-  .jugadorTarjeta {
+.contenedor-jugadores .tabla-resultados > div > h4 {
+  color: rgba(255, 255, 255, 0.88);
+  margin: 0.3rem 0 0.55rem;
+  font-size: clamp(0.8rem, 1.2vw, 1rem);
+}
+
+.contenedor-jugadores .tabla-resultados ul {
+  list-style: none;
+  margin: 0.4rem 0 0;
+  padding-left: 0;
+}
+
+.contenedor-jugadores .tabla-resultados li {
+  color: rgba(255, 255, 255, 0.88);
+  font-size: clamp(0.7rem, 0.98vw, 0.9rem);
+  line-height: 1.45;
+  padding: 0.22rem 0;
+  border-bottom: 1px dashed rgba(255, 255, 255, 0.12);
+}
+
+.contenedor-jugadores .tabla-resultados li:last-child {
+  border-bottom: none;
+}
+
+@media (max-width: 720px) {
+  .contenedor-jugadores .tabla-resultados {
+    width: min(95vw, 95vw);
+  }
+
+  .contenedor-jugadores th,
+  .contenedor-jugadores td {
+    padding: 0.55rem 0.5rem;
+  }
+
+  .contenedor-jugadores .equipo-card {
     width: 100%;
-  }
-
-  .jugadorCabecera .jugadorFotoPrincipal {
-    width: 80px;
-    height: 80px;
-  }
-
-  .jugadorCabecera .jugadorNombreCompleto h3 {
-    font-size: 1.5rem;
-    gap: 10px;
-  }
-
-  .jugadorCabecera .jugadorNombreCompleto h3 .jugadorDorsal {
-    font-size: 1rem;
-    padding: 2px 8px;
-  }
-
-  .jugadorCabecera .jugadorNombreCompleto p {
-    font-size: 1rem;
-  }
-
-  .jugadorHistorial h4 {
-    font-size: 1rem;
-  }
-
-  .temporadaItem {
-    flex: 100%;
-  }
-
-  .temporadaFoto {
-    width: 50px;
-    height: 50px;
-  }
-
-  .temporadaInfo .temporadaAnio {
-    font-size: 0.9rem;
-  }
-
-  .temporadaInfo .temporadaEquipo {
-    font-size: 0.85rem;
-  }
-
-  .temporadaInfo .temporadaEquipo img {
-    width: 20px;
-    height: 20px;
-  }
-}
-
-@media (max-width: 600px) {
-  .jugadorCabecera {
-    padding: 4vw;
-  }
-
-  .jugadorCabecera .jugadorFotoPrincipal {
-    width: 60px;
-    height: 60px;
-  }
-
-  .jugadorCabecera .jugadorNombreCompleto h3 {
-    font-size: 1.2rem;
-    gap: 8px;
-  }
-
-  .jugadorCabecera .jugadorNombreCompleto h3 .jugadorDorsal {
-    font-size: 0.85rem;
-    padding: 2px 6px;
-  }
-
-  .jugadorCabecera .jugadorNombreCompleto p {
-    font-size: 0.85rem;
-  }
-
-  .jugadorHistorial {
-    padding: 4vw;
-  }
-
-  .jugadorHistorial h4 {
-    font-size: 0.95rem;
-    margin-bottom: 3vw;
-  }
-
-  .historialTemporadas {
-    gap: 3vw;
-  }
-
-  .temporadaItem {
-    padding: 3vw;
-  }
-
-  .temporadaFoto {
-    width: 45px;
-    height: 45px;
   }
 }

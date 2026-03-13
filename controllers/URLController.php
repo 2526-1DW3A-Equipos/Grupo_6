@@ -15,7 +15,7 @@ class URLController {
             'calendario'    => 'view/liga.php',
             'resultados'    => 'view/liga.php',
             'equipos'       => 'view/liga.php',
-            'jugadores'     => 'view/jugadores.php',
+            'jugadores'     => 'view/liga.php',
             'informacion'   => 'view/informacion.html',
             'login'         => 'view/login.html',
         ];

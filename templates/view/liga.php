@@ -15,8 +15,28 @@ $xslPath = './templates/xsl/' . $rutaSegura . '.xsl';
                     $xml->load('./data/datos.xml');
                     $xpath = new DOMXPath($xml);
                     $temporadas = $xpath->query('/federacion/temporadas/temporada');
+                    $ultimaTemporada = $xpath->evaluate('string(/federacion/temporadas/temporada[last()]/@anoInicio)');
+                    $temporadasValidas = [];
 
-                    $seleccionada = $_GET['inicio'] ?? $xpath->evaluate('string(/federacion/temporadas/temporada[last()]/@anoInicio)');
+                    foreach ($temporadas as $nodo) {
+                        $temporadasValidas[] = $nodo->getAttribute('anoInicio');
+                    }
+
+                    if (!empty($_GET['inicio'])) {
+                        $candidata = $_GET['inicio'];
+                    } elseif (!empty($_SESSION['temporada_seleccionada'])) {
+                        $candidata = $_SESSION['temporada_seleccionada'];
+                    } else {
+                        $candidata = $ultimaTemporada;
+                    }
+
+                    if (!in_array($candidata, $temporadasValidas, true)) {
+                        $seleccionada = $ultimaTemporada;
+                    } else {
+                        $seleccionada = $candidata;
+                    }
+
+                    $_SESSION['temporada_seleccionada'] = $seleccionada;
 
                     foreach ($temporadas as $nodo) {
                         $valInicio = $nodo->getAttribute('anoInicio');
