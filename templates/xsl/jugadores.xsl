@@ -2,98 +2,79 @@
 <xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
     <xsl:output method="html" encoding="UTF-8" indent="yes"/>
 
-    <!-- Plantilla principal - muestra resumen de la liga -->
+    <!-- Parametros para seleccionar la temporada -->
+    <xsl:param name="anoInicio"/>
+    <xsl:param name="anoFin"/>
+
+    <!-- Plantilla principal -->
     <xsl:template match="/">
         <html lang="es-ES">
             <head>
                 <meta charset="UTF-8"/>
-                <title>Prima League - Datos de la Liga</title>
+                <title>Prima League - Jugadores</title>
             </head>
             <body>
-                <h1>Prima League - Datos de la Liga</h1>
+                <h1>Jugadores</h1>
+                <h2>Temporada <xsl:value-of select="$anoInicio"/> - <xsl:value-of select="$anoFin"/></h2>
 
-                <!-- Equipos -->
-                <h2>Equipos (<xsl:value-of select="count(federacion/equipos/equipo)"/>)</h2>
-                <div class="equipos-container">
-                    <xsl:for-each select="federacion/equipos/equipo">
-                        <div class="equipo-card">
-                            <strong><xsl:value-of select="nombreEquipo"/></strong>
-                            <br/>
-                            <small>ID: <xsl:value-of select="@id"/></small>
-                        </div>
-                    </xsl:for-each>
-                </div>
-
-                <!-- Jugadores -->
-                <h2>Jugadores (<xsl:value-of select="count(federacion/jugadores/jugador)"/>)</h2>
-                <table>
-                    <thead>
-                        <tr>
-                            <th>ID</th>
-                            <th>Nombre</th>
-                            <th>Apellidos</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <xsl:for-each select="federacion/jugadores/jugador">
-                            <tr>
-                                <td><xsl:value-of select="@id"/></td>
-                                <td><xsl:value-of select="nombreJugador"/></td>
-                                <td><xsl:value-of select="apellidosJugador"/></td>
-                            </tr>
-                        </xsl:for-each>
-                    </tbody>
-                </table>
-
-                <!-- Temporadas -->
-                <h2>Temporadas (<xsl:value-of select="count(federacion/temporadas/temporada)"/>)</h2>
-                <xsl:for-each select="federacion/temporadas/temporada">
-                    <xsl:call-template name="mostrar-temporada"/>
-                </xsl:for-each>
+                <xsl:apply-templates select="federacion/temporadas/temporada[@anoInicio=$anoInicio and @anoFin=$anoFin]"/>
             </body>
         </html>
     </xsl:template>
 
-    <!-- Plantilla para mostrar una temporada -->
-    <xsl:template name="mostrar-temporada">
-        <div style="margin: 20px 0; padding: 15px; background: rgba(255,255,255,0.05); border-radius: 8px;">
-            <h3 style="color: #d4941c;">
-                Temporada <xsl:value-of select="@anoInicio"/> - <xsl:value-of select="@anoFin"/>
-            </h3>
+    <!-- Plantilla para procesar una temporada -->
+    <xsl:template match="temporada">
+        <xsl:variable name="jugadoresTemporada" select="plantillas/equipo/jugador[not(@ref = preceding::temporada[@anoInicio = current()/@anoInicio and @anoFin = current()/@anoFin]/plantillas/equipo/jugador/@ref)]"/>
 
-            <!-- Contar partidos jugados y no jugados -->
-            <xsl:variable name="partidosJugados" select="count(jornadas/jornada/partido[puntosLocal != '' and puntosVisitante != ''])"/>
-            <xsl:variable name="partidosNoJugados" select="count(jornadas/jornada/partido[puntosLocal = '' or puntosVisitante = ''])"/>
-            <xsl:variable name="totalJornadas" select="count(jornadas/jornada)"/>
+        <xsl:choose>
+            <xsl:when test="count($jugadoresTemporada) = 0">
+                <p class="no-jugadores">No hay jugadores disponibles para esta temporada.</p>
+            </xsl:when>
+            <xsl:otherwise>
+                <div class="jugadores-grid">
+                    <xsl:for-each select="$jugadoresTemporada">
+                        <xsl:variable name="jugadorRef" select="@ref"/>
+                        <xsl:variable name="jugadorNombre" select="/federacion/jugadores/jugador[@id=$jugadorRef]/nombreJugador"/>
+                        <xsl:variable name="jugadorApellidos" select="/federacion/jugadores/jugador[@id=$jugadorRef]/apellidosJugador"/>
+                        <xsl:variable name="jugadorPosicion" select="@posicion | @demarcacion"/>
+                        <xsl:variable name="foto" select="@foto"/>
 
-            <p>
-                <strong>Jornadas:</strong> <xsl:value-of select="$totalJornadas"/>
-                | <strong>Partidos jugados:</strong> <xsl:value-of select="$partidosJugados"/>
-                | <strong>Partidos pendientes:</strong> <xsl:value-of select="$partidosNoJugados"/>
-            </p>
+                        <div class="jugador-card-cuadrada">
+                            <div class="jugador-media">
+                                <xsl:choose>
+                                    <xsl:when test="$foto != ''">
+                                        <img class="jugador-foto" src="{$foto}" alt="Foto de {$jugadorNombre}"/>
+                                    </xsl:when>
+                                    <xsl:otherwise>
+                                        <img class="jugador-foto jugador-foto-placeholder" src="./assets/img/iconos/usuario.png" alt="No hay imagen disponible"/>
+                                    </xsl:otherwise>
+                                </xsl:choose>
+                            </div>
 
-            <!-- Plantillas de equipos -->
-            <h4>Plantillas:</h4>
-            <xsl:for-each select="plantillas/equipo">
-                <xsl:variable name="equipoRef" select="@ref"/>
-                <xsl:variable name="equipoNombre" select="/federacion/equipos/equipo[@id=$equipoRef]/nombreEquipo"/>
-
-                <div style="margin: 10px 0; padding: 10px; background: rgba(255,255,255,0.05); border-radius: 4px;">
-                    <strong><xsl:value-of select="$equipoNombre"/></strong>
-                    (<xsl:value-of select="count(jugador)"/> jugadores)
-
-                    <ul style="margin: 5px 0; padding-left: 20px;">
-                        <xsl:for-each select="jugador">
-                            <xsl:variable name="jugadorRef" select="@ref"/>
-                            <xsl:variable name="jugadorNombre" select="/federacion/jugadores/jugador[@id=$jugadorRef]/nombreJugador"/>
-                            <li>
-                                #<xsl:value-of select="@dorsal"/> - <xsl:value-of select="$jugadorNombre"/>
-                            </li>
-                        </xsl:for-each>
-                    </ul>
+                            <div class="jugador-info">
+                                <p class="jugador-nombre"><xsl:value-of select="$jugadorNombre"/></p>
+                                <p class="jugador-apellido">
+                                    <xsl:choose>
+                                        <xsl:when test="$jugadorApellidos != ''">
+                                            <xsl:value-of select="$jugadorApellidos"/>
+                                        </xsl:when>
+                                        <xsl:otherwise>Sin apellido</xsl:otherwise>
+                                    </xsl:choose>
+                                </p>
+                                <p class="jugador-posicion">
+                                    <xsl:choose>
+                                        <xsl:when test="string($jugadorPosicion) != ''">
+                                            <xsl:value-of select="$jugadorPosicion"/>
+                                        </xsl:when>
+                                        <xsl:otherwise>Sin posición</xsl:otherwise>
+                                    </xsl:choose>
+                                </p>
+                            </div>
+                        </div>
+                    </xsl:for-each>
                 </div>
-            </xsl:for-each>
-        </div>
+            </xsl:otherwise>
+        </xsl:choose>
     </xsl:template>
 
 </xsl:stylesheet>
