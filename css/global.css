@@ -776,9 +776,6 @@ footer hr {
 
 /* ---- FIN MODAL LOGIN ---- */
 
-  color: orange;
-}
-
 @media (max-width: 880px) {
   .cabecera {
     width: 90vw;
