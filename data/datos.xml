@@ -969,4 +969,17 @@
 			</jornadas>
 		</temporada>
 	</temporadas>
+
+	<usuarios>
+		<usuario>
+			<user>admin@primaleague.com</user>
+			<pass>admin123</pass>
+			<rol>admin</rol>
+		</usuario>
+		<usuario>
+			<user>usuario@correo.com</user>
+			<pass>user123</pass>
+			<rol>user</rol>
+		</usuario>
+	</usuarios>
 </federacion>
