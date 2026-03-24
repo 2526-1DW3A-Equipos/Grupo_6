@@ -139,5 +139,20 @@
             </xs:simpleType>
         </xs:union>
     </xs:simpleType>
+    <xs:element name="usuarios">
+  <xs:complexType>
+    <xs:sequence>
+      <xs:element name="usuario" maxOccurs="unbounded">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="user" type="xs:string"/>
+            <xs:element name="pass" type="xs:string"/>
+            <xs:element name="rol" type="xs:string"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+</xs:element>
 
 </xs:schema>

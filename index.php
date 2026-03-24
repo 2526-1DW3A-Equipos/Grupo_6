@@ -1,7 +1,6 @@
 <?php
 session_start();
 
-// ----- LOGIC FOR DESLOGEAR -----
 if (isset($_GET['logout'])) {
   session_destroy();
   header("Location: index.php");
@@ -117,10 +116,6 @@ isset($pagina) && $pagina === 'inicio'
           <li>
             <a class="menuItem <?php if (isset($pagina) && $pagina === 'equipos')
   echo 'isActive'; ?>" href="?equipos" data-page="equipos">Equipos</a>
-          </li>
-          <li>
-            <a class="menuItem <?php if (isset($pagina) && $pagina === 'jugadores')
-  echo 'isActive'; ?>" href="?jugadores" data-page="jugadores">Jugadores</a>
           </li>
           <li>
             <?php if (isset($_SESSION['usuario'])): ?>
