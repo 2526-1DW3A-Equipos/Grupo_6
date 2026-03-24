@@ -63,18 +63,7 @@ $pagina = array_keys($_GET)[0] ?? 'inicio';
     <link rel="icon" href="assets/img/prima-league-logo-transparente.png" />
 
     <!-- Estilos -->
-    <link rel="stylesheet" href="./css/login.css" />
-
-    <link rel="stylesheet" href="./css/app.css" />
     <link rel="stylesheet" href="./css/global.css" />
-    <link rel="stylesheet" href="./css/inicio.css" />
-    <link rel="stylesheet" href="./css/clasificacion.css" />
-    <link rel="stylesheet" href="./css/calendario.css" />
-    <link rel="stylesheet" href="./css/resultados.css" />
-    <link rel="stylesheet" href="./css/equipos.css" />
-    <link rel="stylesheet" href="./css/jugadores.css" />
-
-
 
 </head>
 <body>
@@ -186,14 +175,14 @@ endif; ?>
                   <span class="checkmark"></span>
                   Mantener sesión
                </label>
-               <a href="?login" class="link-recuperar">¿Olvidaste tu contraseña?</a>
+               <a href="?contacto" class="link-recuperar">¿Olvidaste tu contraseña?</a>
             </div>
 
             <div class="contacto-footer">
               <button type="submit" class="boton btn-primary">Entrar a mi cuenta</button>
             </div>
             
-            <p class="registro-text">¿No tienes cuenta? <a href="?login">Regístrate ahora</a></p>
+            <p class="registro-text">¿No tienes cuenta? <a href="?contacto">Regístrate ahora</a></p>
           </form>
         </div>
       </dialog>

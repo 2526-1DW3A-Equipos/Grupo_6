@@ -12,8 +12,6 @@
             <head>
                 <meta charset="UTF-8"/>
                 <title>Prima League - Equipos</title>
-                <link rel="stylesheet" type="text/css" href="../css/global.css"/>
-                <link rel="stylesheet" type="text/css" href="../css/equipos.css"/>
             </head>
             <body>
                 <h1>Equipos</h1>
@@ -37,7 +35,7 @@
         <xsl:variable name="equipoNombre" select="/federacion/equipos/equipo[@id=$equipoRef]/nombreEquipo"/>
         <xsl:variable name="escudo" select="@escudo"/>
 
-        <div class="equipo-container">
+        <div class="equipo-container" id="eq-{$equipoRef}">
             <div class="equipo-header">
                 <xsl:if test="$escudo != ''">
                     <img class="equipo-escudo" src="{$escudo}" alt="Escudo de {$equipoNombre}"/>

@@ -12,7 +12,6 @@
             <head>
                 <meta charset="UTF-8"/>
                 <title>Prima League - Calendario</title>
-                <link rel="stylesheet" type="text/css" href="../css/calendario.css"/>
             </head>
             <body>
                 <h1>Calendario - Proximos Partidos</h1>

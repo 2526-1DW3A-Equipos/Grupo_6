@@ -12,7 +12,6 @@
             <head>
                 <meta charset="UTF-8"/>
                 <title>Prima League - Resultados</title>
-                <link rel="stylesheet" type="text/css" href="../css/resultados.css"/>
             </head>
             <body>
                 <h1>Resultados</h1>
