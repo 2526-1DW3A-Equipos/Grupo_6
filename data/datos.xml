@@ -972,13 +972,13 @@
 
 	<usuarios>
 		<usuario>
-			<user>admin@primaleague.com</user>
-			<pass>admin123</pass>
+			<user>admin</user>
+			<pass>12345</pass>
 			<rol>admin</rol>
 		</usuario>
 		<usuario>
-			<user>usuario@correo.com</user>
-			<pass>user123</pass>
+			<user>usuario</user>
+			<pass>12345</pass>
 			<rol>user</rol>
 		</usuario>
 	</usuarios>
