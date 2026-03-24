@@ -13,71 +13,7 @@
                 <meta charset="UTF-8"/>
                 <title>Prima League - Equipos</title>
                 <link rel="stylesheet" type="text/css" href="../css/global.css"/>
-                <style>
-                    body { background-color: rgb(37, 46, 62); color: whitesmoke; }
-                    
-                    .equipo-container { 
-                        background: rgba(30, 36, 51, 0.6); 
-                        margin: 20px 0; 
-                        padding: 20px; 
-                        border-radius: 8px; 
-                        border: 1px solid rgba(255, 255, 255, 0.05); 
-                    }
-                    .equipo-header { display: flex; align-items: center; gap: 15px; margin-bottom: 20px; border-bottom: 1px solid rgba(255, 255, 255, 0.1); padding-bottom: 10px; }
-                    .equipo-escudo { width: 50px; height: auto; }
-                    .equipo-header h3 { margin: 0; color: #f8af27; }
-                    
-                    h4 { margin-bottom: 15px; color: rgba(255, 255, 255, 0.6); }
-
-                    .jugadores-horizontal { display: flex; flex-wrap: wrap; gap: 20px; }
-                    
-                    /* Tarjeta de jugador (enlace para modal) */
-                    .jugador-card-link { text-decoration: none; color: inherit; cursor: pointer; }
-                    
-                    .jugador-card { 
-                        width: 140px; 
-                        background: rgba(255, 255, 255, 0.03); 
-                        border: 1px solid rgba(255, 255, 255, 0.1); 
-                        padding: 15px 10px; 
-                        text-align: center; 
-                        border-radius: 8px; 
-                        transition: all 0.2s ease;
-                        height: 100%;
-                        display: flex; 
-                        flex-direction: column; 
-                        align-items: center;
-                    }
-                    .jugador-card:hover { transform: translateY(-5px); background: rgba(255, 255, 255, 0.08); border-color: #f8af27; }
-                    
-                    .jugador-foto { width: 100px; height: 100px; object-fit: cover; background: #111; border-radius: 50%; margin-bottom: 10px; border: 2px solid rgba(255,255,255,0.1); }
-                    .jugador-dorsal { color: #f8af27; font-weight: 700; font-family: "Rajdhani", sans-serif; font-size: 1.1rem; }
-                    .jugador-nombre { font-size: 0.9rem; margin-top: 5px; line-height: 1.2; }
-
-                    /* --- MODAL CSS --- */
-                    .modal-overlay {
-                        position: fixed; top: 0; left: 0; width: 100%; height: 100%;
-                        background: rgba(0, 0, 0, 0.85); backdrop-filter: blur(4px);
-                        display: none; justify-content: center; align-items: center; z-index: 1000;
-                        opacity: 0; transition: opacity 0.3s;
-                    }
-                    .modal-overlay:target { display: flex; opacity: 1; }
-
-                    .modal-content {
-                        background: rgb(30, 36, 51); padding: 30px; border-radius: 12px;
-                        max-width: 400px; width: 90%; position: relative; text-align: center;
-                        border: 1px solid rgba(248, 175, 39, 0.3); box-shadow: 0 10px 40px rgba(0,0,0,0.5);
-                    }
-                    .close-btn {
-                        position: absolute; top: 10px; right: 15px; font-size: 28px;
-                        text-decoration: none; color: rgba(255, 255, 255, 0.5); line-height: 1;
-                    }
-                    .close-btn:hover { color: #f8af27; }
-                    
-                    .modal-img { width: 140px; height: 140px; border-radius: 50%; object-fit: cover; border: 3px solid #f8af27; margin-bottom: 15px; }
-                    .modal-content h2 { color: #f8af27; margin-bottom: 20px; font-size: 1.5rem; }
-                    .modal-info p { border-bottom: 1px solid rgba(255,255,255,0.1); padding: 10px 0; margin: 0; display: flex; justify-content: space-between; }
-                    .modal-info p:last-child { border-bottom: none; }
-                </style>
+                <link rel="stylesheet" type="text/css" href="../css/equipos.css"/>
             </head>
             <body>
                 <h1>Equipos</h1>
