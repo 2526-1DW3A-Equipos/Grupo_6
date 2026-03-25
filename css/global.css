@@ -122,7 +122,7 @@ a:hover {
 }
 
 .cabeceraLogo img {
-  height: clamp(5rem, 6vw, 10rem);
+  height: clamp(3rem, 6vw, 10rem);
 }
 
 .cabeceraLogo img:hover {
@@ -153,11 +153,11 @@ a:hover {
   color: var(--blanco);
 }
 
-.menuItem::after {
+.menuItem::after {  
   content: "";
   display: block;
   margin-top: 0.2vh;
-  height: 0.18rem;
+  height: 0.10rem;
   width: 0;
   background: linear-gradient(90deg, var(--naranja) 0%, rgba(255, 255, 255, 0.9) 100%);
   background-size: 200% 100%;
@@ -175,7 +175,7 @@ a:hover {
 .menuItem.isActive,
 .menuItem:focus {
   color: var(--naranja);
-  font-weight: 700;
+  width: 0%;
 }
 
 #menulateral-check,
@@ -336,14 +336,13 @@ footer hr {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 1.5rem;
 }
 
 .form-selector {
-  width: 100%;
-  max-width: 1100px;
-  display: flex;
-  justify-content: center;
+    width: 100%;
+    max-width: 95vw;
+    display: flex;
+    justify-content: end;
 }
 
 .temporada-selector {
@@ -351,9 +350,10 @@ footer hr {
   align-items: center;
   gap: 0.75rem;
   background: rgba(255, 255, 255, 0.05);
-  border: 1px solid rgba(255, 255, 255, 0.15);
+  border: 1px solid rgba(255, 255, 255, 0.05);
   border-radius: 8px;
   padding: 0.55rem 1.2rem;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.25);
 }
 
 .temporada-selector label {
@@ -384,7 +384,7 @@ footer hr {
   margin: 0 auto;
 }
 
-.tabla-resultados h1 {
+h1 {
   font-family: "Rajdhani", sans-serif;
   font-size: clamp(1.4rem, 3vw, 2.2rem);
   font-weight: 700;
@@ -392,7 +392,7 @@ footer hr {
   margin-bottom: 0.25rem;
 }
 
-.tabla-resultados h2 {
+h2 {
   font-family: "Rajdhani", sans-serif;
   font-size: clamp(0.9rem, 1.8vw, 1.3rem);
   font-weight: 400;
@@ -687,7 +687,8 @@ tr:hover .tablaUltimos img {
   width: 100%;
   margin: 1.1rem 0;
   padding: 1rem;
-  background: rgba(255, 255, 255, 0.05);
+  background: rgb(30, 44, 66);
+  box-shadow: 2px 4px 18px rgba(0, 0, 0, 0.35);
   border: 1px solid rgba(255, 255, 255, 0.1);
   border-radius: 12px;
 }
@@ -711,11 +712,16 @@ tr:hover .tablaUltimos img {
 }
 
 .equipo-header h3 {
-  margin: 0;
-  color: var(--naranja);
-  font-family: "Rajdhani", sans-serif;
-  font-size: clamp(1rem, 2vw, 1.5rem);
-  font-weight: 700;
+    font-family: "Rajdhani", sans-serif;
+    font-size: clamp(0.85rem, 1.5vw, 1.1rem);
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--naranja);
+    padding: 0.4rem 0.9rem;
+    border-left: 3px solid var(--naranja);
+    background: rgba(248, 175, 39, 0.07);
+    border-radius: 0 6px 6px 0;
 }
 
 .jugadores-horizontal {

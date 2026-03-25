@@ -10,9 +10,6 @@
     <xsl:template match="/">
         <html lang="es-ES">
             <body>
-                <h1>Clasificacion</h1>
-                <h2>Temporada <xsl:value-of select="$anoInicio"/> - <xsl:value-of select="$anoFin"/></h2>
-
                 <table>
                     <thead>
                         <tr>

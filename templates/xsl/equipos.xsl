@@ -14,9 +14,6 @@
                 <title>Prima League - Equipos</title>
             </head>
             <body>
-                <h1>Equipos</h1>
-                <h2>Temporada <xsl:value-of select="$anoInicio"/> - <xsl:value-of select="$anoFin"/></h2>
-
                 <xsl:apply-templates select="federacion/temporadas/temporada[@anoInicio=$anoInicio and @anoFin=$anoFin]"/>
             </body>
         </html>
@@ -33,13 +30,22 @@
     <xsl:template name="mostrar-equipo">
         <xsl:variable name="equipoRef" select="@ref"/>
         <xsl:variable name="equipoNombre" select="/federacion/equipos/equipo[@id=$equipoRef]/nombreEquipo"/>
-        <xsl:variable name="escudo" select="@escudo"/>
+        <xsl:variable name="equipoNombreArchivo" select="translate(normalize-space($equipoNombre), ' áéíóúÁÉÍÓÚñÑ', '_aeiouAEIOUnN')"/>
+
+            <xsl:variable name="escudoSrc">
+                <xsl:choose>
+                    <xsl:when test="normalize-space(@escudo) != ''">
+                        <xsl:value-of select="@escudo"/>
+                    </xsl:when>
+                    <xsl:otherwise>
+                        <xsl:value-of select="concat('./fotos/equipos/', $anoInicio, ' - ', $anoFin, '/', substring-after($equipoRef, 'E'), '_', $equipoNombreArchivo, '.jpg')"/>
+                    </xsl:otherwise>
+                </xsl:choose>
+            </xsl:variable>
 
         <div class="equipo-container" id="eq-{$equipoRef}">
             <div class="equipo-header">
-                <xsl:if test="$escudo != ''">
-                    <img class="equipo-escudo" src="{$escudo}" alt="Escudo de {$equipoNombre}"/>
-                </xsl:if>
+                <img class="equipo-escudo" src="{$escudoSrc}" alt="Escudo de {$equipoNombre}" onerror="this.onerror=null;this.src='./assets/img/iconos/escudo.png';"/>
                 <h3><xsl:value-of select="$equipoNombre"/></h3>
             </div>
 

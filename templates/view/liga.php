@@ -3,8 +3,6 @@ $ruta = $ruta ?? 'inicio';
 $rutaSegura = preg_replace('/[^a-z]/', '', $ruta);
 $xslPath = './templates/xsl/' . $rutaSegura . '.xsl';
 ?>
-
-<section class="contenedor-<?php echo htmlspecialchars($rutaSegura, ENT_QUOTES, 'UTF-8'); ?>">
     <form method="GET" action="" class="form-selector">
         <input type="hidden" name="<?php echo htmlspecialchars($rutaSegura, ENT_QUOTES, 'UTF-8'); ?>" value="" />
         <div class="temporada-selector">
@@ -50,8 +48,13 @@ $xslPath = './templates/xsl/' . $rutaSegura . '.xsl';
         </div>
     </form>
 
-    <article class="tabla-resultados contenido">
+    
+<section class="contenedor-<?php echo htmlspecialchars($rutaSegura, ENT_QUOTES, 'UTF-8'); ?>">
+
+
+
         <?php
+
             $queryTemp = $xpath->query("/federacion/temporadas/temporada[@anoInicio='$seleccionada']");
 
             if (!file_exists($xslPath)) {
@@ -61,6 +64,9 @@ $xslPath = './templates/xsl/' . $rutaSegura . '.xsl';
                 $anioInicio = $nodoActual->getAttribute('anoInicio');
                 $anioFin = $nodoActual->getAttribute('anoFin');
 
+                echo '<h1>'. ucfirst($rutaSegura) .'</h1>';
+                echo '<h2>Temporada ' . $seleccionada . ' - ' . $anioFin . '</h2>';
+                echo '<article class="tabla-resultados contenido">';
                 $xsl = new DOMDocument();
                 $xsl->load($xslPath);
 
@@ -70,9 +76,9 @@ $xslPath = './templates/xsl/' . $rutaSegura . '.xsl';
                 $proc->setParameter('', 'anoFin', $anioFin);
 
                 echo $proc->transformToXml($xml);
+                echo '</article>';
             } else {
                 echo '<p>No se encontraron datos para la temporada seleccionada.</p>';
             }
         ?>
-    </article>
 </section>

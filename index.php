@@ -51,7 +51,7 @@ $pagina = array_keys($_GET)[0] ?? 'inicio';
 ?>
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -68,7 +68,7 @@ $pagina = array_keys($_GET)[0] ?? 'inicio';
 </head>
 <body>
       <header id="header" class="cabecera">
-      <a href="#" class="cabeceraLogo" data-page="inicio">
+      <a href="?inicio" class="cabeceraLogo" data-page="inicio">
         <img
           class="cabeceraLogoImg"
           src="assets/img/prima-league-logo-transparente.png"
@@ -175,14 +175,14 @@ endif; ?>
                   <span class="checkmark"></span>
                   Mantener sesión
                </label>
-               <a href="?contacto" class="link-recuperar">¿Olvidaste tu contraseña?</a>
+               <a href="?soporte" class="link-recuperar">¿Olvidaste tu contraseña?</a>
             </div>
 
             <div class="contacto-footer">
               <button type="submit" class="boton btn-primary">Entrar a mi cuenta</button>
             </div>
             
-            <p class="registro-text">¿No tienes cuenta? <a href="?contacto">Regístrate ahora</a></p>
+            <p class="registro-text">¿No tienes cuenta? <a href="?soporte">Regístrate ahora</a></p>
           </form>
         </div>
       </dialog>
@@ -241,7 +241,7 @@ $controller->init();
             <a id="botonArriba" href="" target="_top">Volver arriba</a>
           </li>
           <li>
-            <a>Politicas de privacidad</a>
+            <a href="?soporte">Soporte</a>
           </li>
           <li>
             <a>Aviso legal</a>
@@ -261,25 +261,19 @@ $controller->init();
       <nav class="footerNav">
         <ul>
           <li>
-            <a href="#" data-page="inicio">Inicio</a>
+            <a href="?inicio" data-page="inicio">Inicio</a>
           </li>
           <li>
-            <a href="#" data-page="clasificacion">Clasificacion</a>
+            <a href="?clasificacion" data-page="clasificacion">Clasificacion</a>
           </li>
           <li>
-            <a href="#" data-page="calendario">Calendario</a>
+            <a href="?calendario" data-page="calendario">Calendario</a>
           </li>
           <li>
-            <a href="#" data-page="equipos">Equipos</a>
+            <a href="?resultados" data-page="resultados">Resultados</a>
           </li>
           <li>
-            <a href="#" data-page="jugadores">Jugadores</a>
-          </li>
-          <li>
-            <a href="#" data-page="resultados">Resultados</a>
-          </li>
-          <li>
-            <a href="#" data-page="informacion">Informacion</a>
+            <a href="?equipos" data-page="equipos">Equipos</a>
           </li>
         </ul>
         <!-- Lista de Redes Sociales -->

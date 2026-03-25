@@ -14,9 +14,6 @@
                 <title>Prima League - Resultados</title>
             </head>
             <body>
-                <h1>Resultados</h1>
-                <h2>Temporada <xsl:value-of select="$anoInicio"/> - <xsl:value-of select="$anoFin"/></h2>
-
                 <xsl:apply-templates select="federacion/temporadas/temporada[@anoInicio=$anoInicio and @anoFin=$anoFin]"/>
             </body>
         </html>
