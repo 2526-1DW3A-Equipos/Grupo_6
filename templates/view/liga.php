@@ -50,9 +50,6 @@ $xslPath = './templates/xsl/' . $rutaSegura . '.xsl';
 
     
 <section class="contenedor-<?php echo htmlspecialchars($rutaSegura, ENT_QUOTES, 'UTF-8'); ?>">
-
-
-
         <?php
 
             $queryTemp = $xpath->query("/federacion/temporadas/temporada[@anoInicio='$seleccionada']");

@@ -225,6 +225,12 @@ a:hover {
   background: rgb(236, 189, 102);
 }
 
+#avatar{
+  height: clamp(1rem, 2vw, 6rem);
+  border-radius: 50%;
+  object-fit: cover;
+}
+
 /* ===== Footer ===== */
 footer {
   background-color: rgb(3, 3, 20);
@@ -1319,10 +1325,31 @@ dialog.overlayPerfil::backdrop {
   padding: 2rem;
 }
 
+/* -- Profile navbar -- */
+
 .profile-username {
-  color: var(--naranja);
+  background: var(--naranja);
+  color: #111;
+  padding: 0.3rem 0.8rem;
+  border: 1px solid rgba(248, 175, 39, 0  .4);
+  border-radius: 4px;
+  text-transform: uppercase;
+  font-size: 0.7rem;
   font-weight: 600;
-  font-size: 1.1rem;
+  margin-bottom: 0.25rem;
+}
+
+.profile-role {
+  color: rgb(174, 173, 173);
+  font-size: 1rem;
+  text-align: center;
+  font-size: 0.8rem;
+}
+
+.logout-icon img{
+  width: 1.2rem;
+  height: 1.2rem;
+
 }
 
 .hidden {

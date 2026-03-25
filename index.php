@@ -7,7 +7,7 @@ if (isset($_GET['logout'])) {
   exit;
 }
 
-// ----- LOGIC FOR LOGIN -----
+// ----- INICIO DE SESION -----
 $login_error = '';
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['email']) && isset($_POST['password'])) {
   $email_post = $_POST['email'];
@@ -106,17 +106,23 @@ isset($pagina) && $pagina === 'inicio'
             <a class="menuItem <?php if (isset($pagina) && $pagina === 'equipos')
   echo 'isActive'; ?>" href="?equipos" data-page="equipos">Equipos</a>
           </li>
+                      <?php if (isset($_SESSION['usuario'])): ?>
           <li>
-            <?php if (isset($_SESSION['usuario'])): ?>
-              <label for="perfil-check" class="abrir-perfil avatar-toggle">
-                <img src="assets/img/iconos/user-avatar.svg" alt="Avatar" onerror="this.src='data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSJ3aGl0ZSIgc3Ryb2tlLXdpZHRoPSIyIiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiPjxwYXRoIGQ9Ik0yMCAyMXYtMmE0IDQgMCAwIDAtNC00SDhhNCA0IDAgMCAwLTQgNHYyIj48L3BhdGg+PGNpcmNsZSBjeD0iMTIiIGN5PSI3IiByPSI0Ij48L2NpcmNsZT48L3N2Zz4='" />
-                <span class="profile-username"><?php echo explode('@', $_SESSION['usuario']['username'])[0]; ?></span>
-              </label>
+                <span class="profile-info">
+                  <p class="profile-username"><?php echo ucfirst(explode('@', $_SESSION['usuario']['username'])[0]); ?></p>
+                  <p class="profile-role"><?php echo 'Rol: ' . ucfirst(explode('@', $_SESSION['usuario']['rol'])[0]); ?></p>
+                </span>
+          </li>
+          <li>
+            <a class="logout-icon" href="?logout=1" ><img src="assets/img/iconos/logout.png" alt="X" /></a>
+          </li>
             <?php
 else: ?>
+          <li>
               <label for="contacto-check" class="abrir-contacto">
                 <a class="cabeceraCnt">Iniciar Sesión</a>
               </label>
+          </li>
             <?php
 endif; ?>
           </li>
@@ -184,46 +190,6 @@ endif; ?>
             
             <p class="registro-text">¿No tienes cuenta? <a href="?soporte">Regístrate ahora</a></p>
           </form>
-        </div>
-      </dialog>
-      <?php
-endif; ?>
-
-      <!-- Dialogo Perfil de Usuario -->
-      <?php if (isset($_SESSION['usuario'])): ?>
-      <input type="checkbox" id="perfil-check" class="hidden" />
-      <dialog class="overlayPerfil" id="overlayPerfil">
-        <div class="contacto profile-card">
-          <label for="perfil-check" class="btnCerrarContacto" aria-label="Cerrar">
-            <svg viewBox="0 0 24 24" fill="none" class="iconoCerrar" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <line x1="18" y1="6" x2="6" y2="18"></line>
-              <line x1="6" y1="6" x2="18" y2="18"></line>
-            </svg>
-          </label>
-          <div class="contacto-header profile-header">
-            <div class="profile-avatar">
-              <svg viewBox="0 0 24 24" width="40" height="40" fill="none" stroke="#111" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
-                <circle cx="12" cy="7" r="4"></circle>
-              </svg>
-            </div>
-            <h1 class="profile-title">Mi Perfil</h1>
-            <?php if (isset($_SESSION['usuario'])): ?>
-              <p class="profile-username"><?php echo explode('@', $_SESSION['usuario']['username'])[0]; ?></p>
-              <div class="profile-meta">
-                <span><?php echo $_SESSION['usuario']['username']; ?></span>
-                <span class="role">Rol: <?php echo $_SESSION['usuario']['rol']; ?></span>
-              </div>
-            <?php
-  endif; ?>
-          </div>
-          <div class="contacto-footer">
-            <a href="?logout=1" class="full-width no-underline">
-              <button type="button" class="boton btn-primary btn-logout">
-                Cerrar Sesión
-              </button>
-            </a>
-          </div>
         </div>
       </dialog>
       <?php
