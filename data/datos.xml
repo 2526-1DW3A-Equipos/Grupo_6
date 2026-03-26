@@ -770,20 +770,20 @@
 					<partido>
 						<equipoLocal ref="E1"/>
 						<equipoVisitante ref="E6"/>
-						<puntosLocal></puntosLocal>
-						<puntosVisitante></puntosVisitante>
+						<puntosLocal>78</puntosLocal>
+						<puntosVisitante>72</puntosVisitante>
 					</partido>
 					<partido>
 						<equipoLocal ref="E4"/>
 						<equipoVisitante ref="E3"/>
-						<puntosLocal></puntosLocal>
-						<puntosVisitante></puntosVisitante>
+						<puntosLocal>64</puntosLocal>
+						<puntosVisitante>69</puntosVisitante>
 					</partido>
 					<partido>
 						<equipoLocal ref="E2"/>
 						<equipoVisitante ref="E5"/>
-						<puntosLocal></puntosLocal>
-						<puntosVisitante></puntosVisitante>
+						<puntosLocal>81</puntosLocal>
+						<puntosVisitante>77</puntosVisitante>
 					</partido>
 				</jornada>
 				<jornada>
@@ -810,20 +810,20 @@
 					<partido>
 						<equipoLocal ref="E2"/>
 						<equipoVisitante ref="E6"/>
-						<puntosLocal></puntosLocal>
-						<puntosVisitante></puntosVisitante>
+						<puntosLocal>70</puntosLocal>
+						<puntosVisitante>66</puntosVisitante>
 					</partido>
 					<partido>
 						<equipoLocal ref="E5"/>
 						<equipoVisitante ref="E4"/>
-						<puntosLocal></puntosLocal>
-						<puntosVisitante></puntosVisitante>
+						<puntosLocal>74</puntosLocal>
+						<puntosVisitante>71</puntosVisitante>
 					</partido>
 					<partido>
 						<equipoLocal ref="E3"/>
 						<equipoVisitante ref="E1"/>
-						<puntosLocal></puntosLocal>
-						<puntosVisitante></puntosVisitante>
+						<puntosLocal>68</puntosLocal>
+						<puntosVisitante>75</puntosVisitante>
 					</partido>
 				</jornada>
 				<jornada>
@@ -850,114 +850,114 @@
 					<partido>
 						<equipoLocal ref="E3"/>
 						<equipoVisitante ref="E6"/>
-						<puntosLocal></puntosLocal>
-						<puntosVisitante></puntosVisitante>
+						<puntosLocal>83</puntosLocal>
+						<puntosVisitante>79</puntosVisitante>
 					</partido>
 					<partido>
 						<equipoLocal ref="E1"/>
 						<equipoVisitante ref="E5"/>
-						<puntosLocal></puntosLocal>
-						<puntosVisitante></puntosVisitante>
+						<puntosLocal>76</puntosLocal>
+						<puntosVisitante>80</puntosVisitante>
 					</partido>
 					<partido>
 						<equipoLocal ref="E4"/>
 						<equipoVisitante ref="E2"/>
-						<puntosLocal></puntosLocal>
-						<puntosVisitante></puntosVisitante>
+						<puntosLocal>71</puntosLocal>
+						<puntosVisitante>67</puntosVisitante>
 					</partido>
 				</jornada>
 				<jornada>
 					<partido>
 						<equipoLocal ref="E6"/>
 						<equipoVisitante ref="E1"/>
-						<puntosLocal></puntosLocal>
-						<puntosVisitante></puntosVisitante>
+						<puntosLocal>69</puntosLocal>
+						<puntosVisitante>73</puntosVisitante>
 					</partido>
 					<partido>
 						<equipoLocal ref="E3"/>
 						<equipoVisitante ref="E4"/>
-						<puntosLocal></puntosLocal>
-						<puntosVisitante></puntosVisitante>
+						<puntosLocal>74</puntosLocal>
+						<puntosVisitante>70</puntosVisitante>
 					</partido>
 					<partido>
 						<equipoLocal ref="E5"/>
 						<equipoVisitante ref="E2"/>
-						<puntosLocal></puntosLocal>
-						<puntosVisitante></puntosVisitante>
+						<puntosLocal>82</puntosLocal>
+						<puntosVisitante>78</puntosVisitante>
 					</partido>
 				</jornada>
 				<jornada>
 					<partido>
 						<equipoLocal ref="E4"/>
 						<equipoVisitante ref="E6"/>
-						<puntosLocal></puntosLocal>
-						<puntosVisitante></puntosVisitante>
+						<puntosLocal>88</puntosLocal>
+						<puntosVisitante>84</puntosVisitante>
 					</partido>
 					<partido>
 						<equipoLocal ref="E1"/>
 						<equipoVisitante ref="E2"/>
-						<puntosLocal></puntosLocal>
-						<puntosVisitante></puntosVisitante>
+						<puntosLocal>79</puntosLocal>
+						<puntosVisitante>76</puntosVisitante>
 					</partido>
 					<partido>
 						<equipoLocal ref="E3"/>
 						<equipoVisitante ref="E5"/>
-						<puntosLocal></puntosLocal>
-						<puntosVisitante></puntosVisitante>
+						<puntosLocal>72</puntosLocal>
+						<puntosVisitante>74</puntosVisitante>
 					</partido>
 				</jornada>
 				<jornada>
 					<partido>
 						<equipoLocal ref="E6"/>
 						<equipoVisitante ref="E2"/>
-						<puntosLocal></puntosLocal>
-						<puntosVisitante></puntosVisitante>
+						<puntosLocal>65</puntosLocal>
+						<puntosVisitante>63</puntosVisitante>
 					</partido>
 					<partido>
 						<equipoLocal ref="E4"/>
 						<equipoVisitante ref="E5"/>
-						<puntosLocal></puntosLocal>
-						<puntosVisitante></puntosVisitante>
+						<puntosLocal>90</puntosLocal>
+						<puntosVisitante>87</puntosVisitante>
 					</partido>
 					<partido>
 						<equipoLocal ref="E1"/>
 						<equipoVisitante ref="E3"/>
-						<puntosLocal></puntosLocal>
-						<puntosVisitante></puntosVisitante>
+						<puntosLocal>77</puntosLocal>
+						<puntosVisitante>81</puntosVisitante>
 					</partido>
 				</jornada>
 				<jornada>
 					<partido>
 						<equipoLocal ref="E5"/>
 						<equipoVisitante ref="E6"/>
-						<puntosLocal></puntosLocal>
-						<puntosVisitante></puntosVisitante>
+						<puntosLocal>73</puntosLocal>
+						<puntosVisitante>75</puntosVisitante>
 					</partido>
 					<partido>
 						<equipoLocal ref="E2"/>
 						<equipoVisitante ref="E3"/>
-						<puntosLocal></puntosLocal>
-						<puntosVisitante></puntosVisitante>
+						<puntosLocal>80</puntosLocal>
+						<puntosVisitante>78</puntosVisitante>
 					</partido>
 					<partido>
 						<equipoLocal ref="E4"/>
 						<equipoVisitante ref="E1"/>
-						<puntosLocal></puntosLocal>
-						<puntosVisitante></puntosVisitante>
+						<puntosLocal>69</puntosLocal>
+						<puntosVisitante>72</puntosVisitante>
 					</partido>
 				</jornada>
 				<jornada>
 					<partido>
 						<equipoLocal ref="E6"/>
 						<equipoVisitante ref="E3"/>
-						<puntosLocal></puntosLocal>
-						<puntosVisitante></puntosVisitante>
+						<puntosLocal>66</puntosLocal>
+						<puntosVisitante>70</puntosVisitante>
 					</partido>
 					<partido>
 						<equipoLocal ref="E5"/>
 						<equipoVisitante ref="E1"/>
-						<puntosLocal></puntosLocal>
-						<puntosVisitante></puntosVisitante>
+						<puntosLocal>74</puntosLocal>
+						<puntosVisitante>68</puntosVisitante>
 					</partido>
 					<partido>
 						<equipoLocal ref="E2"/>
