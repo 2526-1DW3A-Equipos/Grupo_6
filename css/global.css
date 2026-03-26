@@ -153,16 +153,22 @@ a:hover {
   color: var(--blanco);
 }
 
-.menuItem::after {  
+.menuItem::after {
   content: "";
   display: block;
   margin-top: 0.2vh;
-  height: 0.10rem;
+  height: 0.1rem;
   width: 0;
-  background: linear-gradient(90deg, var(--naranja) 0%, rgba(255, 255, 255, 0.9) 100%);
+  background: linear-gradient(
+    90deg,
+    var(--naranja) 0%,
+    rgba(255, 255, 255, 0.9) 100%
+  );
   background-size: 200% 100%;
   background-position: right;
-  transition: width 0.28s cubic-bezier(0.2, 0.9, 0.2, 1), background-position 0.9s ease-out;
+  transition:
+    width 0.28s cubic-bezier(0.2, 0.9, 0.2, 1),
+    background-position 0.9s ease-out;
 }
 
 .menuItem:hover::after,
@@ -175,7 +181,6 @@ a:hover {
 .menuItem.isActive,
 .menuItem:focus {
   color: var(--naranja);
-  width: 0%;
 }
 
 #menulateral-check,
@@ -198,7 +203,13 @@ a:hover {
   border-radius: 0.4vw;
   text-decoration: none;
   color: #000;
-  background: linear-gradient(to left, var(--naranja), 50%, rgb(235, 233, 233) 50%) right;
+  background: linear-gradient(
+      to left,
+      var(--naranja),
+      50%,
+      rgb(235, 233, 233) 50%
+    )
+    right;
   background-size: 202%;
   transition: background 0.3s ease-out;
   display: flex;
@@ -225,7 +236,7 @@ a:hover {
   background: rgb(236, 189, 102);
 }
 
-#avatar{
+#avatar {
   height: clamp(1rem, 2vw, 6rem);
   border-radius: 50%;
   object-fit: cover;
@@ -293,7 +304,9 @@ footer hr {
   display: flex;
   align-items: center;
   padding: 0 5vw;
-  background: linear-gradient(to right, rgba(3, 3, 20, 0.9) 30%, transparent 70%), url("../assets/imagen_fondo_inicio.png");
+  background:
+    linear-gradient(to right, rgba(3, 3, 20, 0.9) 30%, transparent 70%),
+    url("../assets/imagen_fondo_inicio.png");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -345,10 +358,10 @@ footer hr {
 }
 
 .form-selector {
-    width: 100%;
-    max-width: 95vw;
-    display: flex;
-    justify-content: end;
+  width: 100%;
+  max-width: 95vw;
+  display: flex;
+  justify-content: end;
 }
 
 .temporada-selector {
@@ -547,7 +560,10 @@ tr:hover .tablaUltimos img {
   border: 1px solid rgba(255, 255, 255, 0.1);
   border-radius: 10px;
   box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3);
-  transition: transform 0.18s ease, box-shadow 0.18s ease, border-color 0.18s ease;
+  transition:
+    transform 0.18s ease,
+    box-shadow 0.18s ease,
+    border-color 0.18s ease;
 }
 
 .contenedor-calendario .partido {
@@ -718,16 +734,16 @@ tr:hover .tablaUltimos img {
 }
 
 .equipo-header h3 {
-    font-family: "Rajdhani", sans-serif;
-    font-size: clamp(0.85rem, 1.5vw, 1.1rem);
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 0.12em;
-    color: var(--naranja);
-    padding: 0.4rem 0.9rem;
-    border-left: 3px solid var(--naranja);
-    background: rgba(248, 175, 39, 0.07);
-    border-radius: 0 6px 6px 0;
+  font-family: "Rajdhani", sans-serif;
+  font-size: clamp(0.85rem, 1.5vw, 1.1rem);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--naranja);
+  padding: 0.4rem 0.9rem;
+  border-left: 3px solid var(--naranja);
+  background: rgba(248, 175, 39, 0.07);
+  border-radius: 0 6px 6px 0;
 }
 
 .jugadores-horizontal {
@@ -753,7 +769,10 @@ tr:hover .tablaUltimos img {
   border: 1px solid transparent;
   text-align: center;
   scroll-snap-align: start;
-  transition: transform 0.2s ease, border-color 0.2s ease, background 0.2s ease;
+  transition:
+    transform 0.2s ease,
+    border-color 0.2s ease,
+    background 0.2s ease;
 }
 
 .jugador-card:hover {
@@ -879,7 +898,10 @@ tr:hover .tablaUltimos img {
   border-radius: 12px;
   background: rgba(255, 255, 255, 0.07);
   border: 1px solid rgba(255, 255, 255, 0.14);
-  transition: transform 0.2s ease, border-color 0.2s ease, background 0.2s ease;
+  transition:
+    transform 0.2s ease,
+    border-color 0.2s ease,
+    background 0.2s ease;
 }
 
 .jugador-card-cuadrada:hover {
@@ -1107,7 +1129,9 @@ dialog.overlayPerfil::backdrop {
 .btnCerrarContacto:hover .iconoCerrar {
   color: #ff5757;
   transform: rotate(90deg);
-  transition: color 0.2s ease, transform 0.2s ease;
+  transition:
+    color 0.2s ease,
+    transform 0.2s ease;
 }
 
 .contacto-header {
@@ -1331,7 +1355,7 @@ dialog.overlayPerfil::backdrop {
   background: var(--naranja);
   color: #111;
   padding: 0.3rem 0.8rem;
-  border: 1px solid rgba(248, 175, 39, 0  .4);
+  border: 1px solid rgba(248, 175, 39, 0 0.4);
   border-radius: 4px;
   text-transform: uppercase;
   font-size: 0.7rem;
@@ -1346,10 +1370,9 @@ dialog.overlayPerfil::backdrop {
   font-size: 0.8rem;
 }
 
-.logout-icon img{
+.logout-icon img {
   width: 1.2rem;
   height: 1.2rem;
-
 }
 
 .hidden {
@@ -1480,11 +1503,15 @@ dialog.overlayPerfil::backdrop {
   }
   11% {
     transform: translate(-3px, 2px);
-    text-shadow: 2px 0 var(--naranja), -2px 0 #00fff9;
+    text-shadow:
+      2px 0 var(--naranja),
+      -2px 0 #00fff9;
   }
   12% {
     transform: translate(3px, -1px);
-    text-shadow: -2px 0 var(--naranja), 2px 0 #00fff9;
+    text-shadow:
+      -2px 0 var(--naranja),
+      2px 0 #00fff9;
   }
 }
 
@@ -1507,13 +1534,28 @@ dialog.overlayPerfil::backdrop {
   opacity: 0;
   visibility: hidden;
   transform: translateY(20px);
-  transition: opacity 0.4s ease, transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), visibility 0.4s ease;
+  transition:
+    opacity 0.4s ease,
+    transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275),
+    visibility 0.4s ease;
 }
 
 .btn-scroll-up.show {
   opacity: 1;
   visibility: visible;
   transform: translateY(0);
+}
+
+.admin-panel {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+}
+
+.admin-panel table {
+  width: 60%;
 }
 
 /* ===== Responsive ===== */
