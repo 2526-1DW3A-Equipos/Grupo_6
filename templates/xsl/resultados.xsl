@@ -12,12 +12,8 @@
             <head>
                 <meta charset="UTF-8"/>
                 <title>Prima League - Resultados</title>
-                <link rel="stylesheet" type="text/css" href="../css/resultados.css"/>
             </head>
             <body>
-                <h1>Resultados</h1>
-                <h2>Temporada <xsl:value-of select="$anoInicio"/> - <xsl:value-of select="$anoFin"/></h2>
-
                 <xsl:apply-templates select="federacion/temporadas/temporada[@anoInicio=$anoInicio and @anoFin=$anoFin]"/>
             </body>
         </html>

@@ -10,9 +10,6 @@
     <xsl:template match="/">
         <html lang="es-ES">
             <body>
-                <h1>Clasificacion</h1>
-                <h2>Temporada <xsl:value-of select="$anoInicio"/> - <xsl:value-of select="$anoFin"/></h2>
-
                 <table>
                     <thead>
                         <tr>
@@ -62,9 +59,15 @@
             <tr>
                 <td><xsl:value-of select="position()"/></td>
                 <td class="tablaEscudo">
-                    <img src="{$escudoSrc}" alt="Escudo de {$equipoNombre}" onerror="this.onerror=null;this.src='./assets/img/iconos/escudo.png';"/>
+                    <a href="?equipos#eq-{$equipoRef}">
+                        <img src="{$escudoSrc}" alt="Escudo de {$equipoNombre}" onerror="this.onerror=null;this.src='./assets/img/iconos/escudo.png';"/>
+                    </a>
                 </td>
-                <td class="tablaNombre"><xsl:value-of select="$equipoNombre"/></td>
+                <td class="tablaNombre">
+                    <a href="?equipos#eq-{$equipoRef}">
+                        <xsl:value-of select="$equipoNombre"/>
+                    </a>
+                </td>
                 <td>
                     <xsl:value-of select="count($partidosLocal[puntosLocal != '']) + count($partidosVisitante[puntosVisitante != ''])"/>
                 </td>

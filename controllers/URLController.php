@@ -17,7 +17,8 @@ class URLController {
             'equipos'       => 'view/liga.php',
             'jugadores'     => 'view/liga.php',
             'informacion'   => 'view/informacion.html',
-            'login'         => 'view/login.html',
+            'soporte'       => 'view/soporte.html',
+            'pl_admin'      => 'view/panel_admin.php'   
         ];
 
         if(array_key_exists($pagina, $rutas)){
@@ -29,6 +30,8 @@ class URLController {
             $this->error404();
         }
     }
+
+
 
     private function renderizar($rutaCompleta, $titulo, $ruta = null) {
         if (file_exists($rutaCompleta)) {

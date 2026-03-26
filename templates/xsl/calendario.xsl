@@ -12,11 +12,8 @@
             <head>
                 <meta charset="UTF-8"/>
                 <title>Prima League - Calendario</title>
-                <link rel="stylesheet" type="text/css" href="../css/calendario.css"/>
             </head>
             <body>
-                <h1>Calendario - Proximos Partidos</h1>
-                <h2>Temporada <xsl:value-of select="$anoInicio"/> - <xsl:value-of select="$anoFin"/></h2>
 
                 <xsl:apply-templates select="federacion/temporadas/temporada[@anoInicio=$anoInicio and @anoFin=$anoFin]"/>
             </body>

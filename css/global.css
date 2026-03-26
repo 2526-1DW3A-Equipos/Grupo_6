@@ -1,15 +1,4 @@
-/* 
-    El * nos sirve parar dar estilos por defecto a los componentes, le quitamos el margen y padding para evitar que tengan uno por defecto
-    Por defecto el elemento *html* tiene padding y este afecta a la altura del body que le he puesto 100vh
-
-    Estructura
-    Vamos a usar vh y vw para los tamaños casi siempre ya que son relativos a la pantalla
-        vw = viewport width (ancho de la pantalla)
-        vh = viewport height (altura de la pantalla)
-    
-*/
-
-@font-face {
+﻿@font-face {
   font-family: "Montserrat";
   src: url("../assets/Montserrat.ttf") format("truetype");
   font-style: normal;
@@ -23,10 +12,27 @@
   font-display: swap;
 }
 
-/* Cuando le demos click al boton que nos lleva a una id hara el scroll poco a poco */
+:root {
+  --naranja: #f8af27;
+  --blanco: whitesmoke;
+  --azul-oscuro: rgb(37, 46, 62);
+}
+
+/* ===== Base ===== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+*::selection {
+  background: var(--naranja);
+  color: #fff;
+}
+
 html {
   scroll-behavior: smooth;
-  scrollbar-width:auto;
+  scrollbar-width: auto;
   scrollbar-color: var(--naranja) rgba(255, 255, 255, 0.12);
 }
 
@@ -47,31 +53,20 @@ html::-webkit-scrollbar-thumb:hover {
   background: rgb(236, 189, 102);
 }
 
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box; /* No me acuerdo muy bien que hacía esto exactamente pero hace que funcionen mejor los paddings, margins, etc */
-}
-
 body {
+  min-height: 100vh;
   font-family: "Montserrat", sans-serif;
-  background: rgb(37, 46, 62);
-  height: 100vh;
+  background: var(--azul-oscuro);
+  color: var(--blanco);
   display: flex;
-  flex-flow: column nowrap;
+  flex-direction: column;
   align-items: center;
-  justify-content: space-between;
 }
 
-main {
+main,
+section,
+footer {
   width: 100%;
-}
-
-/* Aquí definimos los colores que vamos a utilizar en toda la web.  */
-:root {
-  --naranja: #f8af27;
-  --blanco: whitesmoke;
-  --azul-oscuro: rgb(37, 46, 62);
 }
 
 a {
@@ -82,35 +77,13 @@ a:hover {
   cursor: pointer;
 }
 
-/* Cada vez que alguien seleccione algo de texto se va a pintar de naranja
-   y el texto va a ser blanco */
-*::selection {
-  background: var(--naranja);
-  color: #ffffff;
-}
-
-/* La clase contenido nos sirve para dar estilos a los elementos que van dentro del cuerpo de la pagina */
+/* ===== Layout ===== */
 .contenido {
-  display: flex;
-  flex-flow: column wrap;
-  align-items: flex-start;
   width: 90vw;
   margin: 2vw;
-}
-
-/* .contenido * {
-  /* margin: 0.2rem;
-} */
-
-.contenido h2,
-h3,
-h4,
-h5,
-h6 {
-  font-family: "Rajdhani", sans-serif;
-  color: whitesmoke;
-  margin-bottom: calc(0.15vh + 0.4rem);
-  font-weight: 500;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
 }
 
 .contenido h1 {
@@ -120,195 +93,99 @@ h6 {
   color: var(--naranja);
 }
 
+.contenido h2,
+.contenido h3,
+.contenido h4,
+.contenido h5,
+.contenido h6 {
+  font-family: "Rajdhani", sans-serif;
+  color: var(--blanco);
+  margin-bottom: calc(0.15vh + 0.4rem);
+  font-weight: 500;
+}
+
 .contenido p {
   color: var(--blanco);
 }
 
+/* ===== Header ===== */
 .cabecera {
   width: 90vw;
   display: flex;
-  flex-flow: row nowrap;
   justify-content: space-between;
   align-items: center;
   padding: 1vh 0;
 }
 
-/* Quito el padding ya que sino este nos permitia hacer click al enlace, sin que este el raton encima de la imagen.
-De esta forma siempre que se puede clickar el logo hace la animacion de hover */
 .cabeceraLogo {
   padding: 0;
 }
 
 .cabeceraLogo img {
-  height: clamp(5rem, 6vw, 10rem);
+  height: clamp(3rem, 6vw, 10rem);
 }
 
 .cabeceraLogo img:hover {
   transform: scale(1.05);
   transition: all 0.2s linear;
 }
+
 .cabeceraNav {
   display: flex;
-  flex-flow: row nowrap;
   align-items: center;
-  justify-content: space-between;
   gap: 4rem;
 }
 
 .cabeceraNav ul {
   list-style: none;
   display: flex;
-  flex-flow: row wrap;
+  flex-wrap: wrap;
   gap: 0.7vw;
   align-items: center;
 }
 
 .menuItem {
   display: flex;
-  flex-flow: column nowrap;
+  flex-direction: column;
   text-decoration: none;
   font-size: clamp(0.8rem, 1vw, 1vw);
   font-weight: 400;
   color: var(--blanco);
 }
+
 .menuItem::after {
   content: "";
   display: block;
   margin-top: 0.2vh;
-  height: 0.18rem; /* más visible */
+  height: 0.1rem;
   width: 0;
-  background: linear-gradient(90deg, var(--naranja) 0%, rgba(255,255,255,0.9) 100%);
-
+  background: linear-gradient(
+    90deg,
+    var(--naranja) 0%,
+    rgba(255, 255, 255, 0.9) 100%
+  );
   background-size: 200% 100%;
   background-position: right;
-  background-repeat: no-repeat;
+  transition:
+    width 0.28s cubic-bezier(0.2, 0.9, 0.2, 1),
+    background-position 0.9s ease-out;
+}
 
-  /* animaciones suaves */
-  transition: width 0.28s cubic-bezier(.2,.9,.2,1), background-position 0.9s ease-out;
-}
-.menuItem:hover::after {
-  width: 100%;
-  background-position: left;
-}
-/* Especificamos que si el menuItem es ademas parte de la clase isActive le cambie el color */
-.menuItem.isActive {
-  color: var(--naranja);
-  font-weight: 700;
-}
-/* Mantener visual la barra inferior cuando el item está activo */
-.menuItem.isActive::after,
 .menuItem:hover::after,
-.menuItem:focus::after {
-  width: 100%;
-  background-position: left;
-}
-
-/* Aumentar contraste y grosor en modo activo/focus para accesibilidad */
-.menuItem.isActive,
-.menuItem:focus {
-  font-weight: 700;
-}
-/* Mantener la barra inferior visible en el item activo */
+.menuItem:focus::after,
 .menuItem.isActive::after {
   width: 100%;
   background-position: left;
 }
-.cabeceraCnt {
-  padding: 0.5vw 1.2vw;
-  border-radius: 0.4vw 0.4vw 0.4vw;
-  text-decoration: none;
-  color: rgb(0, 0, 0);
 
-  /* Animacion para rellenar el color del boton progresivamente */
-  background: linear-gradient(
-      to left,
-      var(--naranja),
-      50%,
-      rgb(235, 233, 233) 50%
-    )
-    right;
-  background-size: 202%;
-  transition: background 0.3s ease-out;
-  font-size: clamp(0.9rem, 0.9vw, 0.9vw);
-
-  /* centrar verticalmente */
-  display: flex;
-  align-items: center;
-}
-.cabeceraCnt:hover {
-  background-position: left;
-}
-/* Estilos del footer */
-footer {
-  background-color: rgb(3, 3, 20);
-  width: 100%;
-  padding-bottom: 5vh;
-  display: flex;
-  flex-flow: column nowrap;
-  align-items: center;
-  gap: 2vh;
-  padding: 2vh;
-  margin-top: auto;
-}
-/* Damos estilo solo a los enlances que esten dentro de la lista (de esta forma el logo no tiene efecto) */
-.footerNav ul a:hover {
-  background-color: rgba(128, 128, 128, 0.349);
-  border-radius: 0.4vw 0.4vw 0.4vw;
+.menuItem.isActive,
+.menuItem:focus {
+  color: var(--naranja);
 }
 
-/* Estilos de la zona de redes sociales */
-
-.footerNav .footerRRSS {
-  color: var(--blanco);
-  gap: 1.4vw;
-}
-
-.footerRRSS li img {
-  width: 1.5vw;
-}
-
-/* Estilos de el separador de la zona inferior */
-
-footer hr {
-  height: 0.2vh;
-  width: 90vw;
-  border-color: rgba(109, 103, 103, 0.527);
-}
-
-/* Estilos de las listas del footer */
-
-.footerNav {
-  width: 90vw;
-  align-items: center; /* Nos permite centrar los items de manera vertical en un flex*/
-  display: flex;
-  flex-flow: row nowrap;
-  justify-content: space-between;
-}
-
-/* A todos los comomentes del footerNav les decimos que son parte del flex */
-.footerNav * {
-  display: flex;
-  font-size: clamp(0.6rem, 0.8vw, 0.8vw);
-}
-
-.footerNav ul li a {
-  text-decoration: none;
-  color: var(--blanco);
-  font-weight: 500;
-  list-style: none;
-  padding: 0.8vw;
-}
-
-.footerNav .footerCopy {
-  color: var(--blanco);
-  font-size: clamp(0.6rem, 0.8vw, 0.8vw);
-}
-
-#menulateral-check {
-  display: none;
-}
-
-#contacto-check {
+#menulateral-check,
+#contacto-check,
+#perfil-check {
   display: none;
 }
 
@@ -319,115 +196,908 @@ footer hr {
   text-align: center;
 }
 
-/* Clases globales para usar en todas las paginas 
-   En estas clases evitamos poner tamaños fijos
-   en caso de querer cambiar tamaños, se hara en su respectivo css con otra clase o id 
-*/
-
-/* Esta es la clase boton
-  Un boton basico sin animaciones avanzadas 
-*/
+/* ===== Botones ===== */
+.cabeceraCnt,
+.hero-links a,
 .boton {
-  border-radius: 0.4vw 0.4vw 0.4vw;
+  border-radius: 0.4vw;
   text-decoration: none;
-  color: rgb(0, 0, 0);
-  padding: 1vw 2vw;
+  color: #000;
+  background: linear-gradient(
+      to left,
+      var(--naranja),
+      50%,
+      rgb(235, 233, 233) 50%
+    )
+    right;
+  background-size: 202%;
+  transition: background 0.3s ease-out;
+  display: flex;
+  align-items: center;
+}
 
-  /* Animacion para rellenar el color del boton progresivamente */
-  background: orange;
+.cabeceraCnt {
+  padding: 0.5vw 1.2vw;
+  font-size: clamp(0.9rem, 0.9vw, 0.9vw);
+}
+
+.boton {
+  padding: 1vw 2vw;
   text-align: center;
   font-size: clamp(0.8rem, 1vw, 1.3vw);
 }
 
-.boton:hover {
-  background: rgb(236, 189, 102);
-  transition: all 0.3s ease-out;
-  cursor: pointer;
+.cabeceraCnt:hover,
+.hero-links a:hover {
+  background-position: left;
 }
 
+.boton:hover {
+  background: rgb(236, 189, 102);
+}
 
+#avatar {
+  height: clamp(1rem, 2vw, 6rem);
+  border-radius: 50%;
+  object-fit: cover;
+}
 
-/* ---- INICIO MODAL PERFIL ---- */
+/* ===== Footer ===== */
+footer {
+  background-color: rgb(3, 3, 20);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2vh;
+  padding: 2vh;
+  margin-top: auto;
+}
+
+.footerNav {
+  width: 90vw;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.footerNav * {
+  display: flex;
+  font-size: clamp(0.6rem, 0.8vw, 0.8vw);
+}
+
+.footerNav ul li a {
+  text-decoration: none;
+  color: var(--blanco);
+  font-weight: 500;
+  padding: 0.8vw;
+}
+
+.footerNav ul a:hover {
+  background-color: rgba(128, 128, 128, 0.349);
+  border-radius: 0.4vw;
+}
+
+.footerNav .footerRRSS {
+  color: var(--blanco);
+  gap: 1.4vw;
+}
+
+.footerRRSS li img {
+  width: 1.5vw;
+}
+
+.footerNav .footerCopy {
+  color: var(--blanco);
+}
+
+footer hr {
+  height: 0.2vh;
+  width: 90vw;
+  border-color: rgba(109, 103, 103, 0.527);
+}
+
+/* ===== Inicio ===== */
+#hero-inicio {
+  position: relative;
+  width: 100%;
+  min-height: 85vh;
+  display: flex;
+  align-items: center;
+  padding: 0 5vw;
+  background:
+    linear-gradient(to right, rgba(3, 3, 20, 0.9) 30%, transparent 70%),
+    url("../assets/imagen_fondo_inicio.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  overflow: hidden;
+}
+
+#hero-inicio h1 {
+  font-size: clamp(2.5rem, 5vw, 4.5rem);
+  line-height: 1;
+  margin: 1.5rem 0;
+  font-family: "Rajdhani", sans-serif;
+  font-weight: 800;
+  font-style: italic;
+  color: var(--blanco);
+}
+
+#hero-inicio h1 span {
+  color: var(--naranja);
+}
+
+#hero-inicio p {
+  width: 70%;
+}
+
+.hero-links {
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.hero-links a {
+  padding: 1vw 2.2vw;
+  font-size: clamp(1rem, 1vw, 1vw);
+  font-weight: 700;
+}
+
+/* ===== Estructura comun liga ===== */
+.contenedor-clasificacion,
+.contenedor-calendario,
+.contenedor-resultados,
+.contenedor-equipos,
+.contenedor-jugadores {
+  width: 100%;
+  padding: 2rem 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.form-selector {
+  width: 100%;
+  max-width: 95vw;
+  display: flex;
+  justify-content: end;
+}
+
+.temporada-selector {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-radius: 8px;
+  padding: 0.55rem 1.2rem;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.25);
+}
+
+.temporada-selector label {
+  color: #fff;
+  font-size: clamp(0.75rem, 1.2vw, 0.95rem);
+  font-weight: 500;
+}
+
+.temporada-selector select {
+  background: rgb(46, 62, 87);
+  color: #fff;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 6px;
+  padding: 0.3rem 0.7rem;
+  font-family: "Montserrat", sans-serif;
+  font-size: clamp(0.75rem, 1.2vw, 0.95rem);
+  cursor: pointer;
+  outline: none;
+}
+
+.temporada-selector select:hover,
+.temporada-selector select:focus {
+  border-color: #fff;
+}
+
+.tabla-resultados {
+  width: min(95vw, 1100px);
+  margin: 0 auto;
+}
+
+h1 {
+  font-family: "Rajdhani", sans-serif;
+  font-size: clamp(1.4rem, 3vw, 2.2rem);
+  font-weight: 700;
+  color: var(--naranja);
+  margin-bottom: 0.25rem;
+}
+
+h2 {
+  font-family: "Rajdhani", sans-serif;
+  font-size: clamp(0.9rem, 1.8vw, 1.3rem);
+  font-weight: 400;
+  color: rgba(255, 255, 255, 0.6);
+  margin-bottom: 1.5rem;
+  letter-spacing: 0.04em;
+}
+
+/* ===== Clasificacion ===== */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 6px 30px rgba(0, 0, 0, 0.45);
+}
+
+thead {
+  background: rgba(255, 255, 255, 0.08);
+}
+
+thead th {
+  font-family: "Rajdhani", sans-serif;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  border-bottom: 2px solid rgba(255, 255, 255, 0.35);
+}
+
+th,
+td {
+  color: #fff;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  font-size: clamp(0.3rem, 1.6vw, 1rem);
+  padding: clamp(0.3rem, 1vw, 1rem);
+}
+
+tbody tr {
+  background-color: rgb(46, 62, 87);
+  transition: background-color 0.15s ease;
+}
+
+tbody tr td {
+  text-align: center;
+}
+
+tr:hover {
+  background-color: rgba(255, 166, 0, 0.7);
+}
+
+.tablaNombre {
+  width: clamp(6rem, 20vw, 30rem);
+  text-align: start;
+  font-size: clamp(0.65rem, 1.3vw, 1rem);
+  font-weight: 600;
+  letter-spacing: 0.02em;
+}
+
+.tablaNombre a {
+  color: #fff;
+  text-decoration: none;
+}
+
+.tablaEscudo {
+  text-align: center;
+  width: clamp(2rem, 4vw, 5rem);
+}
+
+.tablaEscudo img {
+  height: clamp(1rem, 3.5vw, 4rem);
+  vertical-align: middle;
+  transition: transform 0.2s ease;
+}
+
+.tablaUltimos {
+  padding: 5px 1vw;
+  text-align: center;
+}
+
+.tablaUltimos img {
+  height: clamp(0.3rem, 1.4vw, 2rem);
+  vertical-align: middle;
+}
+
+tr:hover .tablaEscudo img {
+  transform: scale(1.12);
+  filter: drop-shadow(2px 2px 6px #000);
+}
+
+tr:hover .tablaUltimos img {
+  filter: drop-shadow(2px 2px 6px #000);
+}
+
+.trTop1 {
+  background-color: rgba(233, 184, 51, 0.7);
+}
+
+.trTop2 {
+  background-color: rgba(177, 143, 33, 0.7);
+}
+
+.trTop3 {
+  background-color: rgba(116, 90, 18, 0.7);
+}
+
+/* ===== Calendario ===== */
+.contenedor-calendario .tabla-resultados {
+  width: min(95vw, 900px);
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+}
+
+.contenedor-calendario .jornada,
+.resultadosJornada {
+  margin-bottom: 1rem;
+}
+
+.contenedor-calendario .jornada {
+  display: flex;
+  flex-direction: column;
+  gap: 0.7rem;
+}
+
+.contenedor-calendario .jornada h3,
+.resultadosJornada h3 {
+  font-family: "Rajdhani", sans-serif;
+  font-size: clamp(0.85rem, 1.5vw, 1.1rem);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--naranja);
+  padding: 0.4rem 0.9rem;
+  border-left: 3px solid var(--naranja);
+  background: rgba(248, 175, 39, 0.07);
+  border-radius: 0 6px 6px 0;
+}
+
+.contenedor-calendario .partido,
+.jornadaPartido {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+  padding: clamp(0.7rem, 1.5vw, 1.1rem) clamp(1rem, 2.5vw, 2rem);
+  background: rgb(29, 45, 71);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3);
+  transition:
+    transform 0.18s ease,
+    box-shadow 0.18s ease,
+    border-color 0.18s ease;
+}
+
+.contenedor-calendario .partido {
+  margin-bottom: 0.35rem;
+}
+
+.contenedor-calendario .partido:hover,
+.jornadaPartido:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 28px rgba(0, 0, 0, 0.45);
+  border-color: rgba(248, 175, 39, 0.4);
+}
+
+.contenedor-calendario .equipo {
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+}
+
+.contenedor-calendario .equipo strong {
+  font-family: "Rajdhani", sans-serif;
+  font-size: clamp(0.75rem, 1.6vw, 1.1rem);
+  font-weight: 700;
+}
+
+.contenedor-calendario .equipo small {
+  font-size: clamp(0.55rem, 1vw, 0.75rem);
+  color: rgba(255, 255, 255, 0.45);
+  text-transform: uppercase;
+}
+
+.contenedor-calendario .equipo.local {
+  text-align: right;
+  padding-right: 1.5rem;
+  align-items: flex-end;
+}
+
+.contenedor-calendario .equipo.visitante {
+  text-align: left;
+  padding-left: 1.5rem;
+  align-items: flex-start;
+}
+
+.contenedor-calendario .vs {
+  font-family: "Rajdhani", sans-serif;
+  font-weight: 900;
+  font-size: clamp(0.9rem, 2vw, 1.4rem);
+  color: var(--naranja);
+  min-width: 3rem;
+  text-align: center;
+  background: rgba(248, 175, 39, 0.1);
+  border: 1px solid rgba(248, 175, 39, 0.25);
+  border-radius: 6px;
+  padding: 0.3rem 0.6rem;
+}
+
+/* ===== Resultados ===== */
+.contenedor-resultados .tabla-resultados {
+  width: min(95vw, 900px);
+}
+
+.resultadosContenedor {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+}
+
+.jornadaPartidos {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+.jornadaEquipo {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  padding-right: 1.5rem;
+}
+
+.jornadaEquipo.local {
+  justify-content: flex-start;
+  padding-right: 0;
+  padding-left: 1.5rem;
+}
+
+.jornadaEquipo p {
+  font-family: "Rajdhani", sans-serif;
+  font-size: clamp(0.75rem, 1.6vw, 1.1rem);
+  font-weight: 700;
+}
+
+.jornadaEquipo img {
+  height: clamp(2rem, 5vw, 4rem);
+}
+
+.jornadaMarcador {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.4rem;
+}
+
+.marcadorSeparador {
+  color: rgba(255, 255, 255, 0.4);
+  font-family: "Rajdhani", sans-serif;
+  font-weight: 700;
+  font-size: clamp(1rem, 2vw, 1.4rem);
+}
+
+.jornadaPuntos {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: clamp(2rem, 4vw, 3.5rem);
+  padding: 0.35rem 0.75rem;
+  font-family: "Rajdhani", sans-serif;
+  font-size: clamp(1rem, 2vw, 1.5rem);
+  font-weight: 700;
+  border: 2px solid rgba(255, 255, 255, 0.25);
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.jornadaPuntos.ganador {
+  background-color: var(--naranja);
+  border-color: var(--naranja);
+  color: #fff;
+  box-shadow: 0 2px 12px rgba(248, 175, 39, 0.45);
+}
+
+.no-partidos,
+.no-jugadores {
+  text-align: center;
+  padding: 1rem;
+  color: rgba(255, 255, 255, 0.75);
+}
+
+/* ===== Equipos ===== */
+.equipo-container {
+  width: 100%;
+  margin: 1.1rem 0;
+  padding: 1rem;
+  background: rgb(30, 44, 66);
+  box-shadow: 2px 4px 18px rgba(0, 0, 0, 0.35);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+}
+
+.equipo-header {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  margin-bottom: 20px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  padding-bottom: 10px;
+}
+
+.equipo-escudo {
+  width: clamp(52px, 6vw, 86px);
+  height: clamp(52px, 6vw, 86px);
+  object-fit: contain;
+  background: rgba(255, 255, 255, 0.06);
+  border-radius: 10px;
+  padding: 0.35rem;
+}
+
+.equipo-header h3 {
+  font-family: "Rajdhani", sans-serif;
+  font-size: clamp(0.85rem, 1.5vw, 1.1rem);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--naranja);
+  padding: 0.4rem 0.9rem;
+  border-left: 3px solid var(--naranja);
+  background: rgba(248, 175, 39, 0.07);
+  border-radius: 0 6px 6px 0;
+}
+
+.jugadores-horizontal {
+  display: flex;
+  flex-flow: row nowrap;
+  gap: 0.75rem;
+  overflow-x: auto;
+  padding: 0.35rem 0.1rem 0.5rem;
+  scroll-snap-type: x mandatory;
+}
+
+.jugador-card-link {
+  text-decoration: none;
+  color: inherit;
+}
+
+.jugador-card {
+  flex: 0 0 auto;
+  width: clamp(110px, 13vw, 145px);
+  padding: 0.7rem;
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.07);
+  border: 1px solid transparent;
+  text-align: center;
+  scroll-snap-align: start;
+  transition:
+    transform 0.2s ease,
+    border-color 0.2s ease,
+    background 0.2s ease;
+}
+
+.jugador-card:hover {
+  transform: translateY(-3px);
+  border-color: rgba(248, 175, 39, 0.45);
+  background: rgba(248, 175, 39, 0.15);
+}
+
+.jugador-foto {
+  width: clamp(58px, 5vw, 76px);
+  height: clamp(58px, 5vw, 76px);
+  border-radius: 50%;
+  object-fit: cover;
+  margin: 0 auto 0.5rem;
+  background: rgba(255, 255, 255, 0.12);
+}
+
+.jugador-dorsal {
+  color: var(--naranja);
+  font-family: "Rajdhani", sans-serif;
+  font-size: clamp(0.95rem, 1.25vw, 1.2rem);
+  font-weight: 800;
+}
+
+.jugador-nombre {
+  margin-top: 0.35rem;
+  color: var(--blanco);
+  font-size: clamp(0.67rem, 0.92vw, 0.84rem);
+  line-height: 1.25;
+  word-break: break-word;
+}
+
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.85);
+  backdrop-filter: blur(4px);
+  display: none;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.modal-overlay:target {
+  display: flex;
+  opacity: 1;
+}
+
+.modal-content {
+  background: rgb(30, 36, 51);
+  padding: 30px;
+  border-radius: 12px;
+  max-width: 400px;
+  width: 90%;
+  position: relative;
+  text-align: center;
+  border: 1px solid rgba(248, 175, 39, 0.3);
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+}
+
+.close-btn {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  font-size: 28px;
+  text-decoration: none;
+  color: rgba(255, 255, 255, 0.5);
+  line-height: 1;
+}
+
+.close-btn:hover {
+  color: #f8af27;
+}
+
+.modal-img {
+  width: 140px;
+  height: 140px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid #f8af27;
+  margin-bottom: 15px;
+}
+
+.modal-content h2 {
+  color: #f8af27;
+  margin-bottom: 20px;
+  font-size: 1.5rem;
+}
+
+.modal-info p {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 10px 0;
+  margin: 0;
+  display: flex;
+  justify-content: space-between;
+}
+
+.modal-info p:last-child {
+  border-bottom: none;
+}
+
+/* ===== Jugadores ===== */
+.jugadores-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  width: 100%;
+  gap: 1rem;
+}
+
+.jugador-card-cuadrada {
+  width: clamp(170px, 24vw, 230px);
+  aspect-ratio: 1 / 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 0.8rem;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.07);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  transition:
+    transform 0.2s ease,
+    border-color 0.2s ease,
+    background 0.2s ease;
+}
+
+.jugador-card-cuadrada:hover {
+  transform: translateY(-4px);
+  border-color: rgba(248, 175, 39, 0.48);
+  background: rgba(248, 175, 39, 0.14);
+}
+
+.jugador-media {
+  display: flex;
+  justify-content: center;
+}
+
+.jugador-foto-placeholder {
+  object-fit: contain;
+  padding: 0.35rem;
+  background: rgba(255, 255, 255, 0.12);
+}
+
+.jugador-info {
+  text-align: center;
+}
+
+.jugador-apellido {
+  margin: 0.2rem 0 0;
+  color: rgba(255, 255, 255, 0.8);
+  font-size: clamp(0.73rem, 0.95vw, 0.88rem);
+}
+
+.jugador-posicion {
+  margin: 0.45rem auto 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 84px;
+  padding: 0.2rem 0.45rem;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.1);
+  color: var(--naranja);
+  font-family: "Rajdhani", sans-serif;
+  font-size: clamp(0.7rem, 0.9vw, 0.82rem);
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+/* ===== Login FAQ ===== */
+.login-faq-container {
+  padding: 3rem 1rem;
+  width: 100%;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.login-faq-header {
+  text-align: center;
+  margin-bottom: 3.5rem;
+}
+
+.login-faq-header h1 {
+  font-family: "Rajdhani", sans-serif;
+  font-size: clamp(2.5rem, 5vw, 3.5rem);
+  color: var(--naranja);
+  margin-bottom: 1rem;
+  font-weight: 700;
+}
+
+.login-faq-header p {
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 1.1rem;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.faq-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+details.faq-item {
+  background: rgba(30, 36, 51, 0.4);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+  overflow: hidden;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(8px);
+}
+
+details.faq-item:hover {
+  border-color: rgba(248, 175, 39, 0.4);
+}
+
+summary.faq-question {
+  padding: 1.5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 1.15rem;
+  color: var(--blanco);
+  list-style: none;
+}
+
+summary.faq-question::-webkit-details-marker {
+  display: none;
+}
+
+summary.faq-question::after {
+  content: "+";
+  color: var(--naranja);
+  font-size: 1.8rem;
+  font-weight: 400;
+  margin-left: 1rem;
+  transition: transform 0.3s ease;
+}
+
+details.faq-item[open] summary.faq-question::after {
+  transform: rotate(45deg);
+  color: #ff5757;
+}
+
+.faq-answer {
+  padding: 1rem 1.5rem 1.5rem;
+  color: rgba(255, 255, 255, 0.75);
+  line-height: 1.6;
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.faq-answer a.admin-mail {
+  color: var(--naranja);
+  text-decoration: none;
+  padding: 0;
+}
+
+.faq-answer a.admin-mail:hover {
+  color: #fbc65f;
+  text-decoration: underline;
+}
+
+/* ===== Modales login/perfil ===== */
+#contacto-check:checked ~ .overlayContacto,
 #perfil-check:checked ~ .overlayPerfil {
   opacity: 1;
   pointer-events: all;
 }
 
+#contacto-check:checked ~ .overlayContacto .contacto,
 #perfil-check:checked ~ .overlayPerfil .contacto {
   opacity: 1;
   transform: translateY(0) scale(1);
 }
 
+.overlayContacto,
 .overlayPerfil {
   position: fixed;
-  display: flex;
+  inset: 0;
   width: 100vw;
   height: 100vh;
-  top: 0;
-  left: 0;
-  background-color: rgba(14, 18, 28, 0.75);
-  backdrop-filter: blur(12px) saturate(150%);
-  -webkit-backdrop-filter: blur(12px) saturate(150%);
+  display: flex;
   justify-content: center;
   align-items: center;
+  background-color: rgba(14, 18, 28, 0.75);
+  backdrop-filter: blur(12px) saturate(150%);
   z-index: 10;
   opacity: 0;
   pointer-events: none;
   transition: opacity 0.4s cubic-bezier(0.16, 1, 0.3, 1);
 }
-/* ---- INICIO MODAL LOGIN ---- */
 
-#contacto-check:checked ~ .overlayContacto {
-  opacity: 1;
-  pointer-events: all;
+dialog.overlayContacto,
+dialog.overlayPerfil {
+  margin: 0;
+  padding: 0;
+  border: none;
+  max-width: none;
+  max-height: none;
+  background: transparent;
 }
 
-#contacto-check:checked ~ .overlayContacto .contacto {
-  opacity: 1;
-  transform: translateY(0) scale(1);
-}
-
-.overlayContacto {
-  position: fixed;
-  display: flex;
-  width: 100vw;
-  height: 100vh;
-  top: 0;
-  left: 0;
-
-  /* Glassmorphism background effect */
-  background-color: rgba(14, 18, 28, 0.75);
-  backdrop-filter: blur(12px) saturate(150%);
-  -webkit-backdrop-filter: blur(12px) saturate(150%);
-  
-  justify-content: center;
-  align-items: center;
-
-  z-index: 10;
-  opacity: 0;
-  pointer-events: none;
-  transition: opacity 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+dialog.overlayContacto::backdrop,
+dialog.overlayPerfil::backdrop {
+  background: transparent;
 }
 
 .contacto {
   position: relative;
   width: clamp(22rem, 90vw, 26rem);
   border-radius: 1.5rem;
-  
-  /* Dark Glass Theme */
   background: rgba(30, 36, 51, 0.9);
   border: 1px solid rgba(255, 255, 255, 0.08);
-  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.6), 0 0 0 1px rgba(255, 175, 39, 0.15) inset;
-  
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.6);
   color: var(--blanco);
-  padding: 2.5rem 2.5rem;
-  
+  padding: 2.5rem;
   display: flex;
-  flex-flow: column nowrap;
-  align-items: stretch;
-  
-  z-index: 11;
-  
+  flex-direction: column;
   opacity: 0;
   transform: translateY(20px) scale(0.95);
   transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
@@ -444,8 +1114,6 @@ footer hr {
   justify-content: center;
   border-radius: 50%;
   background: rgba(255, 255, 255, 0.04);
-  cursor: pointer;
-  transition: all 0.2s ease;
 }
 
 .btnCerrarContacto:hover {
@@ -456,12 +1124,14 @@ footer hr {
   width: 1.4rem;
   height: 1.4rem;
   color: rgba(255, 255, 255, 0.6);
-  transition: color 0.2s ease, transform 0.2s ease;
 }
 
 .btnCerrarContacto:hover .iconoCerrar {
   color: #ff5757;
   transform: rotate(90deg);
+  transition:
+    color 0.2s ease,
+    transform 0.2s ease;
 }
 
 .contacto-header {
@@ -475,7 +1145,6 @@ footer hr {
 .contacto-logo {
   height: 4.5rem;
   margin-bottom: 1.2rem;
-  filter: drop-shadow(0 0 12px rgba(248, 175, 39, 0.4));
 }
 
 .contacto-header h1 {
@@ -483,35 +1152,23 @@ footer hr {
   font-size: 2rem;
   font-weight: 700;
   color: var(--naranja);
-  margin: 0 0 0.2rem 0;
-  letter-spacing: 0.5px;
 }
 
 .contacto-header p {
-  font-family: inherit;
   font-size: 0.95rem;
   color: rgba(255, 255, 255, 0.7);
-  margin: 0;
 }
 
 .formContacto {
   display: flex;
   flex-direction: column;
   gap: 1.25rem;
-  width: 100%;
 }
 
 .input-group {
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
-}
-
-.input-group label {
-  font-size: 0.85rem;
-  font-weight: 500;
-  color: rgba(255, 255, 255, 0.85);
-  margin-left: 0.2rem;
 }
 
 .input-group input {
@@ -522,10 +1179,14 @@ footer hr {
   border-radius: 0.75rem;
   padding: 0 1rem;
   color: var(--blanco);
-  font-family: "Montserrat", sans-serif;
   font-size: 0.95rem;
   transition: all 0.3s ease;
-  box-sizing: border-box;
+}
+
+.input-group label {
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.85);
 }
 
 .input-group input::placeholder {
@@ -539,12 +1200,15 @@ footer hr {
   box-shadow: 0 0 0 4px rgba(248, 175, 39, 0.15);
 }
 
+.contacto-footer {
+  margin-top: 1.25rem;
+}
+
 .opciones-login {
   display: flex;
   justify-content: space-between;
   align-items: center;
   font-size: 0.85rem;
-  margin-top: -0.25rem;
 }
 
 .remember-me {
@@ -552,8 +1216,6 @@ footer hr {
   align-items: center;
   gap: 0.6rem;
   color: rgba(255, 255, 255, 0.8);
-  cursor: pointer;
-  user-select: none;
 }
 
 .remember-me input {
@@ -566,10 +1228,6 @@ footer hr {
   border-radius: 4px;
   background: rgba(15, 19, 28, 0.6);
   border: 1px solid rgba(255, 255, 255, 0.2);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transition: all 0.2s ease;
 }
 
 .remember-me input:checked ~ .checkmark {
@@ -578,30 +1236,29 @@ footer hr {
 }
 
 .remember-me input:checked ~ .checkmark::after {
+  align-self: center;
   content: "";
   width: 4px;
   height: 8px;
   border: solid #111;
   border-width: 0 2px 2px 0;
   transform: rotate(45deg);
-  margin-bottom: 2px;
+  display: block;
+  margin-top: 2px;
+  margin-left: 5.5px;
 }
 
-.link-recuperar {
+.link-recuperar,
+.registro-text a {
   color: var(--naranja);
   text-decoration: none;
   padding: 0;
-  font-weight: 500;
-  transition: color 0.2s ease;
 }
 
-.link-recuperar:hover {
-  color: #ffcc77;
+.link-recuperar:hover,
+.registro-text a:hover {
+  color: #fbc65f;
   text-decoration: underline;
-}
-
-.contacto-footer {
-  margin-top: 1.5rem;
 }
 
 .btn-primary {
@@ -612,48 +1269,25 @@ footer hr {
   font-family: "Rajdhani", sans-serif;
   font-weight: 700;
   font-size: 1.2rem;
-  letter-spacing: 0.5px;
   border: none;
   border-radius: 0.75rem;
   cursor: pointer;
-  box-shadow: 0 6px 20px rgba(248, 175, 39, 0.35);
-  transition: all 0.3s ease;
-  display: flex;
-  justify-content: center;
-  align-items: center;
 }
 
 .btn-primary:hover {
   transform: translateY(-2px);
   box-shadow: 0 8px 25px rgba(248, 175, 39, 0.5);
-  background: linear-gradient(135deg, #fbc65f 0%, #f69b2d 100%);
 }
 
-.btn-primary:active {
-  transform: translateY(0);
+.btn-logout {
+  background: linear-gradient(135deg, #ff5757 0%, #d82b2b 100%);
+  color: #fff;
 }
 
-.registro-text {
-  text-align: center;
-  font-size: 0.85rem;
-  font-family: 'Montserrat', sans-serif;
-  color: rgba(255, 255, 255, 0.6) !important;
-  margin-top: 1rem;
+.btn-logout:hover {
+  box-shadow: 0 8px 25px rgba(255, 87, 87, 0.45);
 }
 
-.registro-text a {
-  color: var(--blanco);
-  font-weight: 600;
-  text-decoration: none;
-  padding: 0;
-  transition: color 0.2s ease;
-}
-
-.registro-text a:hover {
-  color: var(--naranja);
-}
-
-/* Login / profile modal utility classes */
 .login-error {
   background: rgba(255, 87, 87, 0.15);
   border-left: 4px solid #ff5757;
@@ -661,69 +1295,25 @@ footer hr {
   padding: 0.8rem;
   border-radius: 0.5rem;
   font-size: 0.9rem;
-  margin-bottom: 0.7rem;
 }
 
 .password-input-wrapper {
   position: relative;
   display: flex;
   align-items: center;
-  width: 100%;
 }
 
 .password-input-wrapper input {
-  padding-right: 2.5rem;
+  padding-right: 2.6rem;
 }
 
 .password-toggle {
   position: absolute;
-  right: 0.9rem;
-  cursor: pointer;
+  right: 0.8rem;
   color: rgba(255, 255, 255, 0.6);
   display: grid;
   place-items: center;
   height: 100%;
-}
-
-.avatar-toggle {
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-}
-
-.avatar-toggle img {
-  width: 2.2rem;
-  height: 2.2rem;
-  border-radius: 50%;
-  background: var(--naranja);
-  padding: 0.3rem;
-}
-
-.profile-card {
-  width: clamp(20rem, 80vw, 24rem);
-  padding: 2rem;
-}
-
-.profile-header {
-  margin-bottom: 1.5rem;
-}
-
-.profile-avatar {
-  width: 5rem;
-  height: 5rem;
-  border-radius: 50%;
-  background: linear-gradient(135deg, #f8af27 0%, #f18c0e 100%);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-bottom: 1rem;
-  box-shadow: 0 4px 15px rgba(248, 175, 39, 0.4);
-}
-
-.profile-title {
-  font-size: 1.5rem;
-  margin: 0;
 }
 
 .profile-meta {
@@ -748,11 +1338,41 @@ footer hr {
   text-transform: uppercase;
 }
 
-.btn-logout {
-  width: 100%;
-  background: linear-gradient(135deg, #ff5757 0%, #d82b2b 100%);
-  box-shadow: 0 6px 20px rgba(255, 87, 87, 0.35);
-  color: #fff;
+.registro-text {
+  text-align: center;
+  font-size: 0.85rem;
+  color: rgba(255, 255, 255, 0.65);
+}
+
+.profile-card {
+  width: clamp(20rem, 80vw, 24rem);
+  padding: 2rem;
+}
+
+/* -- Profile navbar -- */
+
+.profile-username {
+  background: var(--naranja);
+  color: #111;
+  padding: 0.3rem 0.8rem;
+  border: 1px solid rgba(248, 175, 39, 0 0.4);
+  border-radius: 4px;
+  text-transform: uppercase;
+  font-size: 0.7rem;
+  font-weight: 600;
+  margin-bottom: 0.25rem;
+}
+
+.profile-role {
+  color: rgb(174, 173, 173);
+  font-size: 1rem;
+  text-align: center;
+  font-size: 0.8rem;
+}
+
+.logout-icon img {
+  width: 1.2rem;
+  height: 1.2rem;
 }
 
 .hidden {
@@ -767,66 +1387,206 @@ footer hr {
   text-decoration: none !important;
 }
 
-.profile-username {
-  color: var(--naranja);
-  font-weight: 600;
-  font-size: 1.1rem;
-  margin-top: 0.5rem;
+/* ===== Informacion ===== */
+.infoColumnas {
+  display: flex;
+  gap: 1.5rem;
 }
 
-/* ---- FIN MODAL LOGIN ---- */
+.infoContenido {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
 
+.noticia {
+  width: 100%;
+  margin-bottom: 2rem;
+}
+
+.noticia h2 {
+  align-self: flex-start;
+  font-size: clamp(1.2rem, 2vw, 2rem);
+  color: var(--naranja);
+}
+
+.noticia h3 {
+  align-self: flex-start;
+  font-size: clamp(1.2rem, 3vw, 3vw);
+  margin-bottom: 1vw;
+}
+
+.noticiaContenido {
+  display: flex;
+  flex-direction: column;
+}
+
+.noticiaContenido p {
+  margin-bottom: 1vw;
+}
+
+.noticiaContenido img {
+  align-self: center;
+  width: 60%;
+  margin: 2vw 0;
+}
+
+.noticiaEtiquetas dd {
+  margin-right: 1.5vw;
+  color: var(--blanco);
+}
+
+.noticiaFooter {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  padding: 3vw 0 0;
+}
+
+.noticiaFooter a {
+  width: 15%;
+  padding: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.noticiaFooter a img {
+  height: 1rem;
+}
+
+.noticiaFooter a:last-of-type {
+  flex-direction: row-reverse;
+}
+
+.noticiaFooter a:first-of-type img {
+  rotate: 180deg;
+}
+
+/* ===== 404 ===== */
+.error-wrapper {
+  width: 100%;
+  padding: 5vh 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 2vh;
+}
+
+.error-header h1 {
+  font-size: clamp(6rem, 15vw, 12rem);
+  line-height: 0.8;
+  color: var(--blanco);
+  animation: glitch 3s infinite;
+}
+
+.error-header h2 {
+  font-size: clamp(1.5rem, 4vw, 3rem);
+  letter-spacing: 0.2rem;
+}
+
+.error-body p {
+  max-width: 500px;
+  margin: 0 auto 3vh;
+  font-size: clamp(1rem, 1.2vw, 1.5vw);
+  line-height: 1.6;
+}
+
+@keyframes glitch {
+  0%,
+  10%,
+  13%,
+  100% {
+    transform: translate(0);
+    text-shadow: 0 0 0 transparent;
+  }
+  11% {
+    transform: translate(-3px, 2px);
+    text-shadow:
+      2px 0 var(--naranja),
+      -2px 0 #00fff9;
+  }
+  12% {
+    transform: translate(3px, -1px);
+    text-shadow:
+      -2px 0 var(--naranja),
+      2px 0 #00fff9;
+  }
+}
+
+/* ===== Boton subir ===== */
+.btn-scroll-up {
+  position: fixed;
+  right: 2rem;
+  bottom: 2rem;
+  width: 3rem;
+  height: 3rem;
+  border-radius: 50%;
+  border: none;
+  background: linear-gradient(135deg, var(--naranja) 0%, #f18c0e 100%);
+  color: #111;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 99;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(20px);
+  transition:
+    opacity 0.4s ease,
+    transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275),
+    visibility 0.4s ease;
+}
+
+.btn-scroll-up.show {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.admin-panel {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+}
+
+.admin-panel table {
+  width: 60%;
+}
+
+/* ===== Responsive ===== */
 @media (max-width: 880px) {
-  .cabecera {
-    width: 90vw;
-    display: flex;
-    flex-flow: row nowrap;
-    justify-content: space-between;
-  }
-
-  .cabeceraLogo {
-    justify-self: right;
-  }
-
   .cabeceraNav {
-    display: flex;
-    width: 80vw;
     right: -100%;
-
-    list-style: none;
-    flex-flow: column wrap;
-    align-items: flex-end;
     position: fixed;
-    z-index: 10;
-
-    background-color: rgba(0, 0, 0, 0.619);
-    height: 100vh;
-    width: 80vw;
-    padding: 2.5rem 2rem 2.5rem 2.5rem;
-    gap: 1.7vw;
     top: 0;
+    width: 80vw;
+    height: 100vh;
+    padding: 2.5rem 2rem 2.5rem 2.5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 1rem;
+    z-index: 10;
+    background-color: rgba(0, 0, 0, 0.62);
     transition: all 0.3s ease-out;
     backdrop-filter: blur(5px);
   }
+
   .cabeceraNav ul {
-    display: flex;
-    flex-flow: column nowrap;
+    flex-direction: column;
     align-items: flex-end;
-    justify-content: space-between;
     gap: 1rem;
-  }
-  .menuItem {
-    padding: 0;
   }
 
   .menuItem,
   .cabeceraCnt {
     font-size: clamp(1.6rem, 5vw, 5vw);
     font-family: "Rajdhani", sans-serif;
-  }
-
-  .menuItem::after {
-    height: 0.1rem;
   }
 
   .abrir-menulateral,
@@ -838,213 +1598,74 @@ footer hr {
     right: 0;
   }
 
-  #menulateral-check:checked ~ .abrir-menulateral {
-    display: none;
-  }
   .contacto {
     padding: 2rem 1.5rem;
   }
-  .contacto-logo {
-    height: 3.5rem;
-  }
-  .contacto-header h1 {
-    font-size: 1.7rem;
-  }
+
   .footerNav:first-of-type {
     height: 9vh;
   }
+
   .footerNav:last-of-type,
   footer hr {
     display: none;
   }
-}
 
-@media (max-width: 540px) {
-  .footerNav:first-of-type {
-    height: 8vh;
-    padding: 1vh 0;
-    flex-direction: column;
-    gap: 0;
+  .resultadosContenedor,
+  .contenedor-calendario .tabla-resultados {
+    grid-template-columns: 1fr;
   }
-  .footerNav:first-of-type ul {
-    gap: 0.6rem;
-  }
-}
 
-/*ERROR 404*/
-.error-wrapper {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  width: 100%;
-  padding: 5vh 0;
-  gap: 2vh;
-}
-
-.error-header h1 {
-  /* Usamos tu variable naranja y fuente Rajdhani por cascada */
-  font-size: clamp(6rem, 15vw, 12rem);
-  line-height: 0.8;
-  opacity: 0.8;
-  margin-bottom: 1rem;
-  color: var(--blanco);
-}
-
-.error-header h2 {
-  font-size: clamp(1.5rem, 4vw, 3rem);
-  letter-spacing: 0.2rem;
-  color: var(--blanco);
-}
-
-.error-body p {
-  max-width: 500px;
-  margin: 0 auto 3vh auto;
-  font-size: clamp(1rem, 1.2vw, 1.5vw);
-  line-height: 1.6;
-  color: var(--blanco);
-}
-
-.error-footer {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 2vh;
-}
-
-/* Ajuste para que el menuItem se vea bien como enlace de error */
-.error-footer .menuItem {
-  font-size: 1rem;
-  text-transform: uppercase;
-}
-
-/* Animación sutil para el H1 */
-.error-header h1 {
-  animation: glitch 3s infinite;
-}
-
-@keyframes glitch {
-  0%,
-  10% {
-    transform: translate(0);
-    text-shadow: 0 0 0 transparent;
-  }
-  11% {
-    transform: translate(-3px, 2px);
-    text-shadow:
-      2px 0 var(--naranja),
-      -2px 0 #00fff9; /* Capas naranja y cian */
-  }
-  12% {
-    transform: translate(3px, -1px);
-    text-shadow:
-      -2px 0 var(--naranja),
-      2px 0 #00fff9;
-  }
-  13% {
-    transform: translate(0);
-    text-shadow: 0 0 0 transparent;
-  }
-  /* Pequeña distorsión extra a mitad de ciclo */
-  48% {
-    transform: scale(1);
-  }
-  49% {
-    transform: scale(1.05) skewX(5deg);
-    color: var(--naranja);
-  }
-  50% {
-    transform: scale(1) skewX(0);
-    color: var(--blanco);
-  }
-  100% {
-    transform: translate(0);
-  }
-}
-
-.error-wrapper {
-  animation: flicker 10s infinite;
-}
-
-@keyframes flicker {
-  0%,
-  19%,
-  21%,
-  23%,
-  25%,
-  54%,
-  56%,
-  100% {
-    opacity: 1;
-  }
-  20%,
-  22%,
-  24%,
-  55% {
-    opacity: 0.95;
-  }
-}
-/* Responsividad extra para móviles */
-@media (max-width: 880px) {
-  .error-wrapper {
-    padding: 2vh;
-  }
-  .error-header h1 {
-    font-size: 8rem;
-  }
-}
-
-
-/* ---- BOTON VOLVER ARRIBA FLOTANTE ---- */
-.btn-scroll-up {
-  position: fixed;
-  bottom: 2rem;
-  right: 2rem;
-  width: 3rem;
-  height: 3rem;
-  border-radius: 50%;
-  background: linear-gradient(135deg, var(--naranja) 0%, #f18c0e 100%);
-  color: #111;
-  border: none;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  z-index: 99;
-  
-  /* Estado inicial oculto y desplazado hacia abajo */
-  opacity: 0;
-  visibility: hidden;
-  transform: translateY(20px);
-  
-  /* Animacion de mezcla de fundido hacia arriba */
-  transition: opacity 0.4s ease, transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), visibility 0.4s ease;
-  box-shadow: 0 4px 15px rgba(248, 175, 39, 0.4);
-}
-
-.btn-scroll-up:hover {
-  background: linear-gradient(135deg, #fbc65f 0%, #f69b2d 100%);
-  transform: translateY(-3px) scale(1.05); /* Cuando ya esta visible y hacemos hover */
-  box-shadow: 0 6px 20px rgba(248, 175, 39, 0.6);
-}
-
-/* Clase añadida desde JS cuando se hace scroll down */
-.btn-scroll-up.show {
-  opacity: 1;
-  visibility: visible;
-  transform: translateY(0); /* Sube a su posicion natural */
-}
-
-.btn-scroll-up.show:hover {
-  transform: translateY(-3px) scale(1.05);
-}
-
-@media (max-width: 880px) {
   .btn-scroll-up {
-    bottom: 1.5rem;
     right: 1.5rem;
+    bottom: 1.5rem;
     width: 2.8rem;
     height: 2.8rem;
+  }
+}
+
+@media (max-width: 700px) {
+  .equipo-container {
+    padding: 0.8rem;
+  }
+
+  .jugador-card {
+    width: 110px;
+    padding: 0.6rem;
+  }
+}
+
+@media (max-width: 720px) {
+  .jugador-card-cuadrada {
+    width: clamp(145px, 52vw, 210px);
+    padding: 0.65rem;
+  }
+}
+
+@media (max-width: 600px) {
+  .contenedor-calendario .partido,
+  .jornadaPartido {
+    padding: 0.8rem;
+  }
+
+  .contenedor-calendario .jornada {
+    gap: 0.55rem;
+  }
+
+  .contenedor-calendario .equipo.local {
+    padding-right: 0.5rem;
+  }
+
+  .contenedor-calendario .equipo.visitante {
+    padding-left: 0.5rem;
+  }
+
+  .jornadaEquipo {
+    padding: 0.25rem;
+  }
+
+  .noticiaFooter a {
+    width: 30%;
+    padding: 0.8rem;
   }
 }
