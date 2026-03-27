@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
+<xsl:stylesheet version="1.0"
+    xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
     <xsl:output method="html" encoding="UTF-8" indent="yes"/>
 
     <!-- Parametros para seleccionar la temporada -->
@@ -8,16 +9,7 @@
 
     <!-- Plantilla principal -->
     <xsl:template match="/">
-        <html lang="es-ES">
-            <head>
-                <meta charset="UTF-8"/>
-                <title>Prima League - Calendario</title>
-            </head>
-            <body>
-
-                <xsl:apply-templates select="federacion/temporadas/temporada[@anoInicio=$anoInicio and @anoFin=$anoFin]"/>
-            </body>
-        </html>
+        <xsl:apply-templates select="federacion/temporadas/temporada[@anoInicio=$anoInicio and @anoFin=$anoFin]"/>
     </xsl:template>
 
     <!-- Plantilla para procesar una temporada -->
@@ -36,7 +28,8 @@
                     <!-- Solo mostrar jornadas con partidos no jugados -->
                     <xsl:if test="count($partidosNoJugados) > 0">
                         <div class="jornada">
-                            <h3>Jornada <xsl:value-of select="$jornadaNum"/></h3>
+                            <h3>Jornada <xsl:value-of select="$jornadaNum"/>
+                            </h3>
 
                             <xsl:for-each select="$partidosNoJugados">
                                 <xsl:call-template name="mostrar-partido-pendiente"/>
@@ -57,13 +50,17 @@
 
         <div class="partido">
             <div class="equipo local">
-                <strong><xsl:value-of select="$localNombre"/></strong>
+                <strong>
+                    <xsl:value-of select="$localNombre"/>
+                </strong>
                 <br/>
                 <small>(Local)</small>
             </div>
             <div class="vs">VS</div>
             <div class="equipo visitante">
-                <strong><xsl:value-of select="$visitanteNombre"/></strong>
+                <strong>
+                    <xsl:value-of select="$visitanteNombre"/>
+                </strong>
                 <br/>
                 <small>(Visitante)</small>
             </div>

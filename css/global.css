@@ -705,10 +705,21 @@ tr:hover .tablaUltimos img {
 }
 
 /* ===== Equipos ===== */
+.tabla-equipos {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem;
+}
+
 .equipo-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 2rem;
   width: 100%;
   margin: 1.1rem 0;
-  padding: 1rem;
+  padding: 1.2rem;
   background: rgb(30, 44, 66);
   box-shadow: 2px 4px 18px rgba(0, 0, 0, 0.35);
   border: 1px solid rgba(255, 255, 255, 0.1);
@@ -721,12 +732,11 @@ tr:hover .tablaUltimos img {
   gap: 15px;
   margin-bottom: 20px;
   border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-  padding-bottom: 10px;
 }
 
 .equipo-escudo {
-  width: clamp(52px, 6vw, 86px);
-  height: clamp(52px, 6vw, 86px);
+  width: clamp(64px, 9vw, 130px);
+  height: clamp(64px, 9vw, 130px);
   object-fit: contain;
   background: rgba(255, 255, 255, 0.06);
   border-radius: 10px;
@@ -734,16 +744,76 @@ tr:hover .tablaUltimos img {
 }
 
 .equipo-header h3 {
+  margin: 0;
+  width: 100%;
+  max-width: 100%;
+  min-height: clamp(2.2rem, 4vw, 2.8rem);
+  display: flex;
+  align-items: center;
   font-family: "Rajdhani", sans-serif;
   font-size: clamp(0.85rem, 1.5vw, 1.1rem);
+  line-height: 1.15;
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.12em;
   color: var(--naranja);
   padding: 0.4rem 0.9rem;
+  overflow: hidden;
+  white-space: wrap;
+  text-overflow: ellipsis;
   border-left: 3px solid var(--naranja);
   background: rgba(248, 175, 39, 0.07);
   border-radius: 0 6px 6px 0;
+}
+
+.equipo-datos {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+}
+
+.equipo-datos ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  justify-content: flex-start;
+  gap: 0.6rem;
+  width: 100%;
+}
+
+.equipo-datos li {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.55rem 0.8rem;
+  color: rgba(255, 255, 255, 0.9);
+  font-size: clamp(0.78rem, 1vw, 0.95rem);
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 10px;
+}
+
+.equipo-datos li strong {
+  color: rgba(255, 255, 255, 0.75);
+  font-weight: 600;
+  letter-spacing: 0.02em;
+}
+
+.posicion-valor {
+  color: var(--naranja);
+  font-family: "Rajdhani", sans-serif;
+  font-weight: 800;
+  font-size: clamp(1rem, 1.4vw, 1.25rem);
+  text-align: center;
+  min-width: 2.1rem;
+  border-radius: 999px;
+  padding: 0.15rem 0.55rem;
+  background: rgba(248, 175, 39, 0.15);
+  border: 1px solid rgba(248, 175, 39, 0.45);
 }
 
 .jugadores-horizontal {
@@ -1625,6 +1695,10 @@ dialog.overlayPerfil::backdrop {
 }
 
 @media (max-width: 700px) {
+  .tabla-equipos {
+    grid-template-columns: 1fr;
+  }
+
   .equipo-container {
     padding: 0.8rem;
   }
