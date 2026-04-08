@@ -54,6 +54,9 @@ $equipoSeleccionado = '';
                 ?>
             </select>
         </div>
+        <?php if ($equipoSeleccionado !== ''): ?>
+            <input type="hidden" name="eq" value="<?php echo htmlspecialchars($equipoSeleccionado, ENT_QUOTES, 'UTF-8'); ?>" />
+        <?php endif; ?>
     </form>
 
     
