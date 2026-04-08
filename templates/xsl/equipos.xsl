@@ -46,10 +46,15 @@
 
         <div class="equipo-container" id="eq-{$equipoRef}">
             <div class="equipo-header">
-                <img class="equipo-escudo" src="{$escudoSrc}" alt="Escudo de {$equipoNombre}" onerror="this.onerror=null;this.src='./assets/img/iconos/escudo.png';"/>
-                <h3>
-                    <xsl:value-of select="$equipoNombre"/>
-                </h3>
+                <a href="?equipos&amp;eq={$equipoRef}">
+                    <img class="equipo-escudo" src="{$escudoSrc}" alt="Escudo de {$equipoNombre}" onerror="this.onerror=null;this.src='./assets/img/iconos/escudo.png';"/>
+                    
+                </a>
+                <a href="?equipos&amp;eq={$equipoRef}">
+                    <h3>
+                        <xsl:value-of select="$equipoNombre"/>
+                    </h3>
+                </a>
             </div>
             <div class="equipo-datos">
                 <ul>
@@ -64,6 +69,7 @@
                 </ul>
             </div>
         </div>
+        
     </xsl:template>
 
 </xsl:stylesheet>

@@ -70,12 +70,11 @@ footer {
 }
 
 a {
+  text-decoration: none;
   padding: 1vh;
-}
-
-a:hover {
   cursor: pointer;
 }
+
 
 /* ===== Layout ===== */
 .contenido {
@@ -716,7 +715,7 @@ tr:hover .tablaUltimos img {
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  gap: clamp(0.8rem, 2vw, 1.5rem);
+  gap: clamp(0.6rem, 1.5vw, 1rem);
   width: 100%;
   margin: 1.1rem 0;
   padding: 1.2rem;
@@ -729,7 +728,7 @@ tr:hover .tablaUltimos img {
 .equipo-header {
   display: flex;
   align-items: center;
-  gap: 15px;
+  gap: 12px;
   flex: 1 0 auto;
   margin-bottom: 20px;
   border-bottom: 1px solid rgba(255, 255, 255, 0.1);
@@ -821,13 +820,29 @@ tr:hover .tablaUltimos img {
   border: 1px solid rgba(248, 175, 39, 0.45);
 }
 
-.jugadores-horizontal {
-  display: flex;
-  flex-flow: row nowrap;
+.jugadores-vertical {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
   gap: 0.75rem;
   overflow-x: auto;
   padding: 0.35rem 0.1rem 0.5rem;
   scroll-snap-type: x mandatory;
+  justify-content: center;
+  justify-items: center;
+}
+
+.jugadores-container-detalle {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.jugadores-vertical-detalle {
+  grid-template-columns: repeat(3, max-content);
+  width: fit-content;
+  max-width: 100%;
+  margin: 0 auto;
+  overflow-x: auto;
 }
 
 .jugador-card-link {
@@ -1718,6 +1733,16 @@ dialog.overlayPerfil::backdrop {
   .jugador-card {
     width: 110px;
     padding: 0.6rem;
+  }
+
+  .jugadores-vertical-detalle {
+    grid-template-columns: repeat(2, max-content);
+  }
+}
+
+@media (max-width: 500px) {
+  .jugadores-vertical-detalle {
+    grid-template-columns: repeat(1, max-content);
   }
 }
 

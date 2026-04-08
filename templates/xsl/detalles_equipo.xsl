@@ -43,11 +43,12 @@
                     <xsl:value-of select="$equipoNombre"/>
                 </h3>
             </div>
-
+            <a class="cabeceraCnt" href="?equipos">Vista anterior</a>
             <h4>Plantilla (<xsl:value-of select="count(jugador)"/>
  jugadores)</h4>
-
-            <div class="jugadores-horizontal">
+        </div>
+        <div class="jugadores-container jugadores-container-detalle">
+            <div class="jugadores-vertical jugadores-vertical-detalle">
                 <xsl:for-each select="jugador">
                     <xsl:variable name="jugadorRef" select="@ref"/>
                     <xsl:variable name="jugadorData" select="/federacion/jugadores/jugador[@id=$jugadorRef]"/>
