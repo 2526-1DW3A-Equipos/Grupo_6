@@ -731,7 +731,7 @@
 				<equipo ref="E3">
 					<jugador ref="J24" dorsal="22" foto=""/>
 					<jugador ref="J16" dorsal="2" foto=""/>
-					<jugador ref="J27" dorsal="17" foto=""/>
+					<jugador ref="J27" dorsal="17"/>
 					<jugador ref="J34" dorsal="31" foto=""/>
 					<jugador ref="J28" dorsal="23" foto=""/>
 					<jugador ref="J29" dorsal="27" foto=""/>
