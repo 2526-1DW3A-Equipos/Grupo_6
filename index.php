@@ -235,12 +235,6 @@ $pagina = array_keys($_GET)[0] ?? 'inicio';
         <li>
           <a href="?soporte">Soporte</a>
         </li>
-        <li>
-          <a>Aviso legal</a>
-        </li>
-        <li>
-          <a>Politica de cookies</a>
-        </li>
       </ul>
 
       <p class="footerCopy">
