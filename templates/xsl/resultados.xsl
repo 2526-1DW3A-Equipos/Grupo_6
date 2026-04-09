@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
+<xsl:stylesheet version="1.0"
+    xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
     <xsl:output method="html" encoding="UTF-8" indent="yes"/>
 
     <!-- Parametros para seleccionar la temporada -->
@@ -8,15 +9,7 @@
 
     <!-- Plantilla principal -->
     <xsl:template match="/">
-        <html lang="es-ES">
-            <head>
-                <meta charset="UTF-8"/>
-                <title>Prima League - Resultados</title>
-            </head>
-            <body>
-                <xsl:apply-templates select="federacion/temporadas/temporada[@anoInicio=$anoInicio and @anoFin=$anoFin]"/>
-            </body>
-        </html>
+        <xsl:apply-templates select="federacion/temporadas/temporada[@anoInicio=$anoInicio and @anoFin=$anoFin]"/>
     </xsl:template>
 
     <!-- Plantilla para procesar una temporada -->
@@ -35,7 +28,8 @@
 
                         <xsl:if test="count($jugados) > 0">
                             <div class="resultadosJornada">
-                                <h3>Jornada <xsl:value-of select="$jornadaNum"/></h3>
+                                <h3>Jornada <xsl:value-of select="$jornadaNum"/>
+                                </h3>
                                 <div class="jornadaPartidos">
                                     <xsl:for-each select="$jugados">
                                         <xsl:call-template name="mostrar-partido"/>
@@ -61,7 +55,9 @@
         <div class="jornadaPartido">
             <!-- Equipo local -->
             <div class="jornadaEquipo">
-                <p><xsl:value-of select="$localNombre"/></p>
+                <p>
+                    <xsl:value-of select="$localNombre"/>
+                </p>
             </div>
 
             <!-- Marcador -->
@@ -89,7 +85,9 @@
 
             <!-- Equipo visitante -->
             <div class="jornadaEquipo local">
-                <p><xsl:value-of select="$visitanteNombre"/></p>
+                <p>
+                    <xsl:value-of select="$visitanteNombre"/>
+                </p>
             </div>
         </div>
     </xsl:template>

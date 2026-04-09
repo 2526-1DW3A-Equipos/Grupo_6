@@ -75,12 +75,12 @@
                     <xsl:value-of select="position()"/>
                 </td>
                 <td class="tablaEscudo">
-                    <a href="?equipos#eq-{$equipoRef}">
+                    <a href="?equipos&amp;eq={$equipoRef}">
                         <img src="{$escudoSrc}" alt="Escudo de {$equipoNombre}" onerror="this.onerror=null;this.src='./assets/img/iconos/escudo.png';"/>
                     </a>
                 </td>
                 <td class="tablaNombre">
-                    <a href="?equipos#eq-{$equipoRef}">
+                    <a href="?equipos&amp;eq={$equipoRef}">
                         <xsl:value-of select="$equipoNombre"/>
                     </a>
                 </td>
