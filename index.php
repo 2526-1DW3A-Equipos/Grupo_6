@@ -1,4 +1,6 @@
 <?php
+
+use URLController;
 session_start();
 
 $isLogged = isset($_SESSION['usuario']);
@@ -54,7 +56,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['email']) && isset($_P
   }
 }
 
-require_once './controllers/URLController.php';
+require_once __DIR__ . './controllers/URLController.php';
 $controller = new URLController();
 $tituloPagina = $controller->getPaginaActual();
 $pagina = array_keys($_GET)[0] ?? 'inicio';
