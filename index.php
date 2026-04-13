@@ -55,9 +55,34 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['email']) && isset($_P
 }
 
 require_once './controllers/URLController.php';
+require_once './utils/temporada_selector.php';
 $controller = new URLController();
 $tituloPagina = $controller->getPaginaActual();
 $pagina = array_keys($_GET)[0] ?? 'inicio';
+
+$paginasConTemporada = ['clasificacion', 'calendario', 'resultados', 'equipos'];
+$mostrarTemporadaHeader = in_array($pagina, $paginasConTemporada, true);
+$temporadaContextoHeader = null;
+$equipoSeleccionadoHeader = '';
+$rutaSeguraHeader = preg_replace('/[^a-z]/', '', $pagina);
+$tituloLigaHeader = '';
+$subtituloLigaHeader = '';
+
+if ($mostrarTemporadaHeader) {
+  $temporadaContextoHeader = obtenerContextoTemporada('./data/datos.xml');
+  if ($rutaSeguraHeader === 'equipos' && !empty($_GET['eq']) && preg_match('/^E\d+$/', $_GET['eq'])) {
+    $equipoSeleccionadoHeader = $_GET['eq'];
+  }
+
+  $queryTempHeader = $temporadaContextoHeader['xpath']->query(
+    "/federacion/temporadas/temporada[@anoInicio='" . $temporadaContextoHeader['seleccionada'] . "']"
+  );
+  if ($queryTempHeader->length > 0) {
+    $anioFinHeader = $queryTempHeader->item(0)->getAttribute('anoFin');
+    $tituloLigaHeader = ucfirst($rutaSeguraHeader);
+    $subtituloLigaHeader = 'Temporada ' . $temporadaContextoHeader['seleccionada'] . ' - ' . $anioFinHeader;
+  }
+}
 ?>
 
 <!DOCTYPE html>
@@ -86,6 +111,27 @@ $pagina = array_keys($_GET)[0] ?? 'inicio';
         src="assets/img/prima-league-logo-transparente.png"
         alt="Prima League" />
     </a>
+
+    <?php if ($mostrarTemporadaHeader && $tituloLigaHeader !== '' && $subtituloLigaHeader !== ''): ?>
+      <div class="header-info-slot">
+        <h1><?php echo htmlspecialchars($tituloLigaHeader, ENT_QUOTES, 'UTF-8'); ?></h1>
+        <h2><?php echo htmlspecialchars($subtituloLigaHeader, ENT_QUOTES, 'UTF-8'); ?></h2>
+      </div>
+    <?php endif; ?>
+
+    <?php if ($mostrarTemporadaHeader && $temporadaContextoHeader !== null): ?>
+      <div class="header-temporada-slot">
+        <?php
+          echo renderSelectorTemporada(
+            $rutaSeguraHeader,
+            $temporadaContextoHeader['temporadas'],
+            $temporadaContextoHeader['seleccionada'],
+            $equipoSeleccionadoHeader
+          );
+        ?>
+      </div>
+    <?php endif; ?>
+
     <input type="checkbox" id="menulateral-check" />
     <label for="menulateral-check" class="abrir-menulateral">
       <img src="assets/img/iconos/menu.svg" />

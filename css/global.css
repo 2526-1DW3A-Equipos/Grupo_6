@@ -134,6 +134,50 @@ a {
   gap: 4rem;
 }
 
+.header-info-slot {
+  margin-left: 1rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 0.1rem;
+}
+
+.header-info-slot h1,
+.header-info-slot h2 {
+  margin: 0;
+  line-height: 1.05;
+}
+
+.header-info-slot h1 {
+  font-size: clamp(1rem, 1.5vw, 1.5rem);
+}
+
+.header-info-slot h2 {
+  font-size: clamp(0.65rem, 0.9vw, 0.85rem);
+  color: rgba(255, 255, 255, 0.65);
+  letter-spacing: 0.03em;
+}
+
+.header-temporada-slot {
+  margin-left: auto;
+  margin-right: 1rem;
+}
+
+.header-temporada-slot .form-selector {
+  width: auto;
+  max-width: none;
+  justify-content: flex-end;
+}
+
+.header-temporada-slot .temporada-selector {
+  padding: 0.45rem 0.8rem;
+}
+
+.header-temporada-slot .temporada-selector label,
+.header-temporada-slot .temporada-selector select {
+  font-size: clamp(0.7rem, 0.8vw, 0.85rem);
+}
+
 .cabeceraNav ul {
   list-style: none;
   display: flex;
@@ -835,38 +879,8 @@ tr:hover .tablaUltimos img {
   justify-content: center;
 }
 
-.jugadores-vertical-detalle {
-  grid-template-columns: repeat(3, max-content);
-  width: fit-content;
-  max-width: 100%;
-  margin: 0 auto;
-  overflow-x: auto;
-}
-
-.jugador-card-link {
-  text-decoration: none;
-  color: inherit;
-}
-
-.jugador-card {
-  flex: 0 0 auto;
-  width: clamp(110px, 13vw, 145px);
-  padding: 0.7rem;
-  border-radius: 10px;
-  background: rgba(255, 255, 255, 0.07);
-  border: 1px solid transparent;
-  text-align: center;
-  scroll-snap-align: start;
-  transition:
-    transform 0.2s ease,
-    border-color 0.2s ease,
-    background 0.2s ease;
-}
-
-.jugador-card:hover {
-  transform: translateY(-3px);
-  border-color: rgba(248, 175, 39, 0.45);
-  background: rgba(248, 175, 39, 0.15);
+.tabla-jugadores {
+  width: 60%;
 }
 
 .jugador-foto {
@@ -1669,6 +1683,14 @@ dialog.overlayPerfil::backdrop {
     flex-direction: column;
     align-items: flex-end;
     gap: 1rem;
+  }
+
+  .header-temporada-slot {
+    display: none;
+  }
+
+  .header-info-slot {
+    display: none;
   }
 
   .menuItem,
