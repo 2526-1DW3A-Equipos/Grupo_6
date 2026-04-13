@@ -39,7 +39,7 @@
                     <xsl:value-of select="@escudo"/>
                 </xsl:when>
                 <xsl:otherwise>
-                    <xsl:value-of select="concat('./fotos/equipos/', $anoInicio, ' - ', $anoFin, '/', substring-after($equipoRef, 'E'), '_', $equipoNombreArchivo, '.jpg')"/>
+                    <xsl:value-of select="concat('./fotos/equipos/', $anoInicio, '/', substring-after($equipoRef, 'E'), '_', $equipoNombreArchivo, '.jpg')"/>
                 </xsl:otherwise>
             </xsl:choose>
         </xsl:variable>
@@ -48,7 +48,7 @@
             <div class="equipo-header">
                 <a href="?equipos&amp;eq={$equipoRef}">
                     <img class="equipo-escudo" src="{$escudoSrc}" alt="Escudo de {$equipoNombre}" onerror="this.onerror=null;this.src='./assets/img/iconos/escudo.png';"/>
-                    
+
                 </a>
                 <a href="?equipos&amp;eq={$equipoRef}">
                     <h3>
@@ -69,7 +69,7 @@
                 </ul>
             </div>
         </div>
-        
+
     </xsl:template>
 
 </xsl:stylesheet>

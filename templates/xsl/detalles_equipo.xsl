@@ -31,13 +31,13 @@
                     <xsl:value-of select="@escudo"/>
                 </xsl:when>
                 <xsl:otherwise>
-                    <xsl:value-of select="concat('./fotos/equipos/', $anoInicio,' - ',$anoFin, '/', substring-after($equipoRef, 'E'), '_', $equipoNombreArchivo, '.jpg')"/>
+                    <xsl:value-of select="concat('./fotos/equipos/', $anoInicio, '/', substring-after($equipoRef, 'E'), '_', $equipoNombreArchivo, '.jpg')"/>
                 </xsl:otherwise>
             </xsl:choose>
         </xsl:variable>
 
-      
-        
+
+
         <div class="equipo-container" id="eq-{$equipoRef}">
             <div class="equipo-header">
                 <img class="equipo-escudo" src="{$escudoSrc}" alt="Escudo de {$equipoNombre}" onerror="this.onerror=null;this.src='./assets/img/iconos/escudo.png';"/>
@@ -63,7 +63,7 @@
                                 <xsl:value-of select="$foto"/>
                             </xsl:when>
                             <xsl:otherwise>
-                                <xsl:value-of select="concat('./fotos/jugadores/', $anoInicio,' - ',$anoFin, '/', $jugadorRef, '.jpg')"/>
+                                <xsl:value-of select="concat('./fotos/jugadores/', $anoInicio, '/', $jugadorRef, '.jpg')"/>
                             </xsl:otherwise>
                         </xsl:choose>
                     </xsl:variable>
@@ -71,8 +71,8 @@
                     <a href="#modal-{$jugadorRef}" class="jugador-card-link">
                         <div class="jugador-card">
                             <img class="jugador-foto" src="{$fotoJugador}" alt="Foto de {$jugadorData/nombreJugador}" onerror="this.onerror=null;this.src='./assets/img/iconos/usuario.png';"/>
-                            
-                            <div class="jugador-dorsal">#<xsl:value-of select="$dorsal"/>
+
+                            <div class="jugador-dorsal">#                                <xsl:value-of select="$dorsal"/>
                             </div>
                             <div class="jugador-nombre">
                                 <xsl:value-of select="$jugadorData/nombreJugador"/>
