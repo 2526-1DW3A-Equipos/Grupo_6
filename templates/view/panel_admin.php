@@ -1,6 +1,6 @@
 <?php
     // Si la sesión no existe, $rol será 'invitado' y NO lanzará error.
-    $rol = $_SESSION['usuario']['rol'] ?? 'invitado';
+    $rol = $_SESSION['usuario_rol'] ?? 'invitado';
 
     // Si no es admin, usamos JavaScript para redirigir.
     // Por qué JavaScript? Porque los headers de PHP ya se enviaron en index.php y lanzaria un error
