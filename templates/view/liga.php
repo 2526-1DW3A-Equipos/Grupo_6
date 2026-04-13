@@ -3,61 +3,31 @@ $ruta = $ruta ?? 'inicio';
 $rutaSegura = preg_replace('/[^a-z]/', '', $ruta);
 $xslPath = './templates/xsl/' . $rutaSegura . '.xsl';
 $equipoSeleccionado = '';
+$mostrarTemporadaHeader = $mostrarTemporadaHeader ?? false;
+
+require_once './utils/temporada_selector.php';
+
+if (isset($temporadaContextoHeader) && is_array($temporadaContextoHeader)) {
+    $temporadaContexto = $temporadaContextoHeader;
+} else {
+    $temporadaContexto = obtenerContextoTemporada('./data/datos.xml');
+}
+
+$xml = $temporadaContexto['xml'];
+$xpath = $temporadaContexto['xpath'];
+$temporadas = $temporadaContexto['temporadas'];
+$seleccionada = $temporadaContexto['seleccionada'];
+$mostrarTituloTemporadaEnHeader = in_array($rutaSegura, ['clasificacion', 'calendario', 'resultados', 'equipos'], true);
 ?>
-    <form method="GET" action="" class="form-selector">
-        <input type="hidden" name="<?php echo htmlspecialchars($rutaSegura, ENT_QUOTES, 'UTF-8'); ?>" value="" />
-        <div class="temporada-selector">
-            <label for="temporada-select">Temporada:</label>
-            <select id="temporada-select" name="inicio" onchange="this.form.submit()">
-                <?php
-                    $xml = new DOMDocument();
-                    $xml->load('./data/datos.xml');
-                    $xpath = new DOMXPath($xml);
-                    $temporadas = $xpath->query('/federacion/temporadas/temporada');
-                    $ultimaTemporada = $xpath->evaluate('string(/federacion/temporadas/temporada[last()]/@anoInicio)');
-                    $temporadasValidas = [];
 
-                    foreach ($temporadas as $nodo) {
-                        $temporadasValidas[] = $nodo->getAttribute('anoInicio');
-                    }
+    <?php
+        // Gestionar si estamos buscando informacion especifica de un equipo
+        if ($rutaSegura === 'equipos' && !empty($_GET['eq']) && preg_match('/^E\d+$/', $_GET['eq'])) {
+            $equipoSeleccionado = $_GET['eq'];
+            $xslPath = './templates/xsl/detalles_equipo.xsl';
+        }
+    ?>
 
-                    if (!empty($_GET['inicio'])) {
-                        $candidata = $_GET['inicio'];
-                    } elseif (!empty($_SESSION['temporada_seleccionada'])) {
-                        $candidata = $_SESSION['temporada_seleccionada'];
-                    } else {
-                        $candidata = $ultimaTemporada;
-                    }
-
-                    if (!in_array($candidata, $temporadasValidas, true)) {
-                        $seleccionada = $ultimaTemporada;
-                    } else {
-                        $seleccionada = $candidata;
-                    }
-
-                    $_SESSION['temporada_seleccionada'] = $seleccionada;
-
-                    foreach ($temporadas as $nodo) {
-                        $valInicio = $nodo->getAttribute('anoInicio');
-                        $valFin = $nodo->getAttribute('anoFin');
-                        $isSel = ($valInicio === $seleccionada) ? 'selected' : '';
-
-                        echo "<option value='$valInicio' $isSel>$valInicio - $valFin</option>";
-                    }
-
-                    // Gestionar si estamos buscando informacion especifica de un equipo
-                    if ($rutaSegura === 'equipos' && !empty($_GET['eq']) && preg_match('/^E\d+$/', $_GET['eq'])) {
-                        $equipoSeleccionado = $_GET['eq'];
-                        $xslPath = './templates/xsl/detalles_equipo.xsl';
-                    }
-                    
-                ?>
-            </select>
-        </div>
-        <?php if ($equipoSeleccionado !== ''): ?>
-            <input type="hidden" name="eq" value="<?php echo htmlspecialchars($equipoSeleccionado, ENT_QUOTES, 'UTF-8'); ?>" />
-        <?php endif; ?>
-    </form>
 
     
 <section class="contenedor-<?php echo htmlspecialchars($rutaSegura, ENT_QUOTES, 'UTF-8'); ?>">
@@ -109,8 +79,10 @@ $equipoSeleccionado = '';
                     }
                 }
 
-                echo '<h1>'. ucfirst($rutaSegura) .'</h1>';
-                echo '<h2>Temporada ' . $seleccionada . ' - ' . $anioFin . '</h2>';
+                if (!$mostrarTituloTemporadaEnHeader) {
+                    echo '<h1>'. ucfirst($rutaSegura) .'</h1>';
+                    echo '<h2>Temporada ' . $seleccionada . ' - ' . $anioFin . '</h2>';
+                }
                 echo '<article class="tabla-resultados contenido">';
                 $xsl = new DOMDocument();
                 $xsl->load($xslPath);
