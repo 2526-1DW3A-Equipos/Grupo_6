@@ -45,7 +45,7 @@
                     <xsl:value-of select="$equipoNombre"/>
                 </h3>
             </div>
-            <a class="cabeceraCnt" href="?equipos">Vista anterior</a>
+            <a class="cabeceraCnt" href="?equipos">Ir a Equipos</a>
             <h4>Plantilla (<xsl:value-of select="count(jugador)"/>
  jugadores)</h4>
         </div>
