@@ -1,8 +1,16 @@
 <?php
+
 session_start();
 
-$isLogged = isset($_SESSION['usuario']);
-$isAdmin = ($isLogged && strtolower($_SESSION['usuario']['rol'] ?? '') === 'admin');
+// Compatibilidad con sesiones antiguas: migramos array a variables separadas.
+if (isset($_SESSION['usuario']) && is_array($_SESSION['usuario'])) {
+  $_SESSION['usuario_nombre'] = $_SESSION['usuario']['username'] ?? ($_SESSION['usuario_nombre'] ?? '');
+  $_SESSION['usuario_rol'] = $_SESSION['usuario']['rol'] ?? ($_SESSION['usuario_rol'] ?? 'invitado');
+  unset($_SESSION['usuario']);
+}
+
+$isLogged = !empty($_SESSION['usuario_nombre']);
+$isAdmin = ($isLogged && strtolower($_SESSION['usuario_rol'] ?? '') === 'admin');
 
 if (isset($_GET['logout'])) {
   session_destroy();
@@ -28,12 +36,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['email']) && isset($_P
         $u_name = (string)$user->user;
         $u_pass = (string)$user->pass;
         if ($u_name === $email_post && $u_pass === $pass_post) {
-          $_SESSION['usuario'] = [
-            'username' => $u_name,
-            'rol' => (string)$user->rol
-          ];
+          $_SESSION['usuario_nombre'] = $u_name;
+          $_SESSION['usuario_rol'] = (string)$user->rol;
 
-          $isAdmin = (strtolower($_SESSION['usuario']['rol'] === 'admin'));
+          $isAdmin = (strtolower($_SESSION['usuario_rol']) === 'admin');
 
           if($isAdmin){
             header("Location: ./?pl_admin");
@@ -54,8 +60,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['email']) && isset($_P
   }
 }
 
-require_once './controllers/URLController.php';
-require_once './utils/temporada_selector.php';
+require_once __DIR__ . '/controllers/URLController.php';
 $controller = new URLController();
 $tituloPagina = $controller->getPaginaActual();
 $pagina = array_keys($_GET)[0] ?? 'inicio';
@@ -183,8 +188,8 @@ if ($mostrarTemporadaHeader) {
             <?php endif; ?>
             
             <span class="profile-info">
-              <p class="profile-username"><?php echo ucfirst(explode('@', $_SESSION['usuario']['username'])[0]); ?></p>
-              <p class="profile-role"><?php echo 'Rol: ' . ucfirst(explode('@', $_SESSION['usuario']['rol'])[0]); ?></p>
+              <p class="profile-username"><?php echo ucfirst(explode('@', $_SESSION['usuario_nombre'])[0]); ?></p>
+              <p class="profile-role"><?php echo 'Rol: ' . ucfirst(explode('@', $_SESSION['usuario_rol'])[0]); ?></p>
             </span>
 
              <li>
@@ -203,7 +208,7 @@ if ($mostrarTemporadaHeader) {
   <main>
 
     <!-- Dialogo de login -->
-    <?php if (!isset($_SESSION['usuario'])): ?>
+    <?php if (!$isLogged): ?>
       <input type="checkbox" id="contacto-check" />
       <dialog class="overlayContacto">
         <div class="contacto">
