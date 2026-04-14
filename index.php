@@ -2,6 +2,8 @@
 
 session_start();
 
+require_once __DIR__ . '/utils/temporada_selector.php';
+
 // Compatibilidad con sesiones antiguas: migramos array a variables separadas.
 if (isset($_SESSION['usuario']) && is_array($_SESSION['usuario'])) {
   $_SESSION['usuario_nombre'] = $_SESSION['usuario']['username'] ?? ($_SESSION['usuario_nombre'] ?? '');

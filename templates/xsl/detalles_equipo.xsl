@@ -54,47 +54,38 @@
                 <thead>
                     <tr>
                         <th>Foto</th>
-                        <th>Nombre</th>
-                        <th>Apellido</th>
+                        <th>Nombre y Apellidos</th>
                         <th>Dorsal</th>
                     </tr>
                 </thead>
                 <tbody>
                     <xsl:for-each select="jugador">
-                        <xsl:variable name="jugadorRef" select="@ref"/>
-                        <xsl:variable name="jugadorData" select="/federacion/jugadores/jugador[@id=$jugadorRef]"/>
-                        <xsl:variable name="foto" select="@foto"/>
-                        <xsl:variable name="dorsal" select="@dorsal"/>
+                        <tr>
+                            <xsl:variable name="jugadorRef" select="@ref"/>
+                            <xsl:variable name="jugadorData" select="/federacion/jugadores/jugador[@id=$jugadorRef]"/>
+                            <xsl:variable name="foto" select="@foto"/>
+                            <xsl:variable name="dorsal" select="@dorsal"/>
 
-                    <xsl:variable name="fotoJugador">
-                        <xsl:choose>
-                            <xsl:when test="normalize-space($foto) != ''">
-                                <xsl:value-of select="$foto"/>
-                            </xsl:when>
-                            <xsl:otherwise>
-                                <xsl:value-of select="concat('./fotos/jugadores/', $anoInicio, '/', $jugadorRef, '.jpg')"/>
-                            </xsl:otherwise>
-                        </xsl:choose>
-                    </xsl:variable>
-
-                    <a href="#modal-{$jugadorRef}" class="jugador-card-link">
-                        <div class="jugador-card">
-                            <img class="jugador-foto" src="{$fotoJugador}" alt="Foto de {$jugadorData/nombreJugador}" onerror="this.onerror=null;this.src='./assets/img/iconos/usuario.png';"/>
-
-                            <div class="jugador-dorsal">#                                <xsl:value-of select="$dorsal"/>
-                            </div>
-                            <div class="jugador-nombre">
+                            <xsl:variable name="fotoJugador">
+                                <xsl:choose>
+                                    <xsl:when test="normalize-space($foto) != ''">
+                                        <xsl:value-of select="$foto"/>
+                                    </xsl:when>
+                                    <xsl:otherwise>
+                                        <xsl:value-of select="concat('./fotos/jugadores/', $anoInicio, '/', $jugadorRef, '.jpg')"/>
+                                    </xsl:otherwise>
+                                </xsl:choose>
+                            </xsl:variable>
+                            <td>
+                                <img class="jugador-foto" src="{$fotoJugador}" alt="Foto de {$jugadorData/nombreJugador}" onerror="this.onerror=null;this.src='./assets/img/iconos/usuario.png';"/>
+                            </td>
+                            <td>
                                 <xsl:value-of select="$jugadorData/nombreJugador"/>
                             </td>
                             <td>
-                                <xsl:value-of select="$jugadorData/apellidosJugador"/>
-                            </td>
-                            <td>
-                                    #                                <xsl:value-of select="$dorsal"/>
+                            #                                <xsl:value-of select="$dorsal"/>
                             </td>
                         </tr>
-
-
                     </xsl:for-each>
                 </tbody>
             </table>

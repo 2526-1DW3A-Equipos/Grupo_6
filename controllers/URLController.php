@@ -2,12 +2,11 @@
 class URLController {
     // Nueva función para obtener solo el nombre de la página
     public function getPaginaActual() {
-        $pagina = array_keys($_GET)[0] ?? 'inicio';
-        return ucfirst($pagina);
+       return array_keys($_GET)[0] ?? 'inicio';
     }
 
     public function init(){
-        $pagina = array_keys($_GET)[0] ?? 'inicio';
+        $pagina = self::getPaginaActual();
 
         $rutas = [
             'inicio'        => 'view/inicio.html',
@@ -25,7 +24,7 @@ class URLController {
             $archivo = $rutas[$pagina];
             // Pasamos el título a la vista por si acaso lo usa dentro
             $titulo = ucfirst($pagina); 
-            $this->renderizar("./templates/" . $archivo, $titulo, $pagina);
+            self::renderizar("./templates/" . $archivo, $titulo, $pagina);
         } else {
             $this->error404();
         }
