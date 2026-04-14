@@ -17,7 +17,8 @@ class URLController {
             'jugadores'     => 'view/liga.php',
             'informacion'   => 'view/informacion.html',
             'soporte'       => 'view/soporte.html',
-            'pl_admin'      => 'view/panel_admin.php'   
+            'pl_admin'      => 'view/panel_admin.php',
+            '404'           => 'view/404.html'
         ];
 
         if(array_key_exists($pagina, $rutas)){

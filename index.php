@@ -412,6 +412,7 @@ if ($mostrarTemporadaHeader) {
 
     });
   </script>
+  <script src="./controllers/FrontUrlGuardian.js"></script>
 </body>
 
 </html>
