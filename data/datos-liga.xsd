@@ -78,7 +78,7 @@
     <!-- Tipo para plantillas de una temporada -->
     <xs:complexType name="tipoPlantillas">
         <xs:sequence>
-            <xs:element name="equipo" type="tipoEquipoPlantilla" maxOccurs="unbounded" />
+            <xs:element name="equipo" type="tipoEquipoPlantilla" minOccurs="6" maxOccurs="unbounded" />
         </xs:sequence>
     </xs:complexType>
 
