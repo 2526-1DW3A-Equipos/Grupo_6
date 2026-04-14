@@ -60,22 +60,24 @@
                 </thead>
                 <tbody>
                     <xsl:for-each select="jugador">
-                        <tr>
-                            <xsl:variable name="jugadorRef" select="@ref"/>
-                            <xsl:variable name="jugadorData" select="/federacion/jugadores/jugador[@id=$jugadorRef]"/>
-                            <xsl:variable name="foto" select="@foto"/>
-                            <xsl:variable name="dorsal" select="@dorsal"/>
+                        <xsl:sort select="number(@dorsal)" data-type="number" order="ascending"/>
+                        <xsl:sort select="normalize-space(/federacion/jugadores/jugador[@id=current()/@ref]/nombreJugador)" data-type="text" order="ascending"/>
+                        <xsl:variable name="jugadorRef" select="@ref"/>
+                        <xsl:variable name="jugadorData" select="/federacion/jugadores/jugador[@id=$jugadorRef]"/>
+                        <xsl:variable name="foto" select="@foto"/>
+                        <xsl:variable name="dorsal" select="@dorsal"/>
 
-                            <xsl:variable name="fotoJugador">
-                                <xsl:choose>
-                                    <xsl:when test="normalize-space($foto) != ''">
-                                        <xsl:value-of select="$foto"/>
-                                    </xsl:when>
-                                    <xsl:otherwise>
-                                        <xsl:value-of select="concat('./fotos/jugadores/', $anoInicio, '/', $jugadorRef, '.jpg')"/>
-                                    </xsl:otherwise>
-                                </xsl:choose>
-                            </xsl:variable>
+                        <xsl:variable name="fotoJugador">
+                            <xsl:choose>
+                                <xsl:when test="normalize-space($foto) != ''">
+                                    <xsl:value-of select="$foto"/>
+                                </xsl:when>
+                                <xsl:otherwise>
+                                    <xsl:value-of select="concat('./fotos/jugadores/', $anoInicio, '/', $jugadorRef, '.jpg')"/>
+                                </xsl:otherwise>
+                            </xsl:choose>
+                        </xsl:variable>
+                        <tr>
                             <td>
                                 <img class="jugador-foto" src="{$fotoJugador}" alt="Foto de {$jugadorData/nombreJugador}" onerror="this.onerror=null;this.src='./assets/img/iconos/usuario.png';"/>
                             </td>
@@ -83,7 +85,7 @@
                                 <xsl:value-of select="$jugadorData/nombreJugador"/>
                             </td>
                             <td>
-                            #                                <xsl:value-of select="$dorsal"/>
+                                <xsl:value-of select="$dorsal"/>
                             </td>
                         </tr>
                     </xsl:for-each>

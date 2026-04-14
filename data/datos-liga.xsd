@@ -54,7 +54,7 @@
     <!-- Tipo para ID de jugador (J1, J2, etc.) -->
     <xs:simpleType name="tipoIdJugador">
         <xs:restriction base="xs:string">
-            <xs:pattern value="J[0-9]+" />
+            <xs:pattern value="[0-9]{8}[A-Z]" />
         </xs:restriction>
     </xs:simpleType>
 
