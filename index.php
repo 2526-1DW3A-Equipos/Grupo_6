@@ -63,8 +63,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['email']) && isset($_P
 }
 
 require_once __DIR__ . '/controllers/URLController.php';
-$controller = new URLController();
-$tituloPagina = $controller->getPaginaActual();
+$tituloPagina = URLController::getPaginaActual();
 $pagina = array_keys($_GET)[0] ?? 'inicio';
 
 $paginasConTemporada = ['clasificacion', 'calendario', 'resultados', 'equipos'];
@@ -100,7 +99,7 @@ if ($mostrarTemporadaHeader) {
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>
     Prima League -
-    <?php echo $tituloPagina; ?>
+    <?php echo ucfirst($tituloPagina); ?>
   </title>
 
   <link rel="icon" href="assets/img/prima-league-logo-transparente.png" />
@@ -274,7 +273,7 @@ if ($mostrarTemporadaHeader) {
     endif; ?>
 
     <?php
-    $controller->init();
+    URLController::init();
     ?>
   </main>
 
