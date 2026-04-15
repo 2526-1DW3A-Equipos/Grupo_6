@@ -100,7 +100,7 @@ if ($mostrarTemporadaHeader) {
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>
     Prima League -
-    <?php echo $tituloPagina; ?>
+    <?php echo ucfirst($tituloPagina); ?>
   </title>
 
   <link rel="icon" href="assets/img/prima-league-logo-transparente.png" />
