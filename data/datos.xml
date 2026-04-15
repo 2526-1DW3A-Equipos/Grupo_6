@@ -24,8 +24,12 @@
 	</equipos>
 	<jugadores>
 		<jugador id="J1">
+			<nombreJugador>Ruíz</nombreJugador>
+			<apellidosJugador>Perez</apellidosJugador>
+		</jugador>
+		<jugador id="10000000D">
 			<nombreJugador>Ruiz</nombreJugador>
-			<apellidosJugador></apellidosJugador>
+			<apellidosJugador>bIN</apellidosJugador>
 		</jugador>
 		<jugador id="J2">
 			<nombreJugador>Salgado</nombreJugador>

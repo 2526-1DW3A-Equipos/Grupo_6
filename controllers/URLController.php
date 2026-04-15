@@ -6,7 +6,7 @@ class URLController {
         'calendario'    => 'view/liga.php',
         'resultados'    => 'view/liga.php',
         'equipos'       => 'view/liga.php',
-        'jugadores'     => 'view/liga.php',
+        'jugadores'     => 'view/jugadores.php',
         'informacion'   => 'view/informacion.html',
         'soporte'       => 'view/soporte.html',
         'pl_admin'      => 'view/panel_admin.php'

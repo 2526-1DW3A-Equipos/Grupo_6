@@ -15,7 +15,7 @@
 :root {
   --naranja: #f8af27;
   --blanco: whitesmoke;
-  --azul-oscuro: rgb(37, 46, 62);
+  --azul-oscuro: #252e3e;
 }
 
 /* ===== Base ===== */
@@ -73,6 +73,14 @@ a {
   text-decoration: none;
   padding: 1vh;
   cursor: pointer;
+}
+
+input {
+  background-color: var(--blanco);
+  color: var(--azul-oscuro);
+  font-weight: bold;
+  padding: 10px;
+  border-radius: 10px;
 }
 
 /* ===== Layout ===== */
@@ -1658,6 +1666,38 @@ dialog.overlayPerfil::backdrop {
 
 .admin-panel table {
   width: 60%;
+}
+
+#pagina-jugadores {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 25px;
+}
+
+#lista-jugadores-container {
+  display: grid;
+  justify-content: center;
+  align-items: flex-start;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 10px;
+  border-radius: 10px;
+  box-shadow: 1px 1px 10px var(--azul-oscuro);
+  margin: 10px;
+}
+
+.jugadores-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  background-color: #3b4454;
+  color: var(--blanco);
+  font-weight: bold;
+  padding: 10px 20px;
+  border-radius: 10px;
 }
 
 /* ===== Responsive ===== */

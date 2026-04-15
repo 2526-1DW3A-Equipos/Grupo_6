@@ -20,6 +20,38 @@ if (isset($_GET['logout'])) {
   exit;
 }
 
+// Respuesta AJAX de jugadores: devolvemos solo el fragmento XSL antes de renderizar layout.
+$esAjaxJugadores = isset($_GET['ajax'])
+  && $_GET['ajax'] === 'jugadores'
+  && (isset($_GET['jugadores']) || ((array_keys($_GET)[0] ?? '') === 'jugadores'));
+
+if ($esAjaxJugadores) {
+  $filtroNombre = trim($_GET['nombre_jugador'] ?? '');
+  $filtroApellido = trim($_GET['apellido_jugador'] ?? '');
+  $filtroNombre = mb_strtolower($filtroNombre, 'UTF-8');
+  $filtroApellido = mb_strtolower($filtroApellido, 'UTF-8');
+
+  $xmlAjax = new DOMDocument();
+  $xmlAjax->load('./data/datos.xml');
+
+  $filtroNombreNodo = $xmlAjax->createElement('filtroNombre');
+  $filtroNombreNodo->appendChild($xmlAjax->createTextNode($filtroNombre));
+  $xmlAjax->documentElement->appendChild($filtroNombreNodo);
+
+  $filtroApellidoNodo = $xmlAjax->createElement('filtroApellido');
+  $filtroApellidoNodo->appendChild($xmlAjax->createTextNode($filtroApellido));
+  $xmlAjax->documentElement->appendChild($filtroApellidoNodo);
+  
+  $xslAjax = new DOMDocument();
+  $xslAjax->load('./templates/xsl/jugadores.xsl');
+
+  $procAjax = new XSLTProcessor();
+  $procAjax->importStylesheet($xslAjax);
+
+  echo $procAjax->transformToXml($xmlAjax);
+  exit;
+}
+
 // ----- INICIO DE SESION -----
 $login_error = '';
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['email']) && isset($_POST['password'])) {
@@ -177,6 +209,14 @@ if ($mostrarTemporadaHeader) {
               echo 'isActive';
             ?>" href="?equipos" data-page="equipos">Equipos</a>
         </li>
+
+        <li>
+          <a class="menuItem 
+            <?php if (isset($pagina) && $pagina === 'jugadores')
+              echo 'isActive';
+            ?>" href="?jugadores" data-page="jugadores">Jugadores</a>
+        </li>
+
 
         <li>
           <?php if($isLogged):?>
