@@ -9,8 +9,7 @@ class URLController {
         'jugadores'     => 'view/liga.php',
         'informacion'   => 'view/informacion.html',
         'soporte'       => 'view/soporte.html',
-        'pl_admin'      => 'view/panel_admin.php' ,
-        '404'           =>  'view/404.html'
+        'pl_admin'      => 'view/panel_admin.php'
     ];
 
     public static function init(){
