@@ -63,8 +63,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['email']) && isset($_P
 }
 
 require_once __DIR__ . '/controllers/URLController.php';
-$controller = new URLController();
-$tituloPagina = $controller->getPaginaActual();
+$tituloPagina = URLController::getPaginaActual();
 $pagina = array_keys($_GET)[0] ?? 'inicio';
 
 $paginasConTemporada = ['clasificacion', 'calendario', 'resultados', 'equipos'];
@@ -274,7 +273,7 @@ if ($mostrarTemporadaHeader) {
     endif; ?>
 
     <?php
-    $controller->init();
+    URLController::init();
     ?>
   </main>
 

@@ -1,5 +1,6 @@
 <?php
-$ruta = $ruta ?? 'inicio';
+require_once "./controllers/URLController.php";
+$ruta = URLController::getPaginaActual();
 $rutaSegura = preg_replace('/[^a-z]/', '', $ruta);
 $xslPath = './templates/xsl/' . $rutaSegura . '.xsl';
 $equipoSeleccionado = '';
