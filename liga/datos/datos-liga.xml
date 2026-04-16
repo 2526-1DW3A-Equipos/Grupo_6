@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?xml-stylesheet type="text/xsl" href="liga.xsl"?>
-<?xml-model href="datos-liga.xsd" type="application/xml" schematypens="http://www.w3.org/2001/XMLSchema"?>
 <federacion>
 	<equipos>
 		<equipo id="E1">
@@ -716,6 +715,266 @@
 				</jornada>
 			</jornadas>
 		</temporada>
+		<temporada anoInicio="2026" anoFin="2027">
+			<plantillas>
+				<equipo ref="E1" escudo="">
+					<jugador ref="10000001C" dorsal="3" foto=""/>
+					<jugador ref="20000001B" dorsal="6" foto=""/>
+					<jugador ref="30000001D" dorsal="1" foto=""/>
+					<jugador ref="30000001F" dorsal="2" foto=""/>
+					<jugador ref="40000001E" dorsal="4" foto=""/>
+					<jugador ref="50000001E" dorsal="5" foto=""/>
+					<jugador ref="60000001G" dorsal="0" foto=""/>
+				</equipo>
+				<equipo ref="E2" escudo="">
+					<jugador ref="10000001A" dorsal="3" foto=""/>
+					<jugador ref="20000001A" dorsal="1" foto=""/>
+					<jugador ref="30000001C" dorsal="2" foto=""/>
+					<jugador ref="40000001B" dorsal="6" foto=""/>
+					<jugador ref="50000001D" dorsal="5" foto=""/>
+					<jugador ref="50000001G" dorsal="4" foto=""/>
+					<jugador ref="60000001E" dorsal="7" foto=""/>
+				</equipo>
+				<equipo ref="E4" escudo="">
+					<jugador ref="20000001E" dorsal="7" foto=""/>
+					<jugador ref="30000001G" dorsal="3" foto=""/>
+					<jugador ref="40000001C" dorsal="0" foto=""/>
+					<jugador ref="40000001D" dorsal="2" foto=""/>
+					<jugador ref="40000001G" dorsal="6" foto=""/>
+					<jugador ref="60000001B" dorsal="8" foto=""/>
+					<jugador ref="60000001F" dorsal="1" foto=""/>
+				</equipo>
+				<equipo ref="E5" escudo="">
+					<jugador ref="10000001B" dorsal="7" foto=""/>
+					<jugador ref="10000001D" dorsal="4" foto=""/>
+					<jugador ref="10000001F" dorsal="5" foto=""/>
+					<jugador ref="10000001G" dorsal="3" foto=""/>
+					<jugador ref="50000001B" dorsal="2" foto=""/>
+					<jugador ref="50000001C" dorsal="1" foto=""/>
+					<jugador ref="50000001F" dorsal="6" foto=""/>
+				</equipo>
+				<equipo ref="E6" escudo="">
+					<jugador ref="20000001D" dorsal="4" foto=""/>
+					<jugador ref="20000001F" dorsal="5" foto=""/>
+					<jugador ref="20000001G" dorsal="7" foto=""/>
+					<jugador ref="30000001E" dorsal="1" foto=""/>
+					<jugador ref="40000001F" dorsal="3" foto=""/>
+					<jugador ref="50000001A" dorsal="2" foto=""/>
+					<jugador ref="60000001D" dorsal="6" foto=""/>
+				</equipo>
+				<equipo ref="E16" escudo="">
+					<jugador ref="10000001E" dorsal="1" foto=""/>
+					<jugador ref="20000001C" dorsal="4" foto=""/>
+					<jugador ref="30000001A" dorsal="6" foto=""/>
+					<jugador ref="30000001B" dorsal="7" foto=""/>
+					<jugador ref="40000001A" dorsal="5" foto=""/>
+					<jugador ref="60000001A" dorsal="3" foto=""/>
+					<jugador ref="60000001C" dorsal="2" foto=""/>
+				</equipo>
+			</plantillas>
+			<jornadas>
+				<jornada>
+					<partido>
+						<equipoLocal ref="E5"/>
+						<equipoVisitante ref="E6"/>
+						<puntosLocal>12</puntosLocal>
+						<puntosVisitante>23</puntosVisitante>
+					</partido>
+					<partido>
+						<equipoLocal ref="E1"/>
+						<equipoVisitante ref="E4"/>
+						<puntosLocal></puntosLocal>
+						<puntosVisitante></puntosVisitante>
+					</partido>
+					<partido>
+						<equipoLocal ref="E16"/>
+						<equipoVisitante ref="E2"/>
+						<puntosLocal></puntosLocal>
+						<puntosVisitante></puntosVisitante>
+					</partido>
+				</jornada>
+				<jornada>
+					<partido>
+						<equipoLocal ref="E6"/>
+						<equipoVisitante ref="E1"/>
+						<puntosLocal></puntosLocal>
+						<puntosVisitante></puntosVisitante>
+					</partido>
+					<partido>
+						<equipoLocal ref="E16"/>
+						<equipoVisitante ref="E5"/>
+						<puntosLocal></puntosLocal>
+						<puntosVisitante></puntosVisitante>
+					</partido>
+					<partido>
+						<equipoLocal ref="E2"/>
+						<equipoVisitante ref="E4"/>
+						<puntosLocal></puntosLocal>
+						<puntosVisitante></puntosVisitante>
+					</partido>
+				</jornada>
+				<jornada>
+					<partido>
+						<equipoLocal ref="E16"/>
+						<equipoVisitante ref="E6"/>
+						<puntosLocal></puntosLocal>
+						<puntosVisitante></puntosVisitante>
+					</partido>
+					<partido>
+						<equipoLocal ref="E2"/>
+						<equipoVisitante ref="E1"/>
+						<puntosLocal></puntosLocal>
+						<puntosVisitante></puntosVisitante>
+					</partido>
+					<partido>
+						<equipoLocal ref="E4"/>
+						<equipoVisitante ref="E5"/>
+						<puntosLocal></puntosLocal>
+						<puntosVisitante></puntosVisitante>
+					</partido>
+				</jornada>
+				<jornada>
+					<partido>
+						<equipoLocal ref="E6"/>
+						<equipoVisitante ref="E2"/>
+						<puntosLocal></puntosLocal>
+						<puntosVisitante></puntosVisitante>
+					</partido>
+					<partido>
+						<equipoLocal ref="E4"/>
+						<equipoVisitante ref="E16"/>
+						<puntosLocal></puntosLocal>
+						<puntosVisitante></puntosVisitante>
+					</partido>
+					<partido>
+						<equipoLocal ref="E5"/>
+						<equipoVisitante ref="E1"/>
+						<puntosLocal></puntosLocal>
+						<puntosVisitante></puntosVisitante>
+					</partido>
+				</jornada>
+				<jornada>
+					<partido>
+						<equipoLocal ref="E4"/>
+						<equipoVisitante ref="E6"/>
+						<puntosLocal></puntosLocal>
+						<puntosVisitante></puntosVisitante>
+					</partido>
+					<partido>
+						<equipoLocal ref="E5"/>
+						<equipoVisitante ref="E2"/>
+						<puntosLocal></puntosLocal>
+						<puntosVisitante></puntosVisitante>
+					</partido>
+					<partido>
+						<equipoLocal ref="E1"/>
+						<equipoVisitante ref="E16"/>
+						<puntosLocal></puntosLocal>
+						<puntosVisitante></puntosVisitante>
+					</partido>
+				</jornada>
+				<jornada>
+					<partido>
+						<equipoLocal ref="E6"/>
+						<equipoVisitante ref="E5"/>
+						<puntosLocal></puntosLocal>
+						<puntosVisitante></puntosVisitante>
+					</partido>
+					<partido>
+						<equipoLocal ref="E4"/>
+						<equipoVisitante ref="E1"/>
+						<puntosLocal></puntosLocal>
+						<puntosVisitante></puntosVisitante>
+					</partido>
+					<partido>
+						<equipoLocal ref="E2"/>
+						<equipoVisitante ref="E16"/>
+						<puntosLocal></puntosLocal>
+						<puntosVisitante></puntosVisitante>
+					</partido>
+				</jornada>
+				<jornada>
+					<partido>
+						<equipoLocal ref="E1"/>
+						<equipoVisitante ref="E6"/>
+						<puntosLocal></puntosLocal>
+						<puntosVisitante></puntosVisitante>
+					</partido>
+					<partido>
+						<equipoLocal ref="E5"/>
+						<equipoVisitante ref="E16"/>
+						<puntosLocal></puntosLocal>
+						<puntosVisitante></puntosVisitante>
+					</partido>
+					<partido>
+						<equipoLocal ref="E4"/>
+						<equipoVisitante ref="E2"/>
+						<puntosLocal></puntosLocal>
+						<puntosVisitante></puntosVisitante>
+					</partido>
+				</jornada>
+				<jornada>
+					<partido>
+						<equipoLocal ref="E6"/>
+						<equipoVisitante ref="E16"/>
+						<puntosLocal></puntosLocal>
+						<puntosVisitante></puntosVisitante>
+					</partido>
+					<partido>
+						<equipoLocal ref="E1"/>
+						<equipoVisitante ref="E2"/>
+						<puntosLocal></puntosLocal>
+						<puntosVisitante></puntosVisitante>
+					</partido>
+					<partido>
+						<equipoLocal ref="E5"/>
+						<equipoVisitante ref="E4"/>
+						<puntosLocal></puntosLocal>
+						<puntosVisitante></puntosVisitante>
+					</partido>
+				</jornada>
+				<jornada>
+					<partido>
+						<equipoLocal ref="E2"/>
+						<equipoVisitante ref="E6"/>
+						<puntosLocal></puntosLocal>
+						<puntosVisitante></puntosVisitante>
+					</partido>
+					<partido>
+						<equipoLocal ref="E16"/>
+						<equipoVisitante ref="E4"/>
+						<puntosLocal></puntosLocal>
+						<puntosVisitante></puntosVisitante>
+					</partido>
+					<partido>
+						<equipoLocal ref="E1"/>
+						<equipoVisitante ref="E5"/>
+						<puntosLocal></puntosLocal>
+						<puntosVisitante></puntosVisitante>
+					</partido>
+				</jornada>
+				<jornada>
+					<partido>
+						<equipoLocal ref="E6"/>
+						<equipoVisitante ref="E4"/>
+						<puntosLocal></puntosLocal>
+						<puntosVisitante></puntosVisitante>
+					</partido>
+					<partido>
+						<equipoLocal ref="E2"/>
+						<equipoVisitante ref="E5"/>
+						<puntosLocal></puntosLocal>
+						<puntosVisitante></puntosVisitante>
+					</partido>
+					<partido>
+						<equipoLocal ref="E16"/>
+						<equipoVisitante ref="E1"/>
+						<puntosLocal></puntosLocal>
+						<puntosVisitante></puntosVisitante>
+					</partido>
+				</jornada>
+			</jornadas>
+		</temporada>
 	</temporadas>
 	<usuarios>
 		<usuario>
@@ -724,9 +983,14 @@
 			<rol>admin</rol>
 		</usuario>
 		<usuario>
-			<user>Invitado</user>
-			<pass></pass>
+			<user>Usuario</user>
+			<pass>12345</pass>
 			<rol>user</rol>
+		</usuario>
+		<usuario>
+			<user>Arbitro</user>
+			<pass>12345</pass>
+			<rol>arbitro</rol>
 		</usuario>
 	</usuarios>
 </federacion>
