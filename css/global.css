@@ -1685,6 +1685,7 @@ dialog.overlayPerfil::backdrop {
   border-radius: 10px;
   box-shadow: 1px 1px 10px var(--azul-oscuro);
   margin: 10px;
+  min-height: 400px;
 }
 
 .jugadores-card {
