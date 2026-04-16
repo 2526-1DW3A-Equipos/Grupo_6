@@ -14,7 +14,7 @@ $RECYCLE.BIN/
 
 # VSCode
 .vscode/
-./fotos/
+.//liga/fotos/
 
 # JetBrains (PhpStorm, IntelliJ, WebStorm, etc)
 .idea/

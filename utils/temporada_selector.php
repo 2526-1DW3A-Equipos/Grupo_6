@@ -1,6 +1,6 @@
 <?php
 
-function obtenerContextoTemporada(string $xmlPath = './data/datos.xml'): array
+function obtenerContextoTemporada(string $xmlPath = './liga/datos/datos-liga.xml'): array
 {
     $xml = new DOMDocument();
     $xml->load($xmlPath);

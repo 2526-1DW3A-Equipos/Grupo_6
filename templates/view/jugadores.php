@@ -1,7 +1,7 @@
 <?php
 function transformarXSL($filtro = "") {
     $xml = new DOMDocument();
-    $xml->load("./data/datos.xml");
+    $xml->load("./liga/liga/datos/datos-liga.xml");
 
     $xsl = new DOMDocument();
     $xsl->load("./templates/xsl/jugadores.xsl");

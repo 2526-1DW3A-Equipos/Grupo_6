@@ -31,7 +31,7 @@
                     <xsl:value-of select="@escudo"/>
                 </xsl:when>
                 <xsl:otherwise>
-                    <xsl:value-of select="concat('./fotos/equipos/', $anoInicio, '/', substring-after($equipoRef, 'E'), '_', $equipoNombreArchivo, '.jpg')"/>
+                    <xsl:value-of select="concat('.//liga/fotos/equipos/', $anoInicio, '/', substring-after($equipoRef, 'E'), '_', $equipoNombreArchivo, '.jpg')"/>
                 </xsl:otherwise>
             </xsl:choose>
         </xsl:variable>
@@ -73,7 +73,7 @@
                                     <xsl:value-of select="$foto"/>
                                 </xsl:when>
                                 <xsl:otherwise>
-                                    <xsl:value-of select="concat('./fotos/jugadores/', $anoInicio, '/', $jugadorRef, '.jpg')"/>
+                                    <xsl:value-of select="concat('.//liga/fotos/jugadores/', $anoInicio, '/', $jugadorRef, '.jpg')"/>
                                 </xsl:otherwise>
                             </xsl:choose>
                         </xsl:variable>

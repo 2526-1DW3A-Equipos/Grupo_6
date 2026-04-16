@@ -32,7 +32,7 @@ if ($esAjaxJugadores) {
   $filtroApellido = mb_strtolower($filtroApellido, 'UTF-8');
 
   $xmlAjax = new DOMDocument();
-  $xmlAjax->load('./data/datos.xml');
+  $xmlAjax->load('./liga/datos/datos-liga.xml');
 
   $filtroNombreNodo = $xmlAjax->createElement('filtroNombre');
   $filtroNombreNodo->appendChild($xmlAjax->createTextNode($filtroNombre));
@@ -59,7 +59,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['email']) && isset($_P
   $pass_post = $_POST['password'];
 
   // Load XML
-  $xml_path = './data/datos.xml';
+  $xml_path = './liga/datos/datos-liga.xml';
   if (file_exists($xml_path)) {
     $xml = simplexml_load_file($xml_path);
     $login_success = false;
@@ -107,7 +107,7 @@ $tituloLigaHeader = '';
 $subtituloLigaHeader = '';
 
 if ($mostrarTemporadaHeader) {
-  $temporadaContextoHeader = obtenerContextoTemporada('./data/datos.xml');
+  $temporadaContextoHeader = obtenerContextoTemporada('./liga/datos/datos-liga.xml');
   if ($rutaSeguraHeader === 'equipos' && !empty($_GET['eq']) && preg_match('/^E\d+$/', $_GET['eq'])) {
     $equipoSeleccionadoHeader = $_GET['eq'];
   }

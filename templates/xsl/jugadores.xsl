@@ -20,7 +20,7 @@
                         <xsl:value-of select="$fotoJugadorTemporada"/>
                     </xsl:when>
                     <xsl:otherwise>
-                        <xsl:value-of select="concat('./fotos/jugadores/', $ultimaTemporada, '/', $jugadorId, '.jpg')"/>
+                        <xsl:value-of select="concat('.//liga/fotos/jugadores/', $ultimaTemporada, '/', $jugadorId, '.jpg')"/>
                     </xsl:otherwise>
                 </xsl:choose>
             </xsl:variable>
