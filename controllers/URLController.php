@@ -9,7 +9,8 @@ class URLController {
         'jugadores'     => 'view/jugadores.php',
         'informacion'   => 'view/informacion.html',
         'soporte'       => 'view/soporte.html',
-        'pl_admin'      => 'view/panel_admin.php'
+        'pl_admin'      => 'view/panel_admin.php',
+        'chatbot'       => 'view/chatbot.php'
     ];
 
     public static function init(){

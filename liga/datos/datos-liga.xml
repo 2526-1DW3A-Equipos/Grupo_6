@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?xml-stylesheet type="text/xsl" href="liga.xsl"?>
-<?xml-model href="datos-liga.xsd" type="application/xml" schematypens="http://www.w3.org/2001/XMLSchema"?>
 <federacion>
 	<equipos>
 		<equipo id="E1">
@@ -37,171 +36,170 @@
 	<jugadores>
 		<jugador id="20000001A">
 			<nombreJugador>Andrea Iniesta 123</nombreJugador>
-			<apellidosJugador></apellidosJugador>
+			
 		</jugador>
 		<jugador id="30000001C">
 			<nombreJugador>Antoine Griezmann</nombreJugador>
-			<apellidosJugador></apellidosJugador>
+			
 		</jugador>
 		<jugador id="50000001C">
 			<nombreJugador>Borja Iglesias</nombreJugador>
-			<apellidosJugador></apellidosJugador>
 		</jugador>
 		<jugador id="10000001A">
 			<nombreJugador>Carlos Alcántara</nombreJugador>
-			<apellidosJugador></apellidosJugador>
+			
 		</jugador>
 		<jugador id="50000001G">
 			<nombreJugador>Chimy Ávila</nombreJugador>
-			<apellidosJugador></apellidosJugador>
+			
 		</jugador>
 		<jugador id="10000001E">
 			<nombreJugador>David Alaba</nombreJugador>
-			<apellidosJugador></apellidosJugador>
+			
 		</jugador>
 		<jugador id="60000001G">
 			<nombreJugador>Diego López</nombreJugador>
-			<apellidosJugador></apellidosJugador>
+			
 		</jugador>
 		<jugador id="40000001G">
 			<nombreJugador>Erik Lamela</nombreJugador>
-			<apellidosJugador></apellidosJugador>
+			
 		</jugador>
 		<jugador id="20000001E">
 			<nombreJugador>Ferran Torres</nombreJugador>
-			<apellidosJugador></apellidosJugador>
+			
 		</jugador>
 		<jugador id="60000001F">
 			<nombreJugador>Fran Pérez</nombreJugador>
-			<apellidosJugador></apellidosJugador>
+			
 		</jugador>
 		<jugador id="50000001D">
 			<nombreJugador>Germán Pezzella</nombreJugador>
-			<apellidosJugador></apellidosJugador>
+			
 		</jugador>
 		<jugador id="60000001C">
 			<nombreJugador>Giorgi Mamardashvili</nombreJugador>
-			<apellidosJugador></apellidosJugador>
+			
 		</jugador>
 		<jugador id="60000001B">
 			<nombreJugador>Hugo Duro</nombreJugador>
-			<apellidosJugador></apellidosJugador>
+			
 		</jugador>
 		<jugador id="50000001B">
 			<nombreJugador>Isco Alarcón</nombreJugador>
-			<apellidosJugador></apellidosJugador>
+			
 		</jugador>
 		<jugador id="40000001B">
 			<nombreJugador>Ivan Rakitic</nombreJugador>
-			<apellidosJugador></apellidosJugador>
+			
 		</jugador>
 		<jugador id="30000001B">
 			<nombreJugador>Jan Oblak</nombreJugador>
-			<apellidosJugador></apellidosJugador>
+			
 		</jugador>
 		<jugador id="60000001E">
 			<nombreJugador>Javi Guerra</nombreJugador>
-			<apellidosJugador></apellidosJugador>
+			
 		</jugador>
 		<jugador id="40000001A">
 			<nombreJugador>Jesús Navas</nombreJugador>
-			<apellidosJugador></apellidosJugador>
+			
 		</jugador>
 		<jugador id="60000001A">
 			<nombreJugador>Jose Luis Gayà</nombreJugador>
-			<apellidosJugador></apellidosJugador>
+			
 		</jugador>
 		<jugador id="10000001G">
 			<nombreJugador>Karim Benzema</nombreJugador>
-			<apellidosJugador></apellidosJugador>
+			
 		</jugador>
 		<jugador id="30000001A">
 			<nombreJugador>Koke Resurrección</nombreJugador>
-			<apellidosJugador></apellidosJugador>
+			
 		</jugador>
 		<jugador id="20000001C">
 			<nombreJugador>Lamine Yamal</nombreJugador>
-			<apellidosJugador></apellidosJugador>
+			
 		</jugador>
 		<jugador id="40000001D">
 			<nombreJugador>Lucas Ocampos</nombreJugador>
-			<apellidosJugador></apellidosJugador>
+			
 		</jugador>
 		<jugador id="10000001D">
 			<nombreJugador>Lucas Vázquez</nombreJugador>
-			<apellidosJugador></apellidosJugador>
+			
 		</jugador>
 		<jugador id="10000001F">
 			<nombreJugador>Luka Modric</nombreJugador>
-			<apellidosJugador></apellidosJugador>
+			
 		</jugador>
 		<jugador id="50000001F">
 			<nombreJugador>Marc Bartra</nombreJugador>
-			<apellidosJugador></apellidosJugador>
+			
 		</jugador>
 		<jugador id="30000001G">
 			<nombreJugador>Marcos Llorente</nombreJugador>
-			<apellidosJugador></apellidosJugador>
+			
 		</jugador>
 		<jugador id="10000001B">
 			<nombreJugador>Marcos Ruiz</nombreJugador>
-			<apellidosJugador></apellidosJugador>
+			
 		</jugador>
 		<jugador id="30000001E">
 			<nombreJugador>Memphis Depay</nombreJugador>
-			<apellidosJugador></apellidosJugador>
+			
 		</jugador>
 		<jugador id="50000001A">
 			<nombreJugador>Nabil Fekir</nombreJugador>
-			<apellidosJugador></apellidosJugador>
+			
 		</jugador>
 		<jugador id="40000001F">
 			<nombreJugador>Nemanja Gudelj</nombreJugador>
-			<apellidosJugador></apellidosJugador>
+			
 		</jugador>
 		<jugador id="20000001D">
 			<nombreJugador>Pau Cubarsí</nombreJugador>
-			<apellidosJugador></apellidosJugador>
+			
 		</jugador>
 		<jugador id="20000001F">
 			<nombreJugador>Pedri Potra</nombreJugador>
-			<apellidosJugador></apellidosJugador>
+			
 		</jugador>
 		<jugador id="60000001D">
 			<nombreJugador>Pepelu García</nombreJugador>
-			<apellidosJugador></apellidosJugador>
+			
 		</jugador>
 		<jugador id="20000001G">
 			<nombreJugador>Robert L.</nombreJugador>
-			<apellidosJugador></apellidosJugador>
+			
 		</jugador>
 		<jugador id="30000001D">
 			<nombreJugador>Rodrigo De Paul</nombreJugador>
-			<apellidosJugador></apellidosJugador>
+			
 		</jugador>
 		<jugador id="30000001F">
 			<nombreJugador>Samuel Lino</nombreJugador>
-			<apellidosJugador></apellidosJugador>
+			
 		</jugador>
 		<jugador id="10000001C">
 			<nombreJugador>Sergio Ramos II</nombreJugador>
-			<apellidosJugador></apellidosJugador>
+			
 		</jugador>
 		<jugador id="40000001E">
 			<nombreJugador>Suso Fernández</nombreJugador>
-			<apellidosJugador></apellidosJugador>
+			
 		</jugador>
 		<jugador id="50000001E">
 			<nombreJugador>William Carvalho</nombreJugador>
-			<apellidosJugador></apellidosJugador>
+			
 		</jugador>
 		<jugador id="20000001B">
 			<nombreJugador>Xavi Hernández</nombreJugador>
-			<apellidosJugador></apellidosJugador>
+			
 		</jugador>
 		<jugador id="40000001C">
 			<nombreJugador>Youssef En-Nesyri</nombreJugador>
-			<apellidosJugador></apellidosJugador>
+			
 		</jugador>
 	</jugadores>
 	<temporadas>

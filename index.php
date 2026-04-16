@@ -181,6 +181,13 @@ if ($mostrarTemporadaHeader) {
             ?>" href="?equipos" data-page="equipos">Equipos</a>
         </li>
 
+         <li>
+          <a class="menuItem 
+            <?php if (isset($pagina) && $pagina === 'equipos')
+              echo 'isActive';
+            ?>" href="?chatbot" data-page="chatbot">IA Basket</a>
+        </li>
+
         <li>
           <?php if($isLogged):?>
               <?php if($isAdmin): ?>
