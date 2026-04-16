@@ -360,6 +360,7 @@ if ($mostrarTemporadaHeader) {
       <polyline points="18 15 12 9 6 15"></polyline>
     </svg>
   </button>
+  <script src="./utils/scroll_reveal.js"></script>
   <!-- Script para Toggle Password y Modales -->
   <script>
     document.addEventListener("DOMContentLoaded", function() {
@@ -411,7 +412,6 @@ if ($mostrarTemporadaHeader) {
 
     });
   </script>
-  <script src="./controllers/FrontUrlGuardian.js"></script>
 </body>
 
 </html>

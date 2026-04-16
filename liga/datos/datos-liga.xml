@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?xml-stylesheet type="text/xsl" href="liga.xsl"?>
+<?xml-model href="datos-liga.xsd" type="application/xml" schematypens="http://www.w3.org/2001/XMLSchema"?>
 <federacion>
 	<equipos>
 		<equipo id="E1">
@@ -22,6 +23,15 @@
 		</equipo>
 		<equipo id="E16">
 			<nombreEquipo>Miau</nombreEquipo>
+		</equipo>
+		<equipo id="E17">
+			<nombreEquipo>Atletico de Txurdinaga</nombreEquipo>
+		</equipo>
+		<equipo id="E18">
+			<nombreEquipo>Barcelona</nombreEquipo>
+		</equipo>
+		<equipo id="E19">
+			<nombreEquipo>RealGPT</nombreEquipo>
 		</equipo>
 	</equipos>
 	<jugadores>
@@ -775,114 +785,114 @@
 			<jornadas>
 				<jornada>
 					<partido>
+						<equipoLocal ref="E16"/>
+						<equipoVisitante ref="E2"/>
+						<puntosLocal>3</puntosLocal>
+						<puntosVisitante>1</puntosVisitante>
+					</partido>
+					<partido>
+						<equipoLocal ref="E1"/>
+						<equipoVisitante ref="E4"/>
+						<puntosLocal>4</puntosLocal>
+						<puntosVisitante>5</puntosVisitante>
+					</partido>
+					<partido>
 						<equipoLocal ref="E5"/>
 						<equipoVisitante ref="E6"/>
-						<puntosLocal>12</puntosLocal>
+						<puntosLocal>123</puntosLocal>
 						<puntosVisitante>23</puntosVisitante>
 					</partido>
-					<partido>
-						<equipoLocal ref="E1"/>
-						<equipoVisitante ref="E4"/>
-						<puntosLocal></puntosLocal>
-						<puntosVisitante></puntosVisitante>
-					</partido>
-					<partido>
-						<equipoLocal ref="E16"/>
-						<equipoVisitante ref="E2"/>
-						<puntosLocal></puntosLocal>
-						<puntosVisitante></puntosVisitante>
-					</partido>
 				</jornada>
 				<jornada>
 					<partido>
 						<equipoLocal ref="E6"/>
 						<equipoVisitante ref="E1"/>
-						<puntosLocal></puntosLocal>
-						<puntosVisitante></puntosVisitante>
-					</partido>
-					<partido>
-						<equipoLocal ref="E16"/>
-						<equipoVisitante ref="E5"/>
-						<puntosLocal></puntosLocal>
-						<puntosVisitante></puntosVisitante>
+						<puntosLocal>4</puntosLocal>
+						<puntosVisitante>5</puntosVisitante>
 					</partido>
 					<partido>
 						<equipoLocal ref="E2"/>
 						<equipoVisitante ref="E4"/>
-						<puntosLocal></puntosLocal>
-						<puntosVisitante></puntosVisitante>
+						<puntosLocal>2</puntosLocal>
+						<puntosVisitante>1</puntosVisitante>
+					</partido>
+					<partido>
+						<equipoLocal ref="E16"/>
+						<equipoVisitante ref="E5"/>
+						<puntosLocal>4</puntosLocal>
+						<puntosVisitante>6</puntosVisitante>
 					</partido>
 				</jornada>
 				<jornada>
 					<partido>
-						<equipoLocal ref="E16"/>
-						<equipoVisitante ref="E6"/>
-						<puntosLocal></puntosLocal>
-						<puntosVisitante></puntosVisitante>
-					</partido>
-					<partido>
 						<equipoLocal ref="E2"/>
 						<equipoVisitante ref="E1"/>
-						<puntosLocal></puntosLocal>
-						<puntosVisitante></puntosVisitante>
+						<puntosLocal>4</puntosLocal>
+						<puntosVisitante>6</puntosVisitante>
 					</partido>
 					<partido>
 						<equipoLocal ref="E4"/>
 						<equipoVisitante ref="E5"/>
-						<puntosLocal></puntosLocal>
-						<puntosVisitante></puntosVisitante>
+						<puntosLocal>12</puntosLocal>
+						<puntosVisitante>5</puntosVisitante>
+					</partido>
+					<partido>
+						<equipoLocal ref="E16"/>
+						<equipoVisitante ref="E6"/>
+						<puntosLocal>65</puntosLocal>
+						<puntosVisitante>3</puntosVisitante>
 					</partido>
 				</jornada>
 				<jornada>
 					<partido>
+						<equipoLocal ref="E5"/>
+						<equipoVisitante ref="E1"/>
+						<puntosLocal>123</puntosLocal>
+						<puntosVisitante>543</puntosVisitante>
+					</partido>
+					<partido>
 						<equipoLocal ref="E6"/>
 						<equipoVisitante ref="E2"/>
-						<puntosLocal></puntosLocal>
-						<puntosVisitante></puntosVisitante>
+						<puntosLocal>43</puntosLocal>
+						<puntosVisitante>45</puntosVisitante>
 					</partido>
 					<partido>
 						<equipoLocal ref="E4"/>
 						<equipoVisitante ref="E16"/>
-						<puntosLocal></puntosLocal>
-						<puntosVisitante></puntosVisitante>
-					</partido>
-					<partido>
-						<equipoLocal ref="E5"/>
-						<equipoVisitante ref="E1"/>
-						<puntosLocal></puntosLocal>
-						<puntosVisitante></puntosVisitante>
+						<puntosLocal>65</puntosLocal>
+						<puntosVisitante>12</puntosVisitante>
 					</partido>
 				</jornada>
 				<jornada>
 					<partido>
-						<equipoLocal ref="E4"/>
-						<equipoVisitante ref="E6"/>
-						<puntosLocal></puntosLocal>
-						<puntosVisitante></puntosVisitante>
-					</partido>
-					<partido>
 						<equipoLocal ref="E5"/>
 						<equipoVisitante ref="E2"/>
-						<puntosLocal></puntosLocal>
-						<puntosVisitante></puntosVisitante>
+						<puntosLocal>12</puntosLocal>
+						<puntosVisitante>5</puntosVisitante>
+					</partido>
+					<partido>
+						<equipoLocal ref="E4"/>
+						<equipoVisitante ref="E6"/>
+						<puntosLocal>3</puntosLocal>
+						<puntosVisitante>6</puntosVisitante>
 					</partido>
 					<partido>
 						<equipoLocal ref="E1"/>
 						<equipoVisitante ref="E16"/>
-						<puntosLocal></puntosLocal>
-						<puntosVisitante></puntosVisitante>
+						<puntosLocal>8</puntosLocal>
+						<puntosVisitante>7</puntosVisitante>
 					</partido>
 				</jornada>
 				<jornada>
 					<partido>
-						<equipoLocal ref="E6"/>
-						<equipoVisitante ref="E5"/>
-						<puntosLocal></puntosLocal>
-						<puntosVisitante></puntosVisitante>
-					</partido>
-					<partido>
 						<equipoLocal ref="E4"/>
 						<equipoVisitante ref="E1"/>
+						<puntosLocal>12</puntosLocal>
+						<puntosVisitante>54</puntosVisitante>
+					</partido>
+					<partido>
+						<equipoLocal ref="E6"/>
+						<equipoVisitante ref="E5"/>
 						<puntosLocal></puntosLocal>
 						<puntosVisitante></puntosVisitante>
 					</partido>
@@ -894,6 +904,12 @@
 					</partido>
 				</jornada>
 				<jornada>
+					<partido>
+						<equipoLocal ref="E4"/>
+						<equipoVisitante ref="E2"/>
+						<puntosLocal></puntosLocal>
+						<puntosVisitante></puntosVisitante>
+					</partido>
 					<partido>
 						<equipoLocal ref="E1"/>
 						<equipoVisitante ref="E6"/>
@@ -906,20 +922,8 @@
 						<puntosLocal></puntosLocal>
 						<puntosVisitante></puntosVisitante>
 					</partido>
-					<partido>
-						<equipoLocal ref="E4"/>
-						<equipoVisitante ref="E2"/>
-						<puntosLocal></puntosLocal>
-						<puntosVisitante></puntosVisitante>
-					</partido>
 				</jornada>
 				<jornada>
-					<partido>
-						<equipoLocal ref="E6"/>
-						<equipoVisitante ref="E16"/>
-						<puntosLocal></puntosLocal>
-						<puntosVisitante></puntosVisitante>
-					</partido>
 					<partido>
 						<equipoLocal ref="E1"/>
 						<equipoVisitante ref="E2"/>
@@ -932,14 +936,14 @@
 						<puntosLocal></puntosLocal>
 						<puntosVisitante></puntosVisitante>
 					</partido>
-				</jornada>
-				<jornada>
 					<partido>
-						<equipoLocal ref="E2"/>
-						<equipoVisitante ref="E6"/>
+						<equipoLocal ref="E6"/>
+						<equipoVisitante ref="E16"/>
 						<puntosLocal></puntosLocal>
 						<puntosVisitante></puntosVisitante>
 					</partido>
+				</jornada>
+				<jornada>
 					<partido>
 						<equipoLocal ref="E16"/>
 						<equipoVisitante ref="E4"/>
@@ -952,8 +956,20 @@
 						<puntosLocal></puntosLocal>
 						<puntosVisitante></puntosVisitante>
 					</partido>
+					<partido>
+						<equipoLocal ref="E2"/>
+						<equipoVisitante ref="E6"/>
+						<puntosLocal></puntosLocal>
+						<puntosVisitante></puntosVisitante>
+					</partido>
 				</jornada>
 				<jornada>
+					<partido>
+						<equipoLocal ref="E16"/>
+						<equipoVisitante ref="E1"/>
+						<puntosLocal></puntosLocal>
+						<puntosVisitante></puntosVisitante>
+					</partido>
 					<partido>
 						<equipoLocal ref="E6"/>
 						<equipoVisitante ref="E4"/>
@@ -963,12 +979,6 @@
 					<partido>
 						<equipoLocal ref="E2"/>
 						<equipoVisitante ref="E5"/>
-						<puntosLocal></puntosLocal>
-						<puntosVisitante></puntosVisitante>
-					</partido>
-					<partido>
-						<equipoLocal ref="E16"/>
-						<equipoVisitante ref="E1"/>
 						<puntosLocal></puntosLocal>
 						<puntosVisitante></puntosVisitante>
 					</partido>
@@ -983,14 +993,19 @@
 			<rol>admin</rol>
 		</usuario>
 		<usuario>
-			<user>Usuario</user>
-			<pass>12345</pass>
+			<user>Invitado</user>
+			<pass></pass>
 			<rol>user</rol>
 		</usuario>
 		<usuario>
 			<user>Arbitro</user>
 			<pass>12345</pass>
 			<rol>arbitro</rol>
+		</usuario>
+		<usuario>
+			<user>txema</user>
+			<pass>12345</pass>
+			<rol>admin</rol>
 		</usuario>
 	</usuarios>
 </federacion>
