@@ -27,6 +27,11 @@ class URLController {
 
      public static function getPaginaActual() {
         $requestedPage = array_keys($_GET)[0] ?? 'inicio';
+
+        // Compatibilidad: la antigua ruta resultados ahora usa la vista unificada.
+        if ($requestedPage === 'resultados') {
+            $requestedPage = 'calendario';
+        }
         
         if(self::isValidUrl()){
             return $requestedPage;
