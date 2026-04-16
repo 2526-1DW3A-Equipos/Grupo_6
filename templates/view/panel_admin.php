@@ -11,7 +11,7 @@
 
     // 3. Si llega aquí, es admin. Cargamos datos.
     $xml = new DOMDocument();
-    $xml->load('./data/datos.xml');    
+    $xml->load('./liga/datos/datos-liga.xml');    
     $xpath = new DOMXPath($xml);
     
     // XPath corregido según tu estructura de datos.xml

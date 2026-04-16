@@ -1,0 +1,471 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="liga.xsl"?>
+<federacion>
+	<equipos>
+		<equipo id="E1">
+			<nombreEquipo>Los Lejanos de Kabiezes</nombreEquipo>
+		</equipo>
+		<equipo id="E2">
+			<nombreEquipo>Lobos de Otxar</nombreEquipo>
+		</equipo>
+		<equipo id="E3">
+			<nombreEquipo>Guerreros Zigoriel</nombreEquipo>
+		</equipo>
+		<equipo id="E4">
+			<nombreEquipo>Aguilas de Txurdinaga</nombreEquipo>
+		</equipo>
+		<equipo id="E5">
+			<nombreEquipo>Uribarri Basket</nombreEquipo>
+		</equipo>
+		<equipo id="E6">
+			<nombreEquipo>Santutxu Bulls</nombreEquipo>
+		</equipo>
+		<equipo id="E16">
+			<nombreEquipo>Miau</nombreEquipo>
+		</equipo>
+	</equipos>
+	<jugadores>
+		<jugador id="20000001A">
+			<nombreJugador>Andrea Iniesta 123</nombreJugador>
+			<apellidosJugador></apellidosJugador>
+		</jugador>
+		<jugador id="30000001C">
+			<nombreJugador>Antoine Griezmann</nombreJugador>
+			<apellidosJugador></apellidosJugador>
+		</jugador>
+		<jugador id="50000001C">
+			<nombreJugador>Borja Iglesias</nombreJugador>
+			<apellidosJugador></apellidosJugador>
+		</jugador>
+		<jugador id="10000001A">
+			<nombreJugador>Carlos Alcántara</nombreJugador>
+			<apellidosJugador></apellidosJugador>
+		</jugador>
+		<jugador id="50000001G">
+			<nombreJugador>Chimy Ávila</nombreJugador>
+			<apellidosJugador></apellidosJugador>
+		</jugador>
+		<jugador id="10000001E">
+			<nombreJugador>David Alaba</nombreJugador>
+			<apellidosJugador></apellidosJugador>
+		</jugador>
+		<jugador id="60000001G">
+			<nombreJugador>Diego López</nombreJugador>
+			<apellidosJugador></apellidosJugador>
+		</jugador>
+		<jugador id="40000001G">
+			<nombreJugador>Erik Lamela</nombreJugador>
+			<apellidosJugador></apellidosJugador>
+		</jugador>
+		<jugador id="20000001E">
+			<nombreJugador>Ferran Torres</nombreJugador>
+			<apellidosJugador></apellidosJugador>
+		</jugador>
+		<jugador id="60000001F">
+			<nombreJugador>Fran Pérez</nombreJugador>
+			<apellidosJugador></apellidosJugador>
+		</jugador>
+		<jugador id="50000001D">
+			<nombreJugador>Germán Pezzella</nombreJugador>
+			<apellidosJugador></apellidosJugador>
+		</jugador>
+		<jugador id="60000001C">
+			<nombreJugador>Giorgi Mamardashvili</nombreJugador>
+			<apellidosJugador></apellidosJugador>
+		</jugador>
+		<jugador id="60000001B">
+			<nombreJugador>Hugo Duro</nombreJugador>
+			<apellidosJugador></apellidosJugador>
+		</jugador>
+		<jugador id="50000001B">
+			<nombreJugador>Isco Alarcón</nombreJugador>
+			<apellidosJugador></apellidosJugador>
+		</jugador>
+		<jugador id="40000001B">
+			<nombreJugador>Ivan Rakitic</nombreJugador>
+			<apellidosJugador></apellidosJugador>
+		</jugador>
+		<jugador id="30000001B">
+			<nombreJugador>Jan Oblak</nombreJugador>
+			<apellidosJugador></apellidosJugador>
+		</jugador>
+		<jugador id="60000001E">
+			<nombreJugador>Javi Guerra</nombreJugador>
+			<apellidosJugador></apellidosJugador>
+		</jugador>
+		<jugador id="40000001A">
+			<nombreJugador>Jesús Navas</nombreJugador>
+			<apellidosJugador></apellidosJugador>
+		</jugador>
+		<jugador id="60000001A">
+			<nombreJugador>Jose Luis Gayà</nombreJugador>
+			<apellidosJugador></apellidosJugador>
+		</jugador>
+		<jugador id="10000001G">
+			<nombreJugador>Karim Benzema</nombreJugador>
+			<apellidosJugador></apellidosJugador>
+		</jugador>
+		<jugador id="30000001A">
+			<nombreJugador>Koke Resurrección</nombreJugador>
+			<apellidosJugador></apellidosJugador>
+		</jugador>
+		<jugador id="20000001C">
+			<nombreJugador>Lamine Yamal</nombreJugador>
+			<apellidosJugador></apellidosJugador>
+		</jugador>
+		<jugador id="40000001D">
+			<nombreJugador>Lucas Ocampos</nombreJugador>
+			<apellidosJugador></apellidosJugador>
+		</jugador>
+		<jugador id="10000001D">
+			<nombreJugador>Lucas Vázquez</nombreJugador>
+			<apellidosJugador></apellidosJugador>
+		</jugador>
+		<jugador id="10000001F">
+			<nombreJugador>Luka Modric</nombreJugador>
+			<apellidosJugador></apellidosJugador>
+		</jugador>
+		<jugador id="50000001F">
+			<nombreJugador>Marc Bartra</nombreJugador>
+			<apellidosJugador></apellidosJugador>
+		</jugador>
+		<jugador id="30000001G">
+			<nombreJugador>Marcos Llorente</nombreJugador>
+			<apellidosJugador></apellidosJugador>
+		</jugador>
+		<jugador id="10000001B">
+			<nombreJugador>Marcos Ruiz</nombreJugador>
+			<apellidosJugador></apellidosJugador>
+		</jugador>
+		<jugador id="30000001E">
+			<nombreJugador>Memphis Depay</nombreJugador>
+			<apellidosJugador></apellidosJugador>
+		</jugador>
+		<jugador id="50000001A">
+			<nombreJugador>Nabil Fekir</nombreJugador>
+			<apellidosJugador></apellidosJugador>
+		</jugador>
+		<jugador id="40000001F">
+			<nombreJugador>Nemanja Gudelj</nombreJugador>
+			<apellidosJugador></apellidosJugador>
+		</jugador>
+		<jugador id="20000001D">
+			<nombreJugador>Pau Cubarsí</nombreJugador>
+			<apellidosJugador></apellidosJugador>
+		</jugador>
+		<jugador id="20000001F">
+			<nombreJugador>Pedri Potra</nombreJugador>
+			<apellidosJugador></apellidosJugador>
+		</jugador>
+		<jugador id="60000001D">
+			<nombreJugador>Pepelu García</nombreJugador>
+			<apellidosJugador></apellidosJugador>
+		</jugador>
+		<jugador id="20000001G">
+			<nombreJugador>Robert L.</nombreJugador>
+			<apellidosJugador></apellidosJugador>
+		</jugador>
+		<jugador id="30000001D">
+			<nombreJugador>Rodrigo De Paul</nombreJugador>
+			<apellidosJugador></apellidosJugador>
+		</jugador>
+		<jugador id="30000001F">
+			<nombreJugador>Samuel Lino</nombreJugador>
+			<apellidosJugador></apellidosJugador>
+		</jugador>
+		<jugador id="10000001C">
+			<nombreJugador>Sergio Ramos II</nombreJugador>
+			<apellidosJugador></apellidosJugador>
+		</jugador>
+		<jugador id="40000001E">
+			<nombreJugador>Suso Fernández</nombreJugador>
+			<apellidosJugador></apellidosJugador>
+		</jugador>
+		<jugador id="50000001E">
+			<nombreJugador>William Carvalho</nombreJugador>
+			<apellidosJugador></apellidosJugador>
+		</jugador>
+		<jugador id="20000001B">
+			<nombreJugador>Xavi Hernández</nombreJugador>
+			<apellidosJugador></apellidosJugador>
+		</jugador>
+		<jugador id="40000001C">
+			<nombreJugador>Youssef En-Nesyri</nombreJugador>
+			<apellidosJugador></apellidosJugador>
+		</jugador>
+	</jugadores>
+	<temporadas>
+		<temporada anoInicio="2023" anoFin="2024">
+			<plantillas>
+				<equipo ref="E1" escudo="">
+					<jugador ref="10000001C" dorsal="3" foto=""/>
+					<jugador ref="20000001B" dorsal="6" foto=""/>
+					<jugador ref="30000001D" dorsal="1" foto=""/>
+					<jugador ref="30000001F" dorsal="2" foto=""/>
+					<jugador ref="40000001C" dorsal="7" foto=""/>
+					<jugador ref="40000001E" dorsal="4" foto=""/>
+					<jugador ref="50000001E" dorsal="5" foto=""/>
+				</equipo>
+				<equipo ref="E2" escudo="">
+					<jugador ref="10000001A" dorsal="3" foto=""/>
+					<jugador ref="20000001A" dorsal="1" foto=""/>
+					<jugador ref="30000001C" dorsal="2" foto=""/>
+					<jugador ref="40000001B" dorsal="6" foto=""/>
+					<jugador ref="50000001D" dorsal="5" foto=""/>
+					<jugador ref="50000001G" dorsal="4" foto=""/>
+					<jugador ref="60000001E" dorsal="7" foto=""/>
+				</equipo>
+				<equipo ref="E3" escudo="">
+					<jugador ref="10000001E" dorsal="1" foto=""/>
+					<jugador ref="20000001C" dorsal="4" foto=""/>
+					<jugador ref="30000001A" dorsal="6" foto=""/>
+					<jugador ref="30000001B" dorsal="7" foto=""/>
+					<jugador ref="40000001A" dorsal="5" foto=""/>
+					<jugador ref="60000001A" dorsal="3" foto=""/>
+					<jugador ref="60000001C" dorsal="2" foto=""/>
+				</equipo>
+				<equipo ref="E4" escudo="">
+					<jugador ref="20000001E" dorsal="7" foto=""/>
+					<jugador ref="30000001G" dorsal="3" foto=""/>
+					<jugador ref="40000001D" dorsal="2" foto=""/>
+					<jugador ref="40000001G" dorsal="6" foto=""/>
+					<jugador ref="60000001B" dorsal="8" foto=""/>
+					<jugador ref="60000001F" dorsal="1" foto=""/>
+					<jugador ref="60000001G" dorsal="5" foto=""/>
+				</equipo>
+				<equipo ref="E5" escudo="">
+					<jugador ref="10000001B" dorsal="7" foto=""/>
+					<jugador ref="10000001D" dorsal="4" foto=""/>
+					<jugador ref="10000001F" dorsal="5" foto=""/>
+					<jugador ref="10000001G" dorsal="3" foto=""/>
+					<jugador ref="50000001B" dorsal="2" foto=""/>
+					<jugador ref="50000001C" dorsal="1" foto=""/>
+					<jugador ref="50000001F" dorsal="6" foto=""/>
+				</equipo>
+				<equipo ref="E6" escudo="">
+					<jugador ref="20000001D" dorsal="4" foto=""/>
+					<jugador ref="20000001F" dorsal="5" foto=""/>
+					<jugador ref="20000001G" dorsal="7" foto=""/>
+					<jugador ref="30000001E" dorsal="1" foto=""/>
+					<jugador ref="40000001F" dorsal="3" foto=""/>
+					<jugador ref="50000001A" dorsal="2" foto=""/>
+					<jugador ref="60000001D" dorsal="6" foto=""/>
+				</equipo>
+			</plantillas>
+			<jornadas>
+				<jornada>
+					<partido>
+						<equipoLocal ref="E5"/>
+						<equipoVisitante ref="E2"/>
+						<puntosLocal>123</puntosLocal>
+						<puntosVisitante>43</puntosVisitante>
+					</partido>
+					<partido>
+						<equipoLocal ref="E6"/>
+						<equipoVisitante ref="E3"/>
+						<puntosLocal>12</puntosLocal>
+						<puntosVisitante>41</puntosVisitante>
+					</partido>
+					<partido>
+						<equipoLocal ref="E1"/>
+						<equipoVisitante ref="E4"/>
+						<puntosLocal>123</puntosLocal>
+						<puntosVisitante>432</puntosVisitante>
+					</partido>
+				</jornada>
+				<jornada>
+					<partido>
+						<equipoLocal ref="E3"/>
+						<equipoVisitante ref="E1"/>
+						<puntosLocal>123</puntosLocal>
+						<puntosVisitante>432</puntosVisitante>
+					</partido>
+					<partido>
+						<equipoLocal ref="E2"/>
+						<equipoVisitante ref="E4"/>
+						<puntosLocal></puntosLocal>
+						<puntosVisitante></puntosVisitante>
+					</partido>
+					<partido>
+						<equipoLocal ref="E5"/>
+						<equipoVisitante ref="E6"/>
+						<puntosLocal></puntosLocal>
+						<puntosVisitante></puntosVisitante>
+					</partido>
+				</jornada>
+				<jornada>
+					<partido>
+						<equipoLocal ref="E2"/>
+						<equipoVisitante ref="E1"/>
+						<puntosLocal>65</puntosLocal>
+						<puntosVisitante>543</puntosVisitante>
+					</partido>
+					<partido>
+						<equipoLocal ref="E5"/>
+						<equipoVisitante ref="E3"/>
+						<puntosLocal>43</puntosLocal>
+						<puntosVisitante>123</puntosVisitante>
+					</partido>
+					<partido>
+						<equipoLocal ref="E4"/>
+						<equipoVisitante ref="E6"/>
+						<puntosLocal>64</puntosLocal>
+						<puntosVisitante>8776</puntosVisitante>
+					</partido>
+				</jornada>
+				<jornada>
+					<partido>
+						<equipoLocal ref="E6"/>
+						<equipoVisitante ref="E1"/>
+						<puntosLocal>41</puntosLocal>
+						<puntosVisitante>54</puntosVisitante>
+					</partido>
+					<partido>
+						<equipoLocal ref="E3"/>
+						<equipoVisitante ref="E2"/>
+						<puntosLocal>54</puntosLocal>
+						<puntosVisitante>42</puntosVisitante>
+					</partido>
+					<partido>
+						<equipoLocal ref="E4"/>
+						<equipoVisitante ref="E5"/>
+						<puntosLocal>13</puntosLocal>
+						<puntosVisitante>2</puntosVisitante>
+					</partido>
+				</jornada>
+				<jornada>
+					<partido>
+						<equipoLocal ref="E6"/>
+						<equipoVisitante ref="E2"/>
+						<puntosLocal>65</puntosLocal>
+						<puntosVisitante>98</puntosVisitante>
+					</partido>
+					<partido>
+						<equipoLocal ref="E4"/>
+						<equipoVisitante ref="E3"/>
+						<puntosLocal>54</puntosLocal>
+						<puntosVisitante>123</puntosVisitante>
+					</partido>
+					<partido>
+						<equipoLocal ref="E1"/>
+						<equipoVisitante ref="E5"/>
+						<puntosLocal>12</puntosLocal>
+						<puntosVisitante>54</puntosVisitante>
+					</partido>
+				</jornada>
+				<jornada>
+					<partido>
+						<equipoLocal ref="E4"/>
+						<equipoVisitante ref="E1"/>
+						<puntosLocal>12</puntosLocal>
+						<puntosVisitante>52</puntosVisitante>
+					</partido>
+					<partido>
+						<equipoLocal ref="E2"/>
+						<equipoVisitante ref="E5"/>
+						<puntosLocal>31</puntosLocal>
+						<puntosVisitante>65</puntosVisitante>
+					</partido>
+					<partido>
+						<equipoLocal ref="E3"/>
+						<equipoVisitante ref="E6"/>
+						<puntosLocal>54</puntosLocal>
+						<puntosVisitante>65</puntosVisitante>
+					</partido>
+				</jornada>
+				<jornada>
+					<partido>
+						<equipoLocal ref="E4"/>
+						<equipoVisitante ref="E2"/>
+						<puntosLocal>43</puntosLocal>
+						<puntosVisitante>67</puntosVisitante>
+					</partido>
+					<partido>
+						<equipoLocal ref="E1"/>
+						<equipoVisitante ref="E3"/>
+						<puntosLocal>83</puntosLocal>
+						<puntosVisitante>53</puntosVisitante>
+					</partido>
+					<partido>
+						<equipoLocal ref="E6"/>
+						<equipoVisitante ref="E5"/>
+						<puntosLocal>64</puntosLocal>
+						<puntosVisitante>12</puntosVisitante>
+					</partido>
+				</jornada>
+				<jornada>
+					<partido>
+						<equipoLocal ref="E1"/>
+						<equipoVisitante ref="E2"/>
+						<puntosLocal>123</puntosLocal>
+						<puntosVisitante>541</puntosVisitante>
+					</partido>
+					<partido>
+						<equipoLocal ref="E6"/>
+						<equipoVisitante ref="E4"/>
+						<puntosLocal>54</puntosLocal>
+						<puntosVisitante>89</puntosVisitante>
+					</partido>
+					<partido>
+						<equipoLocal ref="E3"/>
+						<equipoVisitante ref="E5"/>
+						<puntosLocal>123</puntosLocal>
+						<puntosVisitante>54</puntosVisitante>
+					</partido>
+				</jornada>
+				<jornada>
+					<partido>
+						<equipoLocal ref="E2"/>
+						<equipoVisitante ref="E3"/>
+						<puntosLocal>12</puntosLocal>
+						<puntosVisitante>54</puntosVisitante>
+					</partido>
+					<partido>
+						<equipoLocal ref="E5"/>
+						<equipoVisitante ref="E4"/>
+						<puntosLocal>123</puntosLocal>
+						<puntosVisitante>54</puntosVisitante>
+					</partido>
+					<partido>
+						<equipoLocal ref="E1"/>
+						<equipoVisitante ref="E6"/>
+						<puntosLocal>54</puntosLocal>
+						<puntosVisitante>23</puntosVisitante>
+					</partido>
+				</jornada>
+				<jornada>
+					<partido>
+						<equipoLocal ref="E5"/>
+						<equipoVisitante ref="E1"/>
+						<puntosLocal>65</puntosLocal>
+						<puntosVisitante>65</puntosVisitante>
+					</partido>
+					<partido>
+						<equipoLocal ref="E3"/>
+						<equipoVisitante ref="E4"/>
+						<puntosLocal>123</puntosLocal>
+						<puntosVisitante>54</puntosVisitante>
+					</partido>
+					<partido>
+						<equipoLocal ref="E2"/>
+						<equipoVisitante ref="E6"/>
+						<puntosLocal>54</puntosLocal>
+						<puntosVisitante>12</puntosVisitante>
+					</partido>
+				</jornada>
+			</jornadas>
+		</temporada>
+	</temporadas>
+	<usuarios>
+		<usuario>
+			<user>Admin</user>
+			<pass>12345</pass>
+			<rol>admin</rol>
+		</usuario>
+		<usuario>
+			<user>Invitado</user>
+			<pass></pass>
+			<rol>user</rol>
+		</usuario>
+	</usuarios>
+</federacion>

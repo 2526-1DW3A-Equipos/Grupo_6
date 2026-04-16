@@ -20,6 +20,38 @@ if (isset($_GET['logout'])) {
   exit;
 }
 
+// Respuesta AJAX de jugadores: devolvemos solo el fragmento XSL antes de renderizar layout.
+$esAjaxJugadores = isset($_GET['ajax'])
+  && $_GET['ajax'] === 'jugadores'
+  && (isset($_GET['jugadores']) || ((array_keys($_GET)[0] ?? '') === 'jugadores'));
+
+if ($esAjaxJugadores) {
+  $filtroNombre = trim($_GET['nombre_jugador'] ?? '');
+  $filtroApellido = trim($_GET['apellido_jugador'] ?? '');
+  $filtroNombre = mb_strtolower($filtroNombre, 'UTF-8');
+  $filtroApellido = mb_strtolower($filtroApellido, 'UTF-8');
+
+  $xmlAjax = new DOMDocument();
+  $xmlAjax->load('./liga/datos/datos-liga.xml');
+
+  $filtroNombreNodo = $xmlAjax->createElement('filtroNombre');
+  $filtroNombreNodo->appendChild($xmlAjax->createTextNode($filtroNombre));
+  $xmlAjax->documentElement->appendChild($filtroNombreNodo);
+
+  $filtroApellidoNodo = $xmlAjax->createElement('filtroApellido');
+  $filtroApellidoNodo->appendChild($xmlAjax->createTextNode($filtroApellido));
+  $xmlAjax->documentElement->appendChild($filtroApellidoNodo);
+  
+  $xslAjax = new DOMDocument();
+  $xslAjax->load('./templates/xsl/jugadores.xsl');
+
+  $procAjax = new XSLTProcessor();
+  $procAjax->importStylesheet($xslAjax);
+
+  echo $procAjax->transformToXml($xmlAjax);
+  exit;
+}
+
 // ----- INICIO DE SESION -----
 $login_error = '';
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['email']) && isset($_POST['password'])) {
@@ -27,7 +59,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['email']) && isset($_P
   $pass_post = $_POST['password'];
 
   // Load XML
-  $xml_path = './data/datos.xml';
+  $xml_path = './liga/datos/datos-liga.xml';
   if (file_exists($xml_path)) {
     $xml = simplexml_load_file($xml_path);
     $login_success = false;
@@ -63,8 +95,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['email']) && isset($_P
 }
 
 require_once __DIR__ . '/controllers/URLController.php';
-$controller = new URLController();
-$tituloPagina = $controller->getPaginaActual();
+$tituloPagina = URLController::getPaginaActual();
 $pagina = array_keys($_GET)[0] ?? 'inicio';
 
 $paginasConTemporada = ['clasificacion', 'calendario', 'resultados', 'equipos'];
@@ -76,7 +107,7 @@ $tituloLigaHeader = '';
 $subtituloLigaHeader = '';
 
 if ($mostrarTemporadaHeader) {
-  $temporadaContextoHeader = obtenerContextoTemporada('./data/datos.xml');
+  $temporadaContextoHeader = obtenerContextoTemporada('./liga/datos/datos-liga.xml');
   if ($rutaSeguraHeader === 'equipos' && !empty($_GET['eq']) && preg_match('/^E\d+$/', $_GET['eq'])) {
     $equipoSeleccionadoHeader = $_GET['eq'];
   }
@@ -100,7 +131,7 @@ if ($mostrarTemporadaHeader) {
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>
     Prima League -
-    <?php echo $tituloPagina; ?>
+    <?php echo ucfirst($tituloPagina); ?>
   </title>
 
   <link rel="icon" href="assets/img/prima-league-logo-transparente.png" />
@@ -178,6 +209,14 @@ if ($mostrarTemporadaHeader) {
               echo 'isActive';
             ?>" href="?equipos" data-page="equipos">Equipos</a>
         </li>
+
+        <li>
+          <a class="menuItem 
+            <?php if (isset($pagina) && $pagina === 'jugadores')
+              echo 'isActive';
+            ?>" href="?jugadores" data-page="jugadores">Jugadores</a>
+        </li>
+
 
         <li>
           <?php if($isLogged):?>
@@ -274,7 +313,7 @@ if ($mostrarTemporadaHeader) {
     endif; ?>
 
     <?php
-    $controller->init();
+    URLController::init();
     ?>
   </main>
 

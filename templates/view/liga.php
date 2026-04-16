@@ -1,5 +1,6 @@
 <?php
-$ruta = $ruta ?? 'inicio';
+require_once "./controllers/URLController.php";
+$ruta = URLController::getPaginaActual();
 $rutaSegura = preg_replace('/[^a-z]/', '', $ruta);
 $xslPath = './templates/xsl/' . $rutaSegura . '.xsl';
 $equipoSeleccionado = '';
@@ -10,7 +11,7 @@ require_once './utils/temporada_selector.php';
 if (isset($temporadaContextoHeader) && is_array($temporadaContextoHeader)) {
     $temporadaContexto = $temporadaContextoHeader;
 } else {
-    $temporadaContexto = obtenerContextoTemporada('./data/datos.xml');
+    $temporadaContexto = obtenerContextoTemporada('./liga/datos/datos-liga.xml');
 }
 
 $xml = $temporadaContexto['xml'];

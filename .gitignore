@@ -14,7 +14,7 @@ $RECYCLE.BIN/
 
 # VSCode
 .vscode/
-./fotos/
+.//liga/fotos/
 
 # JetBrains (PhpStorm, IntelliJ, WebStorm, etc)
 .idea/
@@ -104,3 +104,7 @@ media/
 # -----------------------------
 coverage/
 .phpunit.cache/
+db/
+log/
+logs/
+GestorBasketR3.jar
