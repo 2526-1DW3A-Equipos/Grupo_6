@@ -104,5 +104,7 @@ media/
 # -----------------------------
 coverage/
 .phpunit.cache/
-db/usuarios.odb
+db/
+log/
+logs/
 GestorBasketR3.jar
