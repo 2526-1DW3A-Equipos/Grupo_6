@@ -20,38 +20,6 @@ if (isset($_GET['logout'])) {
   exit;
 }
 
-// Respuesta AJAX de jugadores: devolvemos solo el fragmento XSL antes de renderizar layout.
-$esAjaxJugadores = isset($_GET['ajax'])
-  && $_GET['ajax'] === 'jugadores'
-  && (isset($_GET['jugadores']) || ((array_keys($_GET)[0] ?? '') === 'jugadores'));
-
-if ($esAjaxJugadores) {
-  $filtroNombre = trim($_GET['nombre_jugador'] ?? '');
-  $filtroApellido = trim($_GET['apellido_jugador'] ?? '');
-  $filtroNombre = mb_strtolower($filtroNombre, 'UTF-8');
-  $filtroApellido = mb_strtolower($filtroApellido, 'UTF-8');
-
-  $xmlAjax = new DOMDocument();
-  $xmlAjax->load('./liga/datos/datos-liga.xml');
-
-  $filtroNombreNodo = $xmlAjax->createElement('filtroNombre');
-  $filtroNombreNodo->appendChild($xmlAjax->createTextNode($filtroNombre));
-  $xmlAjax->documentElement->appendChild($filtroNombreNodo);
-
-  $filtroApellidoNodo = $xmlAjax->createElement('filtroApellido');
-  $filtroApellidoNodo->appendChild($xmlAjax->createTextNode($filtroApellido));
-  $xmlAjax->documentElement->appendChild($filtroApellidoNodo);
-  
-  $xslAjax = new DOMDocument();
-  $xslAjax->load('./templates/xsl/jugadores.xsl');
-
-  $procAjax = new XSLTProcessor();
-  $procAjax->importStylesheet($xslAjax);
-
-  echo $procAjax->transformToXml($xmlAjax);
-  exit;
-}
-
 // ----- INICIO DE SESION -----
 $login_error = '';
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['email']) && isset($_POST['password'])) {
@@ -73,16 +41,22 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['email']) && isset($_P
           $_SESSION['usuario_nombre'] = $u_name;
           $_SESSION['usuario_rol'] = (string)$user->rol;
 
-          $isAdmin = (strtolower($_SESSION['usuario_rol']) === 'admin');
-
-          if($isAdmin){
-            header("Location: ./?pl_admin");
-          } else{
-            header("Location: ./");
+          switch ($_SESSION['usuario_rol']) {
+            case 'admin':
+              header("Location: ./?pl_admin");
+              exit;
+              break;
+            case 'arbitro':
+              header("Location: ./?calendario");
+              exit;
+            default:
+              header("Location: ./");
+              exit;
+              break;
           }
-            $login_success = true;
-            $isLogged = true;
-            exit;
+          $login_success = true;
+          $isLogged = true;
+          exit;
         }
       }
     }
@@ -97,8 +71,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['email']) && isset($_P
 require_once __DIR__ . '/controllers/URLController.php';
 $tituloPagina = URLController::getPaginaActual();
 $pagina = array_keys($_GET)[0] ?? 'inicio';
+if ($pagina === 'resultados') {
+  $pagina = 'calendario';
+}
 
-$paginasConTemporada = ['clasificacion', 'calendario', 'resultados', 'equipos'];
+$paginasConTemporada = ['clasificacion', 'calendario', 'equipos'];
 $mostrarTemporadaHeader = in_array($pagina, $paginasConTemporada, true);
 $temporadaContextoHeader = null;
 $equipoSeleccionadoHeader = '';
@@ -195,13 +172,7 @@ if ($mostrarTemporadaHeader) {
           <a class="menuItem 
             <?php if (isset($pagina) && $pagina === 'calendario')
               echo 'isActive';
-            ?>" href="?calendario" data-page="calendario">Calendario</a>
-        </li>
-        <li>
-          <a class="menuItem 
-            <?php if (isset($pagina) && $pagina === 'resultados')
-              echo 'isActive';
-            ?>" href="?resultados" data-page="resultados">Resultados</a>
+            ?>" href="?calendario" data-page="calendario">Calendario y resultados</a>
         </li>
         <li>
           <a class="menuItem 
@@ -209,14 +180,6 @@ if ($mostrarTemporadaHeader) {
               echo 'isActive';
             ?>" href="?equipos" data-page="equipos">Equipos</a>
         </li>
-
-        <li>
-          <a class="menuItem 
-            <?php if (isset($pagina) && $pagina === 'jugadores')
-              echo 'isActive';
-            ?>" href="?jugadores" data-page="jugadores">Jugadores</a>
-        </li>
-
 
         <li>
           <?php if($isLogged):?>
@@ -345,10 +308,7 @@ if ($mostrarTemporadaHeader) {
           <a href="?clasificacion" data-page="clasificacion">Clasificacion</a>
         </li>
         <li>
-          <a href="?calendario" data-page="calendario">Calendario</a>
-        </li>
-        <li>
-          <a href="?resultados" data-page="resultados">Resultados</a>
+          <a href="?calendario" data-page="calendario">Calendario y resultados</a>
         </li>
         <li>
           <a href="?equipos" data-page="equipos">Equipos</a>
