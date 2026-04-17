@@ -315,6 +315,13 @@ footer {
   font-size: clamp(0.6rem, 0.8vw, 0.8vw);
 }
 
+.footerNav,
+.footerNav ul,
+.footerNav .footerRRSS,
+.footerNav .footerCopy {
+  align-items: center;
+}
+
 .footerNav ul li a {
   text-decoration: none;
   color: var(--blanco);
@@ -570,10 +577,95 @@ tr:hover .tablaUltimos img {
 /* ===== Calendario ===== */
 .contenedor-calendario .tabla-resultados {
   width: min(95vw, 900px);
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.calendario-controles {
+  width: 100%;
+}
+
+.calendario-controles-form {
+  width: 100%;
+}
+
+.calendario-navegacion {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr) auto;
+  gap: 0.75rem;
+  align-items: center;
+  padding: 0.9rem 1rem;
+  background: rgba(29, 45, 71, 0.92);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 12px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.28);
+}
+
+.calendario-selector-grupo {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  justify-content: center;
+  min-width: 0;
+}
+
+.calendario-selector-grupo label {
+  font-family: "Rajdhani", sans-serif;
+  font-size: clamp(0.8rem, 1.4vw, 1rem);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--naranja);
+  white-space: nowrap;
+}
+
+.calendario-selector-grupo select {
+  flex: 1 1 18rem;
+  min-width: 0;
+  max-width: 22rem;
+  background: rgb(46, 62, 87);
+  color: #fff;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 8px;
+  padding: 0.6rem 0.9rem;
+  font-family: "Montserrat", sans-serif;
+  font-size: clamp(0.75rem, 1.2vw, 0.95rem);
+  cursor: pointer;
+  outline: none;
+}
+
+.calendario-selector-grupo select:hover,
+.calendario-selector-grupo select:focus {
+  border-color: var(--naranja);
+}
+
+.calendario-boton {
+  min-width: 8.5rem;
+  justify-content: center;
+  border: none;
+  cursor: pointer;
+  padding: 0.9rem 1.2rem;
+  font-family: "Rajdhani", sans-serif;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.calendario-jornadas {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 10px;
   align-items: stretch;
+}
+
+.calendario-jornadas.calendario-jornadas--single {
+  grid-template-columns: minmax(0, 1fr);
+  justify-items: center;
+}
+
+.calendario-jornadas.calendario-jornadas--single .jornada {
+  width: min(100%, 900px);
 }
 
 .contenedor-calendario .jornada,
@@ -755,6 +847,31 @@ tr:hover .tablaUltimos img {
   }
 }
 
+@media (max-width: 880px) {
+  .calendario-navegacion {
+    grid-template-columns: 1fr;
+    justify-items: stretch;
+  }
+
+  .calendario-selector-grupo {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .calendario-selector-grupo select {
+    max-width: none;
+    width: 100%;
+  }
+
+  .calendario-boton {
+    width: 100%;
+  }
+
+  .calendario-jornadas {
+    grid-template-columns: 1fr;
+  }
+}
+
 /* ===== Resultados ===== */
 .contenedor-resultados .tabla-resultados {
   width: min(95vw, 900px);
@@ -777,17 +894,17 @@ tr:hover .tablaUltimos img {
 .jornadaEquipo {
   display: flex;
   align-items: center;
-  justify-content: flex-end;
-  padding-right: 1.5rem;
+  height: 100%;
+  justify-content: center;
+  padding: 0 1rem;
 }
 
 .jornadaEquipo.local {
-  justify-content: flex-start;
-  padding-right: 0;
-  padding-left: 1.5rem;
+  justify-content: center;
 }
 
 .jornadaEquipo p {
+  margin: 0;
   display: -webkit-box;
   -webkit-box-orient: vertical;
   -webkit-line-clamp: 2;
@@ -795,6 +912,7 @@ tr:hover .tablaUltimos img {
   overflow: hidden;
   min-height: 2.2em;
   line-height: 1.1;
+  text-align: center;
   font-family: "Rajdhani", sans-serif;
   font-size: clamp(0.75rem, 1.6vw, 1.1rem);
   font-weight: 700;
@@ -808,6 +926,7 @@ tr:hover .tablaUltimos img {
   display: flex;
   align-items: center;
   justify-content: center;
+  align-self: center;
   gap: 0.4rem;
 }
 
@@ -849,19 +968,19 @@ tr:hover .tablaUltimos img {
 /* ===== Equipos ===== */
 .tabla-equipos {
   display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 1rem;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0.75rem;
 }
 
 .equipo-container {
   display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: center;
-  gap: clamp(0.6rem, 1.5vw, 1rem);
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: stretch;
+  gap: 0.45rem;
   width: 100%;
-  margin: 1.1rem 0;
-  padding: 1.2rem;
+  margin: 0.25rem 0;
+  padding: 0.7rem 0.75rem 0.8rem;
   background: rgb(30, 44, 66);
   box-shadow: 2px 4px 18px rgba(0, 0, 0, 0.35);
   border: 1px solid rgba(255, 255, 255, 0.1);
@@ -871,15 +990,17 @@ tr:hover .tablaUltimos img {
 .equipo-header {
   display: flex;
   align-items: center;
-  gap: 12px;
+  gap: 0.65rem;
   flex: 1 0 auto;
-  margin-bottom: 20px;
+  width: 100%;
+  margin-bottom: 0;
   border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  padding-bottom: 0.45rem;
 }
 
 .equipo-escudo {
-  width: clamp(64px, 9vw, 130px);
-  height: clamp(64px, 9vw, 130px);
+  width: clamp(50px, 5vw, 82px);
+  height: clamp(50px, 5vw, 82px);
   object-fit: contain;
   background: rgba(255, 255, 255, 0.06);
   border-radius: 10px;
@@ -889,19 +1010,19 @@ tr:hover .tablaUltimos img {
 .equipo-header h3 {
   margin: 0;
   flex: 0 0 auto;
-  width: clamp(10rem, 15vw, 14rem);
-  max-width: clamp(10rem, 15vw, 14rem);
-  min-height: clamp(2.2rem, 4vw, 3rem);
+  width: auto;
+  max-width: none;
+  min-height: 2rem;
   display: flex;
   align-items: center;
   font-family: "Rajdhani", sans-serif;
-  font-size: clamp(0.85rem, 1.5vw, 1.1rem);
+  font-size: clamp(0.72rem, 1vw, 0.98rem);
   line-height: 1.15;
   font-weight: 700;
   text-transform: uppercase;
-  letter-spacing: 0.12em;
+  letter-spacing: 0.08em;
   color: var(--naranja);
-  padding: 0.4rem 0.9rem;
+  padding: 0.3rem 0.6rem;
   overflow: hidden;
   white-space: normal;
   overflow-wrap: anywhere;
@@ -916,7 +1037,7 @@ tr:hover .tablaUltimos img {
   width: 100%;
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
+  align-items: stretch;
   justify-content: flex-start;
 }
 
@@ -925,22 +1046,22 @@ tr:hover .tablaUltimos img {
   margin: 0;
   padding: 0;
   display: grid;
-  justify-content: flex-start;
-  gap: 0.6rem;
+  grid-template-columns: 1fr;
+  gap: 0.4rem;
   width: 100%;
 }
 
 .equipo-datos li {
-  display: grid;
-  grid-template-columns: 1fr auto;
+  display: flex;
+  justify-content: space-between;
   align-items: center;
   gap: 0.75rem;
-  padding: 0.55rem 0.8rem;
+  padding: 0.4rem 0.7rem;
   color: rgba(255, 255, 255, 0.9);
-  font-size: clamp(0.78rem, 1vw, 0.95rem);
+  font-size: clamp(0.68rem, 0.9vw, 0.85rem);
   background: rgba(255, 255, 255, 0.06);
   border: 1px solid rgba(255, 255, 255, 0.12);
-  border-radius: 10px;
+  border-radius: 8px;
 }
 
 .equipo-datos li strong {
@@ -953,11 +1074,11 @@ tr:hover .tablaUltimos img {
   color: var(--naranja);
   font-family: "Rajdhani", sans-serif;
   font-weight: 800;
-  font-size: clamp(1rem, 1.4vw, 1.25rem);
+  font-size: clamp(0.85rem, 1.1vw, 1rem);
   text-align: center;
-  min-width: 2.1rem;
+  min-width: 1.8rem;
   border-radius: 999px;
-  padding: 0.15rem 0.55rem;
+  padding: 0.1rem 0.45rem;
   background: rgba(248, 175, 39, 0.15);
   border: 1px solid rgba(248, 175, 39, 0.45);
 }
@@ -1933,15 +2054,6 @@ dialog.overlayPerfil::backdrop {
     padding: 2rem 1.5rem;
   }
 
-  .footerNav:first-of-type {
-    height: 9vh;
-  }
-
-  .footerNav:last-of-type,
-  footer hr {
-    display: none;
-  }
-
   .resultadosContenedor,
   .contenedor-calendario .tabla-resultados {
     grid-template-columns: 1fr;
@@ -2027,8 +2139,14 @@ dialog.overlayPerfil::backdrop {
   }
 }
 
-@media (max-width: 1020px) {
+@media (max-width: 1200px) {
   .tabla-equipos {
-    grid-template-columns: repeat(1, minmax(0, 1fr));
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 700px) {
+  .tabla-equipos {
+    grid-template-columns: 1fr;
   }
 }

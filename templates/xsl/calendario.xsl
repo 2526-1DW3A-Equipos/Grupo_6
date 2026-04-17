@@ -6,6 +6,7 @@
     <!-- Parametros para seleccionar la temporada -->
     <xsl:param name="anoInicio"/>
     <xsl:param name="anoFin"/>
+    <xsl:param name="jornadaSeleccionada" select="'all'"/>
 
     <!-- Plantilla principal -->
     <xsl:template match="/">
@@ -15,29 +16,80 @@
     <!-- Plantilla para procesar una temporada -->
     <xsl:template match="temporada">
         <xsl:variable name="totalPartidos" select="count(jornadas/jornada/partido)"/>
+        <xsl:variable name="totalJornadas" select="count(jornadas/jornada)"/>
+        <xsl:variable name="soloUnaJornada" select="$totalJornadas = 1 or ($jornadaSeleccionada != 'all' and $jornadaSeleccionada != '')"/>
 
         <xsl:choose>
             <xsl:when test="$totalPartidos = 0">
                 <p class="no-partidos">No hay partidos en esta temporada.</p>
             </xsl:when>
             <xsl:otherwise>
-                <xsl:for-each select="jornadas/jornada">
-                    <xsl:variable name="jornadaNum" select="position()"/>
-                    <xsl:variable name="partidosJornada" select="partido"/>
+                <xsl:if test="$totalJornadas &gt; 0">
+                    <div class="calendario-controles">
+                        <form method="GET" action="" class="calendario-controles-form">
+                            <input type="hidden" name="calendario" value=""/>
+                            <input type="hidden" name="inicio" value="{$anoInicio}"/>
+                            <div class="calendario-navegacion">
+                                <button type="submit" class="boton calendario-boton" name="accionJornada" value="prev">Anterior</button>
 
-                    <xsl:if test="count($partidosJornada) > 0">
-                        <div class="jornada">
-                            <h3>Jornada <xsl:value-of select="$jornadaNum"/>
-                            </h3>
+                                <div class="calendario-selector-grupo">
+                                    <label for="jornada-select">Jornada</label>
+                                    <select id="jornada-select" name="jornada" onchange="this.form.submit()">
+                                        <option value="all">
+                                            <xsl:if test="$jornadaSeleccionada = 'all'">
+                                                <xsl:attribute name="selected">selected</xsl:attribute>
+                                            </xsl:if>
+                                            Todas las jornadas
+                                        </option>
 
-                            <div class="jornadaPartidos">
-                                <xsl:for-each select="$partidosJornada">
-                                    <xsl:call-template name="mostrar-partido"/>
-                                </xsl:for-each>
+                                        <xsl:for-each select="jornadas/jornada">
+                                            <xsl:variable name="jornadaNum" select="position()"/>
+                                            <option>
+                                                <xsl:attribute name="value">
+                                                    <xsl:value-of select="$jornadaNum"/>
+                                                </xsl:attribute>
+                                                <xsl:if test="$jornadaSeleccionada = string($jornadaNum)">
+                                                    <xsl:attribute name="selected">selected</xsl:attribute>
+                                                </xsl:if>
+                                                <xsl:text>Jornada </xsl:text>
+                                                <xsl:value-of select="$jornadaNum"/>
+                                            </option>
+                                        </xsl:for-each>
+                                    </select>
+                                </div>
+
+                                <button type="submit" class="boton calendario-boton" name="accionJornada" value="next">Siguiente</button>
                             </div>
-                        </div>
-                    </xsl:if>
-                </xsl:for-each>
+                        </form>
+                    </div>
+                </xsl:if>
+
+                <div>
+                    <xsl:attribute name="class">
+                        <xsl:text>calendario-jornadas</xsl:text>
+                        <xsl:if test="$soloUnaJornada">
+                            <xsl:text> calendario-jornadas--single</xsl:text>
+                        </xsl:if>
+                    </xsl:attribute>
+
+                    <xsl:for-each select="jornadas/jornada">
+                        <xsl:variable name="jornadaNum" select="position()"/>
+                        <xsl:variable name="partidosJornada" select="partido"/>
+
+                        <xsl:if test="count($partidosJornada) &gt; 0 and ($jornadaSeleccionada = 'all' or $jornadaSeleccionada = '' or string($jornadaNum) = $jornadaSeleccionada)">
+                            <div class="jornada">
+                                <h3>Jornada <xsl:value-of select="$jornadaNum"/>
+                                </h3>
+
+                                <div class="jornadaPartidos">
+                                    <xsl:for-each select="$partidosJornada">
+                                        <xsl:call-template name="mostrar-partido"/>
+                                    </xsl:for-each>
+                                </div>
+                            </div>
+                        </xsl:if>
+                    </xsl:for-each>
+                </div>
             </xsl:otherwise>
         </xsl:choose>
     </xsl:template>
