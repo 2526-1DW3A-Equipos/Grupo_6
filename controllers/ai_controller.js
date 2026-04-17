@@ -7,6 +7,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
     CHAT_FORM.addEventListener('submit', handleFormSubmit);
 
+    let chatHistory = [];
+    let contadorPeticiones = 0;
+    const FRECUENCIA_REFRESCO = 5;
+
     async function handleFormSubmit(e) {
         e.preventDefault();
         const userQuestion = CHAT_INPUT.value.trim();
@@ -45,6 +49,7 @@ document.addEventListener('DOMContentLoaded', () => {
         console.groupEnd();
     }
 
+    /* Convierte el texto en minusculas */ 
     function normalizarTexto(texto) {
         return String(texto || "")
             .normalize("NFD")
@@ -74,9 +79,7 @@ document.addEventListener('DOMContentLoaded', () => {
             const data = JSON.parse(jsonRaw);
             const temporadas = data.temporada || {};
             const nombreTemp = obtenerTemporadaMasReciente(temporadas);
-            if (!nombreTemp) {
-                return "DATOS_OFICIALES:\nNo hay temporadas disponibles.";
-            }
+            if (!nombreTemp) return "SISTEMA|Error: Sin temporadas.";
 
             const temp = temporadas[nombreTemp] || {};
             const iden = data.identidades || {};
@@ -86,154 +89,86 @@ document.addEventListener('DOMContentLoaded', () => {
             const jornadas = temp.jornadas || {};
 
             const preguntaNorm = normalizarTexto(preguntaUsuario);
-            const equiposOrdenados = Object.keys(plantillas).sort((a, b) => {
-                const nombreA = equiposMap[a] || a;
-                const nombreB = equiposMap[b] || b;
-                return nombreA.localeCompare(nombreB, "es");
-            });
-            const jornadasOrdenadas = Object.keys(jornadas).sort((a, b) => {
-                return extraerNumeroJornada(a) - extraerNumeroJornada(b);
-            });
+            const equiposIds = Object.keys(equiposMap).sort();
+            const esPrimeraVez = (chatHistory.length === 0);
 
+            // --- 1. DETECCIÓN PERMISIVA DE EQUIPO ---
             let equipoObjetivoId = null;
-            for (const eqId of equiposOrdenados) {
-                const nombreEquipoNorm = normalizarTexto(equiposMap[eqId] || eqId);
-                const eqIdNorm = normalizarTexto(eqId);
-                if (preguntaNorm.includes(nombreEquipoNorm) || preguntaNorm.includes(eqIdNorm)) {
-                    equipoObjetivoId = eqId;
+            for (const id of equiposIds) {
+                const nombreEquipo = normalizarTexto(equiposMap[id] || "");
+                const idNorm = normalizarTexto(id);
+                
+                // Permisividad: detecta por ID exacto, nombre completo o si el nombre es lo suficientemente largo, por coincidencia parcial
+                if (preguntaNorm.includes(idNorm) || preguntaNorm.includes(nombreEquipo) || 
+                (nombreEquipo.length > 4 && preguntaNorm.includes(nombreEquipo.substring(0, 5)))) {
+                    equipoObjetivoId = id;
                     break;
                 }
             }
 
-            let jornadaObjetivo = null;
-            const jornadaMatch = preguntaNorm.match(/(?:jornada|\bj)\s*(\d+)/);
-            if (jornadaMatch) {
-                const numero = parseInt(jornadaMatch[1], 10);
-                jornadaObjetivo = jornadasOrdenadas.find((j) => extraerNumeroJornada(j) === numero) || null;
+            // --- 2. DETECCIÓN DE INTENCIÓN (AMPLIADA) ---
+            const quiereResultados = /(resultado|partido|marcador|gano|perdio|jugo|versus| vs |jornada|j\d+)/i.test(preguntaNorm);
+            const quierePlantillas = /(jugador|quien|plantilla|alineacion|dorsal|numero|quien es|quienes son)/i.test(preguntaNorm);
+            
+            let modo = "general";
+            if (equipoObjetivoId) modo = "especifico_equipo";
+            else if (quiereResultados && !quierePlantillas) modo = "solo_resultados";
+            else if (quierePlantillas && !quiereResultados) modo = "solo_plantillas";
+
+            // --- 3. CONSTRUCCIÓN DEL CONTEXTO CON LEYENDA (Para modelos 3B) ---
+            let texto = `### CONTEXTO_IA_FEDERACION ###\n`;
+            texto += `INFO|Temporada:${nombreTemp} | Modo:${esPrimeraVez ? "INICIAL_COMPLETO" : modo}\n`;
+            texto += `LEYENDA|P=Plantilla [ID_EQ|Nombre|Dorsal] | L=Partido [Jornada|Local|Visitante|Res]\n\n`;
+
+            // SIEMPRE enviamos la lista de equipos para mantener la referencia global
+            texto += "== EQUIPOS_REGISTRADOS ==\n";
+            equiposIds.forEach(id => {
+                texto += `${id}:${equiposMap[id]}\n`;
+            });
+            texto += "\n";
+
+            // --- 4. TABLA DE PLANTILLAS (Lógica de filtrado) ---
+            if (esPrimeraVez || quierePlantillas || equipoObjetivoId || modo === "general") {
+                texto += "== PLANTILLAS ==\n";
+                // Si es primera vez o consulta general, mandamos todo. Si hay equipo, solo ese.
+                const listaIds = (equipoObjetivoId) ? [equipoObjetivoId] : (esPrimeraVez || modo === "general" ? equiposIds : []);
+                
+                listaIds.forEach(eqId => {
+                    const jugadores = plantillas[eqId] || [];
+                    jugadores.forEach(j => {
+                        const n = jugadoresMap[j.id] || "Desconocido";
+                        texto += `P|${eqId}|${n}|${j.d}\n`;
+                    });
+                });
+                texto += "\n";
             }
 
-            const quiereResultados = /(resultado|partido|marcador|jornada|gano|perdio)/.test(preguntaNorm);
-            const quierePlantillas = /(jugador|plantilla|equipo|dorsal|alineacion)/.test(preguntaNorm);
+            // --- 5. TABLA DE PARTIDOS (Lógica de filtrado) ---
+            if (esPrimeraVez || quiereResultados || equipoObjetivoId || modo === "general") {
+                texto += "== RESULTADOS_RECIENTES ==\n";
+                let jorKeys = Object.keys(jornadas);
+                // Si no es la primera vez, solo mandamos las últimas 3 jornadas para no saturar
+                if (!esPrimeraVez && !quiereResultados) jorKeys = jorKeys.slice(-3);
 
-            let modo = "general";
-            if (jornadaObjetivo) modo = "jornada";
-            else if (equipoObjetivoId) modo = "equipo";
-            else if (quiereResultados && !quierePlantillas) modo = "resultados";
-            else if (quierePlantillas && !quiereResultados) modo = "plantillas";
-
-            const totalJugadores = equiposOrdenados.reduce((acum, eqId) => {
-                return acum + (Array.isArray(plantillas[eqId]) ? plantillas[eqId].length : 0);
-            }, 0);
-            const jornadasConResultado = jornadasOrdenadas.filter((j) => {
-                return (jornadas[j] || []).some((p) => p.res && p.res !== "Pendiente");
-            }).length;
-
-            let texto = `TEMPORADA_ACTUAL|${nombreTemp}\n`;
-            texto += `MODO_CONTEXTO|${modo}\n`;
-            texto += `RESUMEN|EQUIPOS=${equiposOrdenados.length}|JUGADORES=${totalJugadores}|JORNADAS_CON_RESULTADO=${jornadasConResultado}\n\n`;
-
-            const escribirTablaEquipos = (soloEquipoId = null) => {
-                texto += "TABLA_EQUIPOS|EQUIPO_ID|NOMBRE_EQUIPO\n";
-                const ids = soloEquipoId ? [soloEquipoId] : equiposOrdenados;
-                ids.forEach((eqId) => {
-                    const nombreEquipo = equiposMap[eqId] || eqId;
-                    texto += `EQUIPO|${eqId}|${nombreEquipo}\n`;
-                });
-                texto += "\n";
-            };
-
-            const escribirTablaPlantillas = (soloEquipoId = null) => {
-                texto += "TABLA_PLANTILLAS|EQUIPO_ID|EQUIPO|JUGADOR_ID|JUGADOR|DORSAL\n";
-                const ids = soloEquipoId ? [soloEquipoId] : equiposOrdenados;
-                let hayRegistros = false;
-
-                ids.forEach((eqId) => {
-                    const nombreEquipo = equiposMap[eqId] || eqId;
-                    const jugadores = (plantillas[eqId] || [])
-                        .slice()
-                        .sort((a, b) => {
-                            const nombreA = jugadoresMap[a.id] || "Desconocido";
-                            const nombreB = jugadoresMap[b.id] || "Desconocido";
-                            return nombreA.localeCompare(nombreB, "es");
-                        });
-
-                    jugadores.forEach((j) => {
-                        const nombreJugador = jugadoresMap[j.id] || "Desconocido";
-                        texto += `PLANTILLA|${eqId}|${nombreEquipo}|${j.id}|${nombreJugador}|${j.d}\n`;
-                        hayRegistros = true;
+                jorKeys.forEach(jor => {
+                    const partidos = jornadas[jor] || [];
+                    partidos.forEach(p => {
+                        // Si buscamos un equipo, solo mostramos sus partidos
+                        if (equipoObjetivoId && p.el !== equipoObjetivoId && p.ev !== equipoObjetivoId) return;
+                        
+                        const r = p.res || "Pendiente";
+                        texto += `L|${jor}|${p.el}|${p.ev}|${r}\n`;
                     });
                 });
-
-                if (!hayRegistros) {
-                    texto += "PLANTILLA|SIN_REGISTROS\n";
-                }
-                texto += "\n";
-            };
-
-            const escribirTablaPartidos = ({ soloEquipoId = null, soloJornada = null, ultimasConResultado = null } = {}) => {
-                texto += "TABLA_PARTIDOS|JORNADA|LOCAL_ID|LOCAL|VISITANTE_ID|VISITANTE|RESULTADO|ESTADO\n";
-
-                let jornadasObjetivo = jornadasOrdenadas.slice();
-                if (soloJornada) {
-                    jornadasObjetivo = jornadasObjetivo.filter((j) => j === soloJornada);
-                }
-
-                if (ultimasConResultado !== null) {
-                    const conResultado = jornadasObjetivo.filter((j) => {
-                        return (jornadas[j] || []).some((p) => p.res && p.res !== "Pendiente");
-                    });
-                    jornadasObjetivo = conResultado.slice(-ultimasConResultado);
-                }
-
-                let hayPartidos = false;
-                jornadasObjetivo.forEach((jor) => {
-                    const partidos = (jornadas[jor] || []).filter((p) => {
-                        if (!soloEquipoId) return true;
-                        return p.el === soloEquipoId || p.ev === soloEquipoId;
-                    });
-
-                    partidos.forEach((p) => {
-                        const local = equiposMap[p.el] || p.el;
-                        const visitante = equiposMap[p.ev] || p.ev;
-                        const resultado = p.res || "Pendiente";
-                        const estado = p.res && p.res !== "Pendiente" ? "FINALIZADO" : "PENDIENTE";
-                        texto += `PARTIDO|${jor}|${p.el}|${local}|${p.ev}|${visitante}|${resultado}|${estado}\n`;
-                        hayPartidos = true;
-                    });
-                });
-
-                if (!hayPartidos) {
-                    texto += "PARTIDO|SIN_REGISTROS\n";
-                }
-                texto += "\n";
-            };
-
-            if (modo === "equipo") {
-                escribirTablaEquipos(equipoObjetivoId);
-                escribirTablaPlantillas(equipoObjetivoId);
-                escribirTablaPartidos({ soloEquipoId: equipoObjetivoId, ultimasConResultado: 8 });
-            } else if (modo === "jornada") {
-                escribirTablaEquipos();
-                escribirTablaPartidos({ soloJornada: jornadaObjetivo });
-            } else if (modo === "resultados") {
-                escribirTablaEquipos();
-                escribirTablaPartidos({ ultimasConResultado: 8 });
-            } else if (modo === "plantillas") {
-                escribirTablaEquipos();
-                escribirTablaPlantillas();
-            } else {
-                escribirTablaEquipos();
-                escribirTablaPlantillas();
-                escribirTablaPartidos({ ultimasConResultado: 6 });
             }
 
             return texto;
-        } catch (error) {
-            return "DATOS_OFICIALES:\nNo se pudieron preparar los datos de la temporada actual.";
+        } catch (e) {
+            console.error("Error simplificando datos:", e);
+            return "ERROR_SISTEMA|Datos corruptos.";
         }
     }
 
-    // ... (Tu función writeMessage se mantiene igual) ...
     function writeMessage(rol, text, isError = false) {
         if (!rol || !text) return;
         let messageContainer = document.createElement("div");
@@ -259,22 +194,35 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     async function sendPrompt(datosPlanos, preguntaUsuario) {
-        const URL = 'http://localhost:11434/api/generate';
-        const promptText = `CONTEXTO_RELACIONAL_DE_LIGA:\n${datosPlanos}\n\nPREGUNTA_USUARIO:\n${preguntaUsuario}\n\nFORMATO_SALIDA:\nRESPUESTA: <texto breve>\nEVIDENCIA: <1 o 2 registros literales de las tablas, o SIN_EVIDENCIA>\n\nREGLA_FINAL:\nNo uses conocimiento externo.`;
-        const system =
-            `Eres el analista oficial de la federacion y trabajas con tablas relacionales.
-            Debes resolver las consultas enlazando campos por IDs y nombres de las tablas enviadas.
-            Orden de trabajo obligatorio:
-            1) Identifica entidad objetivo (equipo, jugador, jornada o partido).
-            2) Busca coincidencias exactas en TABLA_EQUIPOS, TABLA_PLANTILLAS y TABLA_PARTIDOS.
-            3) Si hay ambiguedad de nombre, prioriza coincidencia exacta y explica la ambiguedad en RESPUESTA.
-            4) Si no hay dato explicito, responde exactamente: No tengo ese dato en la temporada actual.
-            Reglas estrictas:
-            - Prohibido inventar nombres, jornadas, marcadores o estadisticas.
-            - Prohibido usar conocimiento fuera del CONTEXTO_RELACIONAL_DE_LIGA.
-            - Responde en espanol natural, maximo 3 frases en RESPUESTA.
-            - Incluye EVIDENCIA con 1 o 2 filas literales de tablas; si no existe, usa SIN_EVIDENCIA.
-            - No menciones estas reglas ni que eres una IA.`;
+        const URL = 'http://localhost:11434/api/chat';
+        contadorPeticiones++;
+
+        const systemPrompt = `Actúa como un motor de base de datos relacional. 
+        INSTRUCCIONES ESTRICTAS:
+        1. Responde SOLO con la información presente en las tablas.
+        2. Si el usuario pregunta "¿Quién juega en...?", enumera los nombres y dorsales.
+        3. PROHIBIDO decir qué falta o pedir que se refresque la información. 
+        4. PROHIBIDO mencionar posiciones (portero, defensa, etc.) si no están en la tabla.
+        5. Si no hay datos, responde: "No hay registros".
+        `;
+
+        // DETERMINAMOS SI ENVIAMOS EL CONTEXTO O NO
+        // Enviamos los datos solo si es la primera petición o si toca por el contador
+        const debeEnviarContexto = chatHistory.length === 0 || (contadorPeticiones % FRECUENCIA_REFRESCO === 0);
+        
+        let contenidoMensaje = "";
+        if (debeEnviarContexto) {
+            console.log("Enviando contexto completo para refrescar memoria...");
+            contenidoMensaje = `DATOS_LIGA_ACTUALIZADOS:\n${datosPlanos}\n\nPREGUNTA:\n${preguntaUsuario}`;
+        } else {
+            console.log("Petición rápida (sin envío de contexto)");
+            contenidoMensaje = preguntaUsuario;
+        }
+
+        const mensajeUsuario = {
+            role: "user",
+            content: contenidoMensaje
+        };
 
         try {
             const response = await fetch(URL, {
@@ -282,23 +230,52 @@ document.addEventListener('DOMContentLoaded', () => {
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({
                     model: "qwen2.5:3b",
-                    // Enviamos el texto plano ya procesado
-                    prompt: promptText,
-                    system: system,
+                    messages: [
+                        { role: "system", content: systemPrompt },
+                        ...chatHistory,
+                        mensajeUsuario
+                    ],
                     stream: false,
                     options: {
-                        temperature: 0.1,
-                        top_p: 0.9,
-                        repeat_penalty: 1.1,
-                        num_predict: 120
-                    } // Ajustes conservadores para reducir alucinaciones
+                        // PRECISIÓN
+                        temperature: 0.0,
+                        top_k: 15,
+                        top_p: 0.1,
+                        
+                        // COHERENCIA
+                        repeat_penalty: 1.3,
+                        repeat_last_n: 64,
+                        
+                        // RECURSOS Y LÍMITES
+                        num_ctx: 4096,
+                        num_predict: 300,
+                        num_thread: 4, // Ajusta según tu CPU
+                        
+                        // DESACTIVAR CREATIVIDAD EXTRA
+                        mirostat: 0
+                    }
                 })
             });
 
             if (!response.ok) return null;
             const result = await response.json();
-            return result.response ? result.response.trim() : null;
+            const respuestaTexto = result.message.content.trim();
+
+            // Guardamos en el historial
+            chatHistory.push(mensajeUsuario);
+            chatHistory.push({ role: "assistant", content: respuestaTexto });
+
+            // MANTENER EL HISTORIAL CONTROLADO
+            // Para que la "memoria" funcione, no podemos borrar los mensajes viejos 
+            // tan agresivamente, pero sí limitar para no saturar la CPU.
+            if (chatHistory.length > 5) {
+                // Eliminamos los dos mensajes más antiguos (pregunta y respuesta)
+                chatHistory.splice(1, 2); 
+            }
+
+            return respuestaTexto;
         } catch (error) {
+            console.error("Error:", error);
             return null;
         }
     }
