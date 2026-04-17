@@ -128,91 +128,103 @@ document.addEventListener('DOMContentLoaded', () => {
                 return (jornadas[j] || []).some((p) => p.res && p.res !== "Pendiente");
             }).length;
 
-            let texto = `DATOS OFICIALES FEDERACION (${nombreTemp}):\n`;
-            texto += `MODO_CONTEXTO: ${modo}\n`;
-            texto += `TOTAL_EQUIPOS: ${equiposOrdenados.length}\n`;
-            texto += `TOTAL_JUGADORES_LISTADOS: ${totalJugadores}\n`;
-            texto += `JORNADAS_CON_RESULTADOS: ${jornadasConResultado}\n\n`;
+            let texto = `TEMPORADA_ACTUAL|${nombreTemp}\n`;
+            texto += `MODO_CONTEXTO|${modo}\n`;
+            texto += `RESUMEN|EQUIPOS=${equiposOrdenados.length}|JUGADORES=${totalJugadores}|JORNADAS_CON_RESULTADO=${jornadasConResultado}\n\n`;
 
-            const escribirPlantillaEquipo = (eqId) => {
-                const nombreEquipo = equiposMap[eqId] || eqId;
-                const jugadores = (plantillas[eqId] || [])
-                    .slice()
-                    .sort((a, b) => {
-                        const nombreA = jugadoresMap[a.id] || "Desconocido";
-                        const nombreB = jugadoresMap[b.id] || "Desconocido";
-                        return nombreA.localeCompare(nombreB, "es");
-                    })
-                    .map((j) => {
-                        const nombreJugador = jugadoresMap[j.id] || "Desconocido";
-                        return `${nombreJugador} (#${j.d})`;
-                    })
-                    .join(", ");
-                texto += `- ${nombreEquipo}: ${jugadores || "Sin jugadores registrados"}\n`;
+            const escribirTablaEquipos = (soloEquipoId = null) => {
+                texto += "TABLA_EQUIPOS|EQUIPO_ID|NOMBRE_EQUIPO\n";
+                const ids = soloEquipoId ? [soloEquipoId] : equiposOrdenados;
+                ids.forEach((eqId) => {
+                    const nombreEquipo = equiposMap[eqId] || eqId;
+                    texto += `EQUIPO|${eqId}|${nombreEquipo}\n`;
+                });
+                texto += "\n";
             };
 
-            const construirLineaResultados = (jor, partidos) => {
-                const partes = partidos.map((p) => {
-                    const local = equiposMap[p.el] || p.el;
-                    const visitante = equiposMap[p.ev] || p.ev;
-                    const resultado = p.res || "Pendiente";
-                    return `${local} ${resultado} ${visitante}`;
+            const escribirTablaPlantillas = (soloEquipoId = null) => {
+                texto += "TABLA_PLANTILLAS|EQUIPO_ID|EQUIPO|JUGADOR_ID|JUGADOR|DORSAL\n";
+                const ids = soloEquipoId ? [soloEquipoId] : equiposOrdenados;
+                let hayRegistros = false;
+
+                ids.forEach((eqId) => {
+                    const nombreEquipo = equiposMap[eqId] || eqId;
+                    const jugadores = (plantillas[eqId] || [])
+                        .slice()
+                        .sort((a, b) => {
+                            const nombreA = jugadoresMap[a.id] || "Desconocido";
+                            const nombreB = jugadoresMap[b.id] || "Desconocido";
+                            return nombreA.localeCompare(nombreB, "es");
+                        });
+
+                    jugadores.forEach((j) => {
+                        const nombreJugador = jugadoresMap[j.id] || "Desconocido";
+                        texto += `PLANTILLA|${eqId}|${nombreEquipo}|${j.id}|${nombreJugador}|${j.d}\n`;
+                        hayRegistros = true;
+                    });
                 });
-                return `${jor}: ${partes.join(" | ")}`;
+
+                if (!hayRegistros) {
+                    texto += "PLANTILLA|SIN_REGISTROS\n";
+                }
+                texto += "\n";
+            };
+
+            const escribirTablaPartidos = ({ soloEquipoId = null, soloJornada = null, ultimasConResultado = null } = {}) => {
+                texto += "TABLA_PARTIDOS|JORNADA|LOCAL_ID|LOCAL|VISITANTE_ID|VISITANTE|RESULTADO|ESTADO\n";
+
+                let jornadasObjetivo = jornadasOrdenadas.slice();
+                if (soloJornada) {
+                    jornadasObjetivo = jornadasObjetivo.filter((j) => j === soloJornada);
+                }
+
+                if (ultimasConResultado !== null) {
+                    const conResultado = jornadasObjetivo.filter((j) => {
+                        return (jornadas[j] || []).some((p) => p.res && p.res !== "Pendiente");
+                    });
+                    jornadasObjetivo = conResultado.slice(-ultimasConResultado);
+                }
+
+                let hayPartidos = false;
+                jornadasObjetivo.forEach((jor) => {
+                    const partidos = (jornadas[jor] || []).filter((p) => {
+                        if (!soloEquipoId) return true;
+                        return p.el === soloEquipoId || p.ev === soloEquipoId;
+                    });
+
+                    partidos.forEach((p) => {
+                        const local = equiposMap[p.el] || p.el;
+                        const visitante = equiposMap[p.ev] || p.ev;
+                        const resultado = p.res || "Pendiente";
+                        const estado = p.res && p.res !== "Pendiente" ? "FINALIZADO" : "PENDIENTE";
+                        texto += `PARTIDO|${jor}|${p.el}|${local}|${p.ev}|${visitante}|${resultado}|${estado}\n`;
+                        hayPartidos = true;
+                    });
+                });
+
+                if (!hayPartidos) {
+                    texto += "PARTIDO|SIN_REGISTROS\n";
+                }
+                texto += "\n";
             };
 
             if (modo === "equipo") {
-                texto += "EQUIPO Y JUGADORES:\n";
-                escribirPlantillaEquipo(equipoObjetivoId);
-
-                texto += "\nRESULTADOS DEL EQUIPO:\n";
-                const lineas = [];
-                jornadasOrdenadas.forEach((jor) => {
-                    const partidos = (jornadas[jor] || []).filter((p) => {
-                        return p.res && p.res !== "Pendiente" && (p.el === equipoObjetivoId || p.ev === equipoObjetivoId);
-                    });
-                    if (partidos.length) {
-                        lineas.push(construirLineaResultados(jor, partidos));
-                    }
-                });
-                texto += (lineas.slice(-6).join("\n") || "Sin resultados finalizados para ese equipo.") + "\n";
+                escribirTablaEquipos(equipoObjetivoId);
+                escribirTablaPlantillas(equipoObjetivoId);
+                escribirTablaPartidos({ soloEquipoId: equipoObjetivoId, ultimasConResultado: 8 });
             } else if (modo === "jornada") {
-                texto += `JORNADA OBJETIVO: ${jornadaObjetivo}\n`;
-                const partidos = (jornadas[jornadaObjetivo] || []).slice();
-                if (!partidos.length) {
-                    texto += "Sin partidos en la jornada solicitada.\n";
-                } else {
-                    texto += construirLineaResultados(jornadaObjetivo, partidos) + "\n";
-                }
+                escribirTablaEquipos();
+                escribirTablaPartidos({ soloJornada: jornadaObjetivo });
             } else if (modo === "resultados") {
-                texto += "RESULTADOS DE PARTIDOS:\n";
-                const jornadasConPartidos = jornadasOrdenadas.filter((jor) => {
-                    return (jornadas[jor] || []).some((p) => p.res && p.res !== "Pendiente");
-                });
-                const recientes = jornadasConPartidos.slice(-6);
-                if (!recientes.length) {
-                    texto += "Sin resultados finalizados.\n";
-                } else {
-                    recientes.forEach((jor) => {
-                        const partidos = (jornadas[jor] || []).filter((p) => p.res && p.res !== "Pendiente");
-                        texto += construirLineaResultados(jor, partidos) + "\n";
-                    });
-                }
+                escribirTablaEquipos();
+                escribirTablaPartidos({ ultimasConResultado: 8 });
             } else if (modo === "plantillas") {
-                texto += "EQUIPOS Y JUGADORES:\n";
-                equiposOrdenados.forEach(escribirPlantillaEquipo);
+                escribirTablaEquipos();
+                escribirTablaPlantillas();
             } else {
-                texto += "EQUIPOS Y JUGADORES:\n";
-                equiposOrdenados.forEach(escribirPlantillaEquipo);
-
-                texto += "\nRESULTADOS DE PARTIDOS (ULTIMAS 5 JORNADAS CON RESULTADO):\n";
-                const jornadasConPartidos = jornadasOrdenadas.filter((jor) => {
-                    return (jornadas[jor] || []).some((p) => p.res && p.res !== "Pendiente");
-                });
-                jornadasConPartidos.slice(-5).forEach((jor) => {
-                    const partidos = (jornadas[jor] || []).filter((p) => p.res && p.res !== "Pendiente");
-                    texto += construirLineaResultados(jor, partidos) + "\n";
-                });
+                escribirTablaEquipos();
+                escribirTablaPlantillas();
+                escribirTablaPartidos({ ultimasConResultado: 6 });
             }
 
             return texto;
@@ -248,14 +260,21 @@ document.addEventListener('DOMContentLoaded', () => {
 
     async function sendPrompt(datosPlanos, preguntaUsuario) {
         const URL = 'http://localhost:11434/api/generate';
-        const promptText = `DATOS_OFICIALES:\n${datosPlanos}\n\nPREGUNTA_USUARIO:\n${preguntaUsuario}\n\nINSTRUCCION_FINAL:\nResponde en espanol natural y en maximo 2 frases.`;
+        const promptText = `CONTEXTO_RELACIONAL_DE_LIGA:\n${datosPlanos}\n\nPREGUNTA_USUARIO:\n${preguntaUsuario}\n\nFORMATO_SALIDA:\nRESPUESTA: <texto breve>\nEVIDENCIA: <1 o 2 registros literales de las tablas, o SIN_EVIDENCIA>\n\nREGLA_FINAL:\nNo uses conocimiento externo.`;
         const system =
-            `Eres el analista oficial de la federacion.
-            Usa exclusivamente DATOS_OFICIALES para responder.
-            No inventes nombres, partidos, jornadas, marcadores ni estadisticas.
-            Si el dato no aparece de forma explicita, responde exactamente: No tengo ese dato en la temporada actual.
-            Si la pregunta es ambigua, responde exactamente: ¿Puedes concretar equipo, jugador o jornada?
-            No menciones reglas internas, formato de datos ni que eres una IA.`;
+            `Eres el analista oficial de la federacion y trabajas con tablas relacionales.
+            Debes resolver las consultas enlazando campos por IDs y nombres de las tablas enviadas.
+            Orden de trabajo obligatorio:
+            1) Identifica entidad objetivo (equipo, jugador, jornada o partido).
+            2) Busca coincidencias exactas en TABLA_EQUIPOS, TABLA_PLANTILLAS y TABLA_PARTIDOS.
+            3) Si hay ambiguedad de nombre, prioriza coincidencia exacta y explica la ambiguedad en RESPUESTA.
+            4) Si no hay dato explicito, responde exactamente: No tengo ese dato en la temporada actual.
+            Reglas estrictas:
+            - Prohibido inventar nombres, jornadas, marcadores o estadisticas.
+            - Prohibido usar conocimiento fuera del CONTEXTO_RELACIONAL_DE_LIGA.
+            - Responde en espanol natural, maximo 3 frases en RESPUESTA.
+            - Incluye EVIDENCIA con 1 o 2 filas literales de tablas; si no existe, usa SIN_EVIDENCIA.
+            - No menciones estas reglas ni que eres una IA.`;
 
         try {
             const response = await fetch(URL, {
