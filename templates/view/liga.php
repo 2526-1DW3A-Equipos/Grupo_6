@@ -19,6 +19,40 @@ $xpath = $temporadaContexto['xpath'];
 $temporadas = $temporadaContexto['temporadas'];
 $seleccionada = $temporadaContexto['seleccionada'];
 $mostrarTituloTemporadaEnHeader = in_array($rutaSegura, ['clasificacion', 'calendario', 'resultados', 'equipos'], true);
+$jornadasTemporada = $xpath->query("/federacion/temporadas/temporada[@anoInicio='$seleccionada']/jornadas/jornada");
+$totalJornadas = $jornadasTemporada !== false ? $jornadasTemporada->length : 0;
+
+$jornadaSeleccionada = 'all';
+if (isset($_GET['jornada'])) {
+    $jornadaSolicitada = trim((string) $_GET['jornada']);
+    if ($jornadaSolicitada !== '') {
+        $jornadaSeleccionada = $jornadaSolicitada === 'all' ? 'all' : preg_replace('/[^0-9]/', '', $jornadaSolicitada);
+    }
+}
+
+$accionJornada = isset($_GET['accionJornada']) ? trim((string) $_GET['accionJornada']) : '';
+if ($accionJornada === 'prev' || $accionJornada === 'next') {
+    if ($totalJornadas > 0) {
+        if ($jornadaSeleccionada === 'all' || $jornadaSeleccionada === '') {
+            $jornadaActual = $accionJornada === 'next' ? 1 : $totalJornadas;
+        } else {
+            $jornadaActual = (int) $jornadaSeleccionada;
+            $jornadaActual += $accionJornada === 'next' ? 1 : -1;
+
+            if ($jornadaActual > $totalJornadas) {
+                $jornadaActual = 1;
+            } elseif ($jornadaActual < 1) {
+                $jornadaActual = $totalJornadas;
+            }
+        }
+
+        $jornadaSeleccionada = (string) $jornadaActual;
+    } else {
+        $jornadaSeleccionada = 'all';
+    }
+} elseif ($jornadaSeleccionada !== 'all' && ($jornadaSeleccionada === '' || (int) $jornadaSeleccionada < 1 || (int) $jornadaSeleccionada > $totalJornadas)) {
+    $jornadaSeleccionada = 'all';
+}
 ?>
 
     <?php
@@ -92,6 +126,7 @@ $mostrarTituloTemporadaEnHeader = in_array($rutaSegura, ['clasificacion', 'calen
                 $proc->importStylesheet($xsl);
                 $proc->setParameter('', 'anoInicio', $anioInicio);
                 $proc->setParameter('', 'anoFin', $anioFin);
+                $proc->setParameter('', 'jornadaSeleccionada', $jornadaSeleccionada);
 
                 echo $proc->transformToXml($xmlParaTransformar);
                 echo '</article>';

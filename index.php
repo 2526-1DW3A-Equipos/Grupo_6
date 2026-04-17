@@ -31,7 +31,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['email']) && isset($_P
   if (file_exists($xml_path)) {
     $xml = simplexml_load_file($xml_path);
     $login_success = false;
-    
+
     // Check credentials
     if (isset($xml->usuarios->usuario)) {
       foreach ($xml->usuarios->usuario as $user) {
@@ -137,12 +137,12 @@ if ($mostrarTemporadaHeader) {
     <?php if ($mostrarTemporadaHeader && $temporadaContextoHeader !== null): ?>
       <div class="header-temporada-slot">
         <?php
-          echo renderSelectorTemporada(
-            $rutaSeguraHeader,
-            $temporadaContextoHeader['temporadas'],
-            $temporadaContextoHeader['seleccionada'],
-            $equipoSeleccionadoHeader
-          );
+        echo renderSelectorTemporada(
+          $rutaSeguraHeader,
+          $temporadaContextoHeader['temporadas'],
+          $temporadaContextoHeader['seleccionada'],
+          $equipoSeleccionadoHeader
+        );
         ?>
       </div>
     <?php endif; ?>
@@ -182,30 +182,30 @@ if ($mostrarTemporadaHeader) {
         </li>
 
         <li>
-          <?php if($isLogged):?>
-              <?php if($isAdmin): ?>
-                <li>
-                    <a class="menuItem <?php echo ($pagina === 'pl_admin') ? 'isActive' : ''; ?>" 
-                      href="?pl_admin">Panel Admin</a>
-                </li>
-    
-            <?php endif; ?>
-            
-            <span class="profile-info">
-              <p class="profile-username"><?php echo ucfirst(explode('@', $_SESSION['usuario_nombre'])[0]); ?></p>
-              <p class="profile-role"><?php echo 'Rol: ' . ucfirst(explode('@', $_SESSION['usuario_rol'])[0]); ?></p>
-            </span>
-
-             <li>
-              <a class="logout-icon" href="?logout=1"><img src="assets/img/iconos/logout.png" alt="X" /></a>
-            </li>
-
-          <?php else: ?>
-            <label for="contacto-check" class="abrir-contacto">
-            <a class="cabeceraCnt">Iniciar Sesión</a>
-            </label>            
-          <?php endif; ?>
+          <?php if ($isLogged): ?>
+            <?php if ($isAdmin): ?>
+        <li>
+          <a class="menuItem <?php echo ($pagina === 'pl_admin') ? 'isActive' : ''; ?>"
+            href="?pl_admin">Panel Admin</a>
         </li>
+
+      <?php endif; ?>
+
+      <span class="profile-info">
+        <p class="profile-username"><?php echo ucfirst(explode('@', $_SESSION['usuario_nombre'])[0]); ?></p>
+        <p class="profile-role"><?php echo 'Rol: ' . ucfirst(explode('@', $_SESSION['usuario_rol'])[0]); ?></p>
+      </span>
+
+      <li>
+        <a class="logout-icon" href="?logout=1"><img src="assets/img/iconos/logout.png" alt="X" /></a>
+      </li>
+
+    <?php else: ?>
+      <label for="contacto-check" class="abrir-contacto">
+        <a class="cabeceraCnt">Iniciar Sesión</a>
+      </label>
+    <?php endif; ?>
+    </li>
       </ul>
     </nav>
   </header>
@@ -281,75 +281,56 @@ if ($mostrarTemporadaHeader) {
   </main>
 
   <footer>
-    <!-- Zona alta del footer -->
-    <nav class="footerNav">
-      <ul>
-        <li>
-          <a id="botonArriba" href="" target="_top">Volver arriba</a>
-        </li>
-        <li>
-          <a href="?soporte">Soporte</a>
-        </li>
-      </ul>
 
-      <p class="footerCopy">
-        Copyright &copy; 2026 | Prima League. Desarrollado por Grupo 6
-      </p>
-    </nav>
-    <hr />
 
     <!-- Zona baja del footer -->
     <nav class="footerNav">
-      <ul>
-        <li>
-          <a href="?inicio" data-page="inicio">Inicio</a>
-        </li>
-        <li>
-          <a href="?clasificacion" data-page="clasificacion">Clasificacion</a>
-        </li>
-        <li>
-          <a href="?calendario" data-page="calendario">Calendario y resultados</a>
-        </li>
-        <li>
-          <a href="?equipos" data-page="equipos">Equipos</a>
-        </li>
-      </ul>
-      <!-- Lista de Redes Sociales -->
-      <ul class="footerRRSS">
-        <li>
-          <a>
-            <img loading="lazy"
-              src="assets/img/redes_sociales/instagram_logo.png"
-              alt="Instagram" />
-          </a>
-        </li>
-        <li>
-          <a>
-            <img loading="lazy"
-              src="assets/img/redes_sociales/facebook_logo.png"
-              alt="Facebook" />
-          </a>
-        </li>
-        <li>
-          <a>
-            <img loading="lazy"
-              src="assets/img/redes_sociales/linkedin_logo.png"
-              alt="LinkedIn" />
-          </a>
-        </li>
-        <li>
-          <a>
-            <img loading="lazy" src="assets/img/redes_sociales/x_logo.png" alt="X" />
-          </a>
-        </li>
-        <li>
-          <a>
-            <img loading="lazy"
-              src="assets/img/redes_sociales/tiktok_logo.png"
-              alt="Icono de la red social TikTok" />
-          </a>
-        </li>
-      </ul>
+      <div>
+        <ul>
+          <li>
+            <a id="botonArriba" href="" target="_top">Volver arriba</a>
+          </li>
+          <li>
+            <a href="?soporte">Soporte</a>
+          </li>
+        </ul>
+        <ul>
+          <p class="footerCopy">
+            | Copyright &copy; 2026 | Prima League. Desarrollado por Grupo 6
+          </p>
+        </ul>
+      </div>
+      <div>
+        <!-- Lista de Redes Sociales -->
+        <ul class="footerRRSS">
+          <li>
+            <a href="https://www.instagram.com/baloncestoesp/" target="_blank" title="Instagram">
+              <img loading="lazy"
+                src="assets/img/redes_sociales/instagram_logo.png"
+                alt="Instagram" />
+            </a>
+          </li>
+          <li>
+            <a href="https://www.facebook.com/BaloncestoFEB" target="_blank" title="Facebook">
+              <img loading="lazy"
+                src="assets/img/redes_sociales/facebook_logo.png"
+                alt="Facebook" />
+            </a>
+          </li>
+          <li>
+            <a href="https://es.linkedin.com/company/federaci%C3%B3nespa%C3%B1oladebaloncesto" target="_blank" title="LinkedIn">
+              <img loading="lazy"
+                src="assets/img/redes_sociales/linkedin_logo.png"
+                alt="LinkedIn" />
+            </a>
+          </li>
+          <li>
+            <a href="https://x.com/BaloncestoESP" target="_blank" title="X / Twitter">
+              <img loading="lazy" src="assets/img/redes_sociales/x_logo.png" alt="X" />
+            </a>
+          </li>
+        </ul>
+      </div>
     </nav>
   </footer>
 
