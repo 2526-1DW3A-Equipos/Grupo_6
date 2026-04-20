@@ -66,7 +66,7 @@
 
                 <div>
                     <xsl:attribute name="class">
-                        <xsl:text>calendario-jornadas</xsl:text>
+                        <xsl:text>calendario-jornadas calendario-jornadas--single</xsl:text>
                         <xsl:if test="$soloUnaJornada">
                             <xsl:text> calendario-jornadas--single</xsl:text>
                         </xsl:if>
