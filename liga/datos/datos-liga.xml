@@ -24,15 +24,6 @@
 		<equipo id="E16">
 			<nombreEquipo>Miau</nombreEquipo>
 		</equipo>
-		<equipo id="E17">
-			<nombreEquipo>Atletico de Txurdinaga</nombreEquipo>
-		</equipo>
-		<equipo id="E18">
-			<nombreEquipo>Barcelona</nombreEquipo>
-		</equipo>
-		<equipo id="E19">
-			<nombreEquipo>RealGPT</nombreEquipo>
-		</equipo>
 	</equipos>
 	<jugadores>
 		<jugador id="20000001A">
@@ -208,358 +199,198 @@
 		<temporada anoInicio="2023" anoFin="2024">
 			<plantillas>
 				<equipo ref="E1" escudo="">
-					<jugador ref="10000001C" dorsal="3" foto=""/>
-					<jugador ref="20000001B" dorsal="6" foto=""/>
-					<jugador ref="30000001D" dorsal="1" foto=""/>
-					<jugador ref="30000001F" dorsal="2" foto=""/>
-					<jugador ref="40000001C" dorsal="7" foto=""/>
-					<jugador ref="40000001E" dorsal="4" foto=""/>
-					<jugador ref="50000001E" dorsal="5" foto=""/>
+					<jugador ref="10000001C" dorsal="54" foto=""/>
+					<jugador ref="20000001B" dorsal="0" foto=""/>
+					<jugador ref="30000001D" dorsal="12" foto=""/>
+					<jugador ref="30000001F" dorsal="43" foto=""/>
+					<jugador ref="40000001C" dorsal="34" foto=""/>
+					<jugador ref="40000001E" dorsal="9" foto=""/>
+					<jugador ref="50000001E" dorsal="84" foto=""/>
 				</equipo>
 				<equipo ref="E2" escudo="">
-					<jugador ref="10000001A" dorsal="3" foto=""/>
-					<jugador ref="20000001A" dorsal="1" foto=""/>
-					<jugador ref="30000001C" dorsal="2" foto=""/>
-					<jugador ref="40000001B" dorsal="6" foto=""/>
-					<jugador ref="50000001D" dorsal="5" foto=""/>
-					<jugador ref="50000001G" dorsal="4" foto=""/>
-					<jugador ref="60000001E" dorsal="7" foto=""/>
+					<jugador ref="10000001A" dorsal="98" foto=""/>
+					<jugador ref="10000001E" dorsal="11" foto=""/>
+					<jugador ref="20000001A" dorsal="12" foto=""/>
+					<jugador ref="30000001C" dorsal="23" foto=""/>
+					<jugador ref="50000001C" dorsal="54" foto=""/>
+					<jugador ref="50000001G" dorsal="43" foto=""/>
+					<jugador ref="60000001G" dorsal="30" foto=""/>
 				</equipo>
 				<equipo ref="E3" escudo="">
-					<jugador ref="10000001E" dorsal="1" foto=""/>
-					<jugador ref="20000001C" dorsal="4" foto=""/>
-					<jugador ref="30000001A" dorsal="6" foto=""/>
-					<jugador ref="30000001B" dorsal="7" foto=""/>
-					<jugador ref="40000001A" dorsal="5" foto=""/>
-					<jugador ref="60000001A" dorsal="3" foto=""/>
-					<jugador ref="60000001C" dorsal="2" foto=""/>
+					<jugador ref="20000001E" dorsal="54" foto=""/>
+					<jugador ref="40000001G" dorsal="43" foto=""/>
+					<jugador ref="50000001B" dorsal="67" foto=""/>
+					<jugador ref="50000001D" dorsal="89" foto=""/>
+					<jugador ref="60000001B" dorsal="65" foto=""/>
+					<jugador ref="60000001C" dorsal="33" foto=""/>
+					<jugador ref="60000001F" dorsal="12" foto=""/>
 				</equipo>
 				<equipo ref="E4" escudo="">
-					<jugador ref="20000001E" dorsal="7" foto=""/>
-					<jugador ref="30000001G" dorsal="3" foto=""/>
-					<jugador ref="40000001D" dorsal="2" foto=""/>
-					<jugador ref="40000001G" dorsal="6" foto=""/>
-					<jugador ref="60000001B" dorsal="8" foto=""/>
-					<jugador ref="60000001F" dorsal="1" foto=""/>
-					<jugador ref="60000001G" dorsal="5" foto=""/>
+					<jugador ref="10000001G" dorsal="93" foto=""/>
+					<jugador ref="30000001A" dorsal="12" foto=""/>
+					<jugador ref="30000001B" dorsal="68" foto=""/>
+					<jugador ref="40000001A" dorsal="56" foto=""/>
+					<jugador ref="40000001B" dorsal="95" foto=""/>
+					<jugador ref="60000001A" dorsal="89" foto=""/>
+					<jugador ref="60000001E" dorsal="32" foto=""/>
 				</equipo>
 				<equipo ref="E5" escudo="">
-					<jugador ref="10000001B" dorsal="7" foto=""/>
-					<jugador ref="10000001D" dorsal="4" foto=""/>
-					<jugador ref="10000001F" dorsal="5" foto=""/>
-					<jugador ref="10000001G" dorsal="3" foto=""/>
-					<jugador ref="50000001B" dorsal="2" foto=""/>
-					<jugador ref="50000001C" dorsal="1" foto=""/>
-					<jugador ref="50000001F" dorsal="6" foto=""/>
+					<jugador ref="10000001B" dorsal="20" foto=""/>
+					<jugador ref="10000001D" dorsal="99" foto=""/>
+					<jugador ref="10000001F" dorsal="43" foto=""/>
+					<jugador ref="20000001C" dorsal="65" foto=""/>
+					<jugador ref="30000001G" dorsal="78" foto=""/>
+					<jugador ref="40000001D" dorsal="56" foto=""/>
+					<jugador ref="50000001F" dorsal="34" foto=""/>
 				</equipo>
 				<equipo ref="E6" escudo="">
-					<jugador ref="20000001D" dorsal="4" foto=""/>
-					<jugador ref="20000001F" dorsal="5" foto=""/>
-					<jugador ref="20000001G" dorsal="7" foto=""/>
-					<jugador ref="30000001E" dorsal="1" foto=""/>
-					<jugador ref="40000001F" dorsal="3" foto=""/>
-					<jugador ref="50000001A" dorsal="2" foto=""/>
-					<jugador ref="60000001D" dorsal="6" foto=""/>
+					<jugador ref="20000001D" dorsal="95" foto=""/>
+					<jugador ref="20000001F" dorsal="12" foto=""/>
+					<jugador ref="20000001G" dorsal="54" foto=""/>
+					<jugador ref="30000001E" dorsal="48" foto=""/>
+					<jugador ref="40000001F" dorsal="43" foto=""/>
+					<jugador ref="50000001A" dorsal="90" foto=""/>
+					<jugador ref="60000001D" dorsal="76" foto=""/>
 				</equipo>
 			</plantillas>
 			<jornadas>
 				<jornada>
 					<partido>
-						<equipoLocal ref="E5"/>
-						<equipoVisitante ref="E2"/>
-						<puntosLocal>123</puntosLocal>
-						<puntosVisitante>43</puntosVisitante>
-					</partido>
-					<partido>
-						<equipoLocal ref="E6"/>
-						<equipoVisitante ref="E3"/>
-						<puntosLocal>12</puntosLocal>
-						<puntosVisitante>41</puntosVisitante>
-					</partido>
-					<partido>
 						<equipoLocal ref="E1"/>
-						<equipoVisitante ref="E4"/>
-						<puntosLocal>123</puntosLocal>
-						<puntosVisitante>32</puntosVisitante>
+						<equipoVisitante ref="E2"/>
+						<puntosLocal>22</puntosLocal>
+						<puntosVisitante>44</puntosVisitante>
 					</partido>
-				</jornada>
-				<jornada>
 					<partido>
 						<equipoLocal ref="E3"/>
-						<equipoVisitante ref="E1"/>
-						<puntosLocal>123</puntosLocal>
-						<puntosVisitante>432</puntosVisitante>
-					</partido>
-					<partido>
-						<equipoLocal ref="E2"/>
 						<equipoVisitante ref="E4"/>
-						<puntosLocal>273</puntosLocal>
-						<puntosVisitante>540</puntosVisitante>
-					</partido>
-					<partido>
-						<equipoLocal ref="E5"/>
-						<equipoVisitante ref="E6"/>
-						<puntosLocal>23</puntosLocal>
-						<puntosVisitante>43</puntosVisitante>
-					</partido>
-				</jornada>
-				<jornada>
-					<partido>
-						<equipoLocal ref="E2"/>
-						<equipoVisitante ref="E1"/>
-						<puntosLocal>65</puntosLocal>
-						<puntosVisitante>543</puntosVisitante>
-					</partido>
-					<partido>
-						<equipoLocal ref="E5"/>
-						<equipoVisitante ref="E3"/>
-						<puntosLocal>43</puntosLocal>
-						<puntosVisitante>123</puntosVisitante>
-					</partido>
-					<partido>
-						<equipoLocal ref="E4"/>
-						<equipoVisitante ref="E6"/>
-						<puntosLocal>64</puntosLocal>
-						<puntosVisitante>8776</puntosVisitante>
-					</partido>
-				</jornada>
-				<jornada>
-					<partido>
-						<equipoLocal ref="E6"/>
-						<equipoVisitante ref="E1"/>
-						<puntosLocal>41</puntosLocal>
+						<puntosLocal>12</puntosLocal>
 						<puntosVisitante>54</puntosVisitante>
 					</partido>
 					<partido>
-						<equipoLocal ref="E3"/>
-						<equipoVisitante ref="E2"/>
+						<equipoLocal ref="E5"/>
+						<equipoVisitante ref="E6"/>
+						<puntosLocal>43</puntosLocal>
+						<puntosVisitante>76</puntosVisitante>
+					</partido>
+				</jornada>
+				<jornada>
+					<partido>
+						<equipoLocal ref="E6"/>
+						<equipoVisitante ref="E1"/>
 						<puntosLocal>54</puntosLocal>
+						<puntosVisitante>59</puntosVisitante>
+					</partido>
+					<partido>
+						<equipoLocal ref="E4"/>
+						<equipoVisitante ref="E2"/>
+						<puntosLocal>98</puntosLocal>
+						<puntosVisitante>12</puntosVisitante>
+					</partido>
+					<partido>
+						<equipoLocal ref="E3"/>
+						<equipoVisitante ref="E5"/>
+						<puntosLocal>12</puntosLocal>
+						<puntosVisitante>54</puntosVisitante>
+					</partido>
+				</jornada>
+				<jornada>
+					<partido>
+						<equipoLocal ref="E4"/>
+						<equipoVisitante ref="E1"/>
+						<puntosLocal>43</puntosLocal>
+						<puntosVisitante>12</puntosVisitante>
+					</partido>
+					<partido>
+						<equipoLocal ref="E2"/>
+						<equipoVisitante ref="E5"/>
+						<puntosLocal>78</puntosLocal>
 						<puntosVisitante>42</puntosVisitante>
 					</partido>
 					<partido>
-						<equipoLocal ref="E4"/>
-						<equipoVisitante ref="E5"/>
-						<puntosLocal>13</puntosLocal>
-						<puntosVisitante>2</puntosVisitante>
+						<equipoLocal ref="E3"/>
+						<equipoVisitante ref="E6"/>
+						<puntosLocal>65</puntosLocal>
+						<puntosVisitante>90</puntosVisitante>
 					</partido>
 				</jornada>
 				<jornada>
 					<partido>
-						<equipoLocal ref="E6"/>
-						<equipoVisitante ref="E2"/>
-						<puntosLocal>65</puntosLocal>
-						<puntosVisitante>98</puntosVisitante>
+						<equipoLocal ref="E5"/>
+						<equipoVisitante ref="E1"/>
+						<puntosLocal>12</puntosLocal>
+						<puntosVisitante>87</puntosVisitante>
 					</partido>
 					<partido>
-						<equipoLocal ref="E4"/>
+						<equipoLocal ref="E2"/>
 						<equipoVisitante ref="E3"/>
-						<puntosLocal>54</puntosLocal>
-						<puntosVisitante>123</puntosVisitante>
+						<puntosLocal>23</puntosLocal>
+						<puntosVisitante>67</puntosVisitante>
 					</partido>
+					<partido>
+						<equipoLocal ref="E6"/>
+						<equipoVisitante ref="E4"/>
+						<puntosLocal>54</puntosLocal>
+						<puntosVisitante>87</puntosVisitante>
+					</partido>
+				</jornada>
+				<jornada>
 					<partido>
 						<equipoLocal ref="E1"/>
-						<equipoVisitante ref="E5"/>
+						<equipoVisitante ref="E3"/>
+						<puntosLocal>65</puntosLocal>
+						<puntosVisitante>94</puntosVisitante>
+					</partido>
+					<partido>
+						<equipoLocal ref="E5"/>
+						<equipoVisitante ref="E4"/>
+						<puntosLocal>90</puntosLocal>
+						<puntosVisitante>85</puntosVisitante>
+					</partido>
+					<partido>
+						<equipoLocal ref="E2"/>
+						<equipoVisitante ref="E6"/>
 						<puntosLocal>12</puntosLocal>
 						<puntosVisitante>54</puntosVisitante>
 					</partido>
 				</jornada>
 				<jornada>
 					<partido>
-						<equipoLocal ref="E4"/>
+						<equipoLocal ref="E2"/>
 						<equipoVisitante ref="E1"/>
 						<puntosLocal>12</puntosLocal>
-						<puntosVisitante>52</puntosVisitante>
+						<puntosVisitante>65</puntosVisitante>
+					</partido>
+					<partido>
+						<equipoLocal ref="E4"/>
+						<equipoVisitante ref="E3"/>
+						<puntosLocal>54</puntosLocal>
+						<puntosVisitante>34</puntosVisitante>
+					</partido>
+					<partido>
+						<equipoLocal ref="E6"/>
+						<equipoVisitante ref="E5"/>
+						<puntosLocal>54</puntosLocal>
+						<puntosVisitante>87</puntosVisitante>
+					</partido>
+				</jornada>
+				<jornada>
+					<partido>
+						<equipoLocal ref="E5"/>
+						<equipoVisitante ref="E3"/>
+						<puntosLocal>12</puntosLocal>
+						<puntosVisitante>45</puntosVisitante>
 					</partido>
 					<partido>
 						<equipoLocal ref="E2"/>
-						<equipoVisitante ref="E5"/>
-						<puntosLocal>31</puntosLocal>
-						<puntosVisitante>65</puntosVisitante>
-					</partido>
-					<partido>
-						<equipoLocal ref="E3"/>
-						<equipoVisitante ref="E6"/>
-						<puntosLocal>54</puntosLocal>
-						<puntosVisitante>65</puntosVisitante>
-					</partido>
-				</jornada>
-				<jornada>
-					<partido>
-						<equipoLocal ref="E4"/>
-						<equipoVisitante ref="E2"/>
-						<puntosLocal>43</puntosLocal>
-						<puntosVisitante>67</puntosVisitante>
-					</partido>
-					<partido>
-						<equipoLocal ref="E1"/>
-						<equipoVisitante ref="E3"/>
-						<puntosLocal>83</puntosLocal>
-						<puntosVisitante>53</puntosVisitante>
-					</partido>
-					<partido>
-						<equipoLocal ref="E6"/>
-						<equipoVisitante ref="E5"/>
-						<puntosLocal>64</puntosLocal>
-						<puntosVisitante>12</puntosVisitante>
-					</partido>
-				</jornada>
-				<jornada>
-					<partido>
-						<equipoLocal ref="E1"/>
-						<equipoVisitante ref="E2"/>
-						<puntosLocal>123</puntosLocal>
-						<puntosVisitante>541</puntosVisitante>
-					</partido>
-					<partido>
-						<equipoLocal ref="E6"/>
 						<equipoVisitante ref="E4"/>
 						<puntosLocal>54</puntosLocal>
 						<puntosVisitante>89</puntosVisitante>
 					</partido>
 					<partido>
-						<equipoLocal ref="E3"/>
-						<equipoVisitante ref="E5"/>
-						<puntosLocal>123</puntosLocal>
-						<puntosVisitante>54</puntosVisitante>
-					</partido>
-				</jornada>
-				<jornada>
-					<partido>
-						<equipoLocal ref="E2"/>
-						<equipoVisitante ref="E3"/>
-						<puntosLocal>12</puntosLocal>
-						<puntosVisitante>54</puntosVisitante>
-					</partido>
-					<partido>
-						<equipoLocal ref="E5"/>
-						<equipoVisitante ref="E4"/>
-						<puntosLocal>123</puntosLocal>
-						<puntosVisitante>54</puntosVisitante>
-					</partido>
-					<partido>
 						<equipoLocal ref="E1"/>
 						<equipoVisitante ref="E6"/>
-						<puntosLocal>54</puntosLocal>
-						<puntosVisitante>23</puntosVisitante>
-					</partido>
-				</jornada>
-				<jornada>
-					<partido>
-						<equipoLocal ref="E5"/>
-						<equipoVisitante ref="E1"/>
-						<puntosLocal>65</puntosLocal>
-						<puntosVisitante>65</puntosVisitante>
-					</partido>
-					<partido>
-						<equipoLocal ref="E3"/>
-						<equipoVisitante ref="E4"/>
-						<puntosLocal>123</puntosLocal>
-						<puntosVisitante>54</puntosVisitante>
-					</partido>
-					<partido>
-						<equipoLocal ref="E2"/>
-						<equipoVisitante ref="E6"/>
-						<puntosLocal>54</puntosLocal>
-						<puntosVisitante>12</puntosVisitante>
-					</partido>
-				</jornada>
-			</jornadas>
-		</temporada>
-		<temporada anoInicio="2024" anoFin="2025">
-			<plantillas>
-				<equipo ref="E1" escudo="">
-					<jugador ref="10000001C" dorsal="3" foto=""/>
-					<jugador ref="20000001B" dorsal="6" foto=""/>
-					<jugador ref="30000001G" dorsal="2" foto=""/>
-					<jugador ref="40000001C" dorsal="7" foto=""/>
-					<jugador ref="40000001E" dorsal="4" foto=""/>
-					<jugador ref="40000001G" dorsal="9" foto=""/>
-					<jugador ref="50000001E" dorsal="5" foto=""/>
-				</equipo>
-				<equipo ref="E2" escudo="">
-					<jugador ref="10000001A" dorsal="3" foto=""/>
-					<jugador ref="20000001A" dorsal="1" foto=""/>
-					<jugador ref="30000001C" dorsal="2" foto=""/>
-					<jugador ref="40000001B" dorsal="6" foto=""/>
-					<jugador ref="50000001D" dorsal="5" foto=""/>
-					<jugador ref="50000001G" dorsal="4" foto=""/>
-					<jugador ref="60000001E" dorsal="7" foto=""/>
-				</equipo>
-				<equipo ref="E3" escudo="">
-					<jugador ref="10000001E" dorsal="1" foto=""/>
-					<jugador ref="20000001C" dorsal="4" foto=""/>
-					<jugador ref="30000001A" dorsal="6" foto=""/>
-					<jugador ref="30000001B" dorsal="7" foto=""/>
-					<jugador ref="40000001A" dorsal="5" foto=""/>
-					<jugador ref="60000001A" dorsal="3" foto=""/>
-					<jugador ref="60000001C" dorsal="2" foto=""/>
-				</equipo>
-				<equipo ref="E4" escudo="">
-					<jugador ref="20000001E" dorsal="7" foto=""/>
-					<jugador ref="30000001D" dorsal="21" foto=""/>
-					<jugador ref="30000001F" dorsal="4" foto=""/>
-					<jugador ref="40000001D" dorsal="2" foto=""/>
-					<jugador ref="60000001B" dorsal="8" foto=""/>
-					<jugador ref="60000001F" dorsal="1" foto=""/>
-					<jugador ref="60000001G" dorsal="5" foto=""/>
-				</equipo>
-				<equipo ref="E5" escudo="">
-					<jugador ref="10000001B" dorsal="7" foto=""/>
-					<jugador ref="10000001D" dorsal="4" foto=""/>
-					<jugador ref="10000001F" dorsal="5" foto=""/>
-					<jugador ref="10000001G" dorsal="3" foto=""/>
-					<jugador ref="50000001B" dorsal="2" foto=""/>
-					<jugador ref="50000001C" dorsal="1" foto=""/>
-					<jugador ref="50000001F" dorsal="6" foto=""/>
-				</equipo>
-				<equipo ref="E6" escudo="">
-					<jugador ref="20000001D" dorsal="4" foto=""/>
-					<jugador ref="20000001F" dorsal="5" foto=""/>
-					<jugador ref="20000001G" dorsal="7" foto=""/>
-					<jugador ref="30000001E" dorsal="1" foto=""/>
-					<jugador ref="40000001F" dorsal="3" foto=""/>
-					<jugador ref="50000001A" dorsal="2" foto=""/>
-					<jugador ref="60000001D" dorsal="6" foto=""/>
-				</equipo>
-			</plantillas>
-			<jornadas>
-				<jornada>
-					<partido>
-						<equipoLocal ref="E2"/>
-						<equipoVisitante ref="E1"/>
-						<puntosLocal>43</puntosLocal>
-						<puntosVisitante>54</puntosVisitante>
-					</partido>
-					<partido>
-						<equipoLocal ref="E4"/>
-						<equipoVisitante ref="E3"/>
-						<puntosLocal>54</puntosLocal>
-						<puntosVisitante>23</puntosVisitante>
-					</partido>
-					<partido>
-						<equipoLocal ref="E6"/>
-						<equipoVisitante ref="E5"/>
-						<puntosLocal>12</puntosLocal>
-						<puntosVisitante>54</puntosVisitante>
-					</partido>
-				</jornada>
-				<jornada>
-					<partido>
-						<equipoLocal ref="E5"/>
-						<equipoVisitante ref="E1"/>
-						<puntosLocal>43</puntosLocal>
-						<puntosVisitante>56</puntosVisitante>
-					</partido>
-					<partido>
-						<equipoLocal ref="E3"/>
-						<equipoVisitante ref="E2"/>
-						<puntosLocal>65</puntosLocal>
-						<puntosVisitante>12</puntosVisitante>
-					</partido>
-					<partido>
-						<equipoLocal ref="E6"/>
-						<equipoVisitante ref="E4"/>
-						<puntosLocal>98</puntosLocal>
+						<puntosLocal>4</puntosLocal>
 						<puntosVisitante>34</puntosVisitante>
 					</partido>
 				</jornada>
@@ -567,405 +398,445 @@
 					<partido>
 						<equipoLocal ref="E5"/>
 						<equipoVisitante ref="E2"/>
-						<puntosLocal>5</puntosLocal>
-						<puntosVisitante>87</puntosVisitante>
+						<puntosLocal>45</puntosLocal>
+						<puntosVisitante>12</puntosVisitante>
 					</partido>
 					<partido>
 						<equipoLocal ref="E6"/>
 						<equipoVisitante ref="E3"/>
-						<puntosLocal>43</puntosLocal>
-						<puntosVisitante>6</puntosVisitante>
-					</partido>
-					<partido>
-						<equipoLocal ref="E1"/>
-						<equipoVisitante ref="E4"/>
 						<puntosLocal>12</puntosLocal>
-						<puntosVisitante>65</puntosVisitante>
-					</partido>
-				</jornada>
-				<jornada>
-					<partido>
-						<equipoLocal ref="E4"/>
-						<equipoVisitante ref="E2"/>
-						<puntosLocal></puntosLocal>
-						<puntosVisitante></puntosVisitante>
-					</partido>
-					<partido>
-						<equipoLocal ref="E3"/>
-						<equipoVisitante ref="E5"/>
-						<puntosLocal></puntosLocal>
-						<puntosVisitante></puntosVisitante>
+						<puntosVisitante>54</puntosVisitante>
 					</partido>
 					<partido>
 						<equipoLocal ref="E1"/>
-						<equipoVisitante ref="E6"/>
-						<puntosLocal></puntosLocal>
-						<puntosVisitante></puntosVisitante>
-					</partido>
-				</jornada>
-				<jornada>
-					<partido>
-						<equipoLocal ref="E1"/>
-						<equipoVisitante ref="E3"/>
-						<puntosLocal></puntosLocal>
-						<puntosVisitante></puntosVisitante>
-					</partido>
-					<partido>
-						<equipoLocal ref="E4"/>
-						<equipoVisitante ref="E5"/>
-						<puntosLocal></puntosLocal>
-						<puntosVisitante></puntosVisitante>
-					</partido>
-					<partido>
-						<equipoLocal ref="E2"/>
-						<equipoVisitante ref="E6"/>
-						<puntosLocal></puntosLocal>
-						<puntosVisitante></puntosVisitante>
-					</partido>
-				</jornada>
-				<jornada>
-					<partido>
-						<equipoLocal ref="E1"/>
-						<equipoVisitante ref="E2"/>
-						<puntosLocal></puntosLocal>
-						<puntosVisitante></puntosVisitante>
-					</partido>
-					<partido>
-						<equipoLocal ref="E3"/>
 						<equipoVisitante ref="E4"/>
-						<puntosLocal></puntosLocal>
-						<puntosVisitante></puntosVisitante>
-					</partido>
-					<partido>
-						<equipoLocal ref="E5"/>
-						<equipoVisitante ref="E6"/>
-						<puntosLocal></puntosLocal>
-						<puntosVisitante></puntosVisitante>
+						<puntosLocal>65</puntosLocal>
+						<puntosVisitante>35</puntosVisitante>
 					</partido>
 				</jornada>
 				<jornada>
 					<partido>
-						<equipoLocal ref="E2"/>
-						<equipoVisitante ref="E3"/>
-						<puntosLocal></puntosLocal>
-						<puntosVisitante></puntosVisitante>
+						<equipoLocal ref="E3"/>
+						<equipoVisitante ref="E2"/>
+						<puntosLocal>12</puntosLocal>
+						<puntosVisitante>40</puntosVisitante>
 					</partido>
 					<partido>
 						<equipoLocal ref="E1"/>
 						<equipoVisitante ref="E5"/>
-						<puntosLocal></puntosLocal>
-						<puntosVisitante></puntosVisitante>
+						<puntosLocal>86</puntosLocal>
+						<puntosVisitante>12</puntosVisitante>
 					</partido>
 					<partido>
 						<equipoLocal ref="E4"/>
 						<equipoVisitante ref="E6"/>
-						<puntosLocal></puntosLocal>
-						<puntosVisitante></puntosVisitante>
-					</partido>
-				</jornada>
-				<jornada>
-					<partido>
-						<equipoLocal ref="E4"/>
-						<equipoVisitante ref="E1"/>
-						<puntosLocal></puntosLocal>
-						<puntosVisitante></puntosVisitante>
-					</partido>
-					<partido>
-						<equipoLocal ref="E2"/>
-						<equipoVisitante ref="E5"/>
-						<puntosLocal></puntosLocal>
-						<puntosVisitante></puntosVisitante>
-					</partido>
-					<partido>
-						<equipoLocal ref="E3"/>
-						<equipoVisitante ref="E6"/>
-						<puntosLocal></puntosLocal>
-						<puntosVisitante></puntosVisitante>
-					</partido>
-				</jornada>
-				<jornada>
-					<partido>
-						<equipoLocal ref="E6"/>
-						<equipoVisitante ref="E1"/>
-						<puntosLocal></puntosLocal>
-						<puntosVisitante></puntosVisitante>
-					</partido>
-					<partido>
-						<equipoLocal ref="E5"/>
-						<equipoVisitante ref="E3"/>
-						<puntosLocal></puntosLocal>
-						<puntosVisitante></puntosVisitante>
-					</partido>
-					<partido>
-						<equipoLocal ref="E2"/>
-						<equipoVisitante ref="E4"/>
-						<puntosLocal></puntosLocal>
-						<puntosVisitante></puntosVisitante>
+						<puntosLocal>54</puntosLocal>
+						<puntosVisitante>90</puntosVisitante>
 					</partido>
 				</jornada>
 				<jornada>
 					<partido>
 						<equipoLocal ref="E3"/>
 						<equipoVisitante ref="E1"/>
-						<puntosLocal></puntosLocal>
-						<puntosVisitante></puntosVisitante>
+						<puntosLocal>10</puntosLocal>
+						<puntosVisitante>43</puntosVisitante>
 					</partido>
 					<partido>
 						<equipoLocal ref="E6"/>
 						<equipoVisitante ref="E2"/>
-						<puntosLocal></puntosLocal>
-						<puntosVisitante></puntosVisitante>
+						<puntosLocal>85</puntosLocal>
+						<puntosVisitante>24</puntosVisitante>
 					</partido>
 					<partido>
-						<equipoLocal ref="E5"/>
-						<equipoVisitante ref="E4"/>
-						<puntosLocal></puntosLocal>
-						<puntosVisitante></puntosVisitante>
+						<equipoLocal ref="E4"/>
+						<equipoVisitante ref="E5"/>
+						<puntosLocal>65</puntosLocal>
+						<puntosVisitante>20</puntosVisitante>
 					</partido>
 				</jornada>
 			</jornadas>
 		</temporada>
-		<temporada anoInicio="2026" anoFin="2027">
+		<temporada anoInicio="2025" anoFin="2026">
 			<plantillas>
 				<equipo ref="E1" escudo="">
-					<jugador ref="10000001C" dorsal="3" foto=""/>
-					<jugador ref="20000001B" dorsal="6" foto=""/>
-					<jugador ref="30000001D" dorsal="1" foto=""/>
-					<jugador ref="30000001F" dorsal="2" foto=""/>
-					<jugador ref="40000001E" dorsal="4" foto=""/>
-					<jugador ref="50000001E" dorsal="5" foto=""/>
-					<jugador ref="60000001G" dorsal="0" foto=""/>
+					<jugador ref="10000001C" dorsal="54" foto=""/>
+					<jugador ref="20000001B" dorsal="0" foto=""/>
+					<jugador ref="30000001D" dorsal="12" foto=""/>
+					<jugador ref="30000001F" dorsal="43" foto=""/>
+					<jugador ref="40000001C" dorsal="34" foto=""/>
+					<jugador ref="40000001E" dorsal="9" foto=""/>
+					<jugador ref="50000001E" dorsal="84" foto=""/>
 				</equipo>
 				<equipo ref="E2" escudo="">
-					<jugador ref="10000001A" dorsal="3" foto=""/>
-					<jugador ref="20000001A" dorsal="1" foto=""/>
-					<jugador ref="30000001C" dorsal="2" foto=""/>
-					<jugador ref="40000001B" dorsal="6" foto=""/>
-					<jugador ref="50000001D" dorsal="5" foto=""/>
-					<jugador ref="50000001G" dorsal="4" foto=""/>
-					<jugador ref="60000001E" dorsal="7" foto=""/>
+					<jugador ref="10000001A" dorsal="98" foto=""/>
+					<jugador ref="10000001E" dorsal="11" foto=""/>
+					<jugador ref="20000001A" dorsal="12" foto=""/>
+					<jugador ref="30000001C" dorsal="23" foto=""/>
+					<jugador ref="50000001C" dorsal="54" foto=""/>
+					<jugador ref="50000001G" dorsal="43" foto=""/>
+					<jugador ref="60000001G" dorsal="30" foto=""/>
+				</equipo>
+				<equipo ref="E3" escudo="">
+					<jugador ref="20000001E" dorsal="54" foto=""/>
+					<jugador ref="40000001G" dorsal="43" foto=""/>
+					<jugador ref="50000001B" dorsal="67" foto=""/>
+					<jugador ref="50000001D" dorsal="89" foto=""/>
+					<jugador ref="60000001B" dorsal="65" foto=""/>
+					<jugador ref="60000001C" dorsal="33" foto=""/>
+					<jugador ref="60000001F" dorsal="12" foto=""/>
 				</equipo>
 				<equipo ref="E4" escudo="">
-					<jugador ref="20000001E" dorsal="7" foto=""/>
-					<jugador ref="30000001G" dorsal="3" foto=""/>
-					<jugador ref="40000001C" dorsal="0" foto=""/>
-					<jugador ref="40000001D" dorsal="2" foto=""/>
-					<jugador ref="40000001G" dorsal="6" foto=""/>
-					<jugador ref="60000001B" dorsal="8" foto=""/>
-					<jugador ref="60000001F" dorsal="1" foto=""/>
+					<jugador ref="10000001G" dorsal="93" foto=""/>
+					<jugador ref="30000001A" dorsal="12" foto=""/>
+					<jugador ref="30000001B" dorsal="68" foto=""/>
+					<jugador ref="40000001A" dorsal="56" foto=""/>
+					<jugador ref="40000001B" dorsal="95" foto=""/>
+					<jugador ref="60000001A" dorsal="89" foto=""/>
+					<jugador ref="60000001E" dorsal="32" foto=""/>
 				</equipo>
 				<equipo ref="E5" escudo="">
-					<jugador ref="10000001B" dorsal="7" foto=""/>
-					<jugador ref="10000001D" dorsal="4" foto=""/>
-					<jugador ref="10000001F" dorsal="5" foto=""/>
-					<jugador ref="10000001G" dorsal="3" foto=""/>
-					<jugador ref="50000001B" dorsal="2" foto=""/>
-					<jugador ref="50000001C" dorsal="1" foto=""/>
-					<jugador ref="50000001F" dorsal="6" foto=""/>
+					<jugador ref="10000001B" dorsal="20" foto=""/>
+					<jugador ref="10000001D" dorsal="99" foto=""/>
+					<jugador ref="10000001F" dorsal="43" foto=""/>
+					<jugador ref="20000001C" dorsal="65" foto=""/>
+					<jugador ref="30000001G" dorsal="78" foto=""/>
+					<jugador ref="40000001D" dorsal="56" foto=""/>
+					<jugador ref="50000001F" dorsal="34" foto=""/>
 				</equipo>
 				<equipo ref="E6" escudo="">
-					<jugador ref="20000001D" dorsal="4" foto=""/>
-					<jugador ref="20000001F" dorsal="5" foto=""/>
-					<jugador ref="20000001G" dorsal="7" foto=""/>
-					<jugador ref="30000001E" dorsal="1" foto=""/>
-					<jugador ref="40000001F" dorsal="3" foto=""/>
-					<jugador ref="50000001A" dorsal="2" foto=""/>
-					<jugador ref="60000001D" dorsal="6" foto=""/>
-				</equipo>
-				<equipo ref="E16" escudo="">
-					<jugador ref="10000001E" dorsal="1" foto=""/>
-					<jugador ref="20000001C" dorsal="4" foto=""/>
-					<jugador ref="30000001A" dorsal="6" foto=""/>
-					<jugador ref="30000001B" dorsal="7" foto=""/>
-					<jugador ref="40000001A" dorsal="5" foto=""/>
-					<jugador ref="60000001A" dorsal="3" foto=""/>
-					<jugador ref="60000001C" dorsal="2" foto=""/>
+					<jugador ref="20000001D" dorsal="95" foto=""/>
+					<jugador ref="20000001F" dorsal="12" foto=""/>
+					<jugador ref="20000001G" dorsal="54" foto=""/>
+					<jugador ref="30000001E" dorsal="48" foto=""/>
+					<jugador ref="40000001F" dorsal="43" foto=""/>
+					<jugador ref="50000001A" dorsal="90" foto=""/>
+					<jugador ref="60000001D" dorsal="76" foto=""/>
 				</equipo>
 			</plantillas>
 			<jornadas>
 				<jornada>
 					<partido>
-						<equipoLocal ref="E16"/>
+						<equipoLocal ref="E4"/>
+						<equipoVisitante ref="E3"/>
+						<puntosLocal>65</puntosLocal>
+						<puntosVisitante>65</puntosVisitante>
+					</partido>
+					<partido>
+						<equipoLocal ref="E1"/>
+						<equipoVisitante ref="E5"/>
+						<puntosLocal>53</puntosLocal>
+						<puntosVisitante>90</puntosVisitante>
+					</partido>
+					<partido>
+						<equipoLocal ref="E2"/>
+						<equipoVisitante ref="E6"/>
+						<puntosLocal>12</puntosLocal>
+						<puntosVisitante>54</puntosVisitante>
+					</partido>
+				</jornada>
+				<jornada>
+					<partido>
+						<equipoLocal ref="E3"/>
 						<equipoVisitante ref="E2"/>
-						<puntosLocal>3</puntosLocal>
-						<puntosVisitante>1</puntosVisitante>
+						<puntosLocal>54</puntosLocal>
+						<puntosVisitante>34</puntosVisitante>
 					</partido>
 					<partido>
 						<equipoLocal ref="E1"/>
 						<equipoVisitante ref="E4"/>
-						<puntosLocal>4</puntosLocal>
-						<puntosVisitante>5</puntosVisitante>
+						<puntosLocal>50</puntosLocal>
+						<puntosVisitante>12</puntosVisitante>
 					</partido>
 					<partido>
 						<equipoLocal ref="E5"/>
 						<equipoVisitante ref="E6"/>
-						<puntosLocal>123</puntosLocal>
-						<puntosVisitante>23</puntosVisitante>
-					</partido>
-				</jornada>
-				<jornada>
-					<partido>
-						<equipoLocal ref="E6"/>
-						<equipoVisitante ref="E1"/>
-						<puntosLocal>4</puntosLocal>
-						<puntosVisitante>5</puntosVisitante>
-					</partido>
-					<partido>
-						<equipoLocal ref="E2"/>
-						<equipoVisitante ref="E4"/>
-						<puntosLocal>2</puntosLocal>
-						<puntosVisitante>1</puntosVisitante>
-					</partido>
-					<partido>
-						<equipoLocal ref="E16"/>
-						<equipoVisitante ref="E5"/>
-						<puntosLocal>4</puntosLocal>
-						<puntosVisitante>6</puntosVisitante>
-					</partido>
-				</jornada>
-				<jornada>
-					<partido>
-						<equipoLocal ref="E2"/>
-						<equipoVisitante ref="E1"/>
-						<puntosLocal>4</puntosLocal>
-						<puntosVisitante>6</puntosVisitante>
-					</partido>
-					<partido>
-						<equipoLocal ref="E4"/>
-						<equipoVisitante ref="E5"/>
-						<puntosLocal>12</puntosLocal>
-						<puntosVisitante>5</puntosVisitante>
-					</partido>
-					<partido>
-						<equipoLocal ref="E16"/>
-						<equipoVisitante ref="E6"/>
-						<puntosLocal>65</puntosLocal>
-						<puntosVisitante>3</puntosVisitante>
+						<puntosLocal>40</puntosLocal>
+						<puntosVisitante>80</puntosVisitante>
 					</partido>
 				</jornada>
 				<jornada>
 					<partido>
 						<equipoLocal ref="E5"/>
-						<equipoVisitante ref="E1"/>
-						<puntosLocal>123</puntosLocal>
-						<puntosVisitante>543</puntosVisitante>
-					</partido>
-					<partido>
-						<equipoLocal ref="E6"/>
 						<equipoVisitante ref="E2"/>
-						<puntosLocal>43</puntosLocal>
-						<puntosVisitante>45</puntosVisitante>
+						<puntosLocal>60</puntosLocal>
+						<puntosVisitante>43</puntosVisitante>
 					</partido>
 					<partido>
-						<equipoLocal ref="E4"/>
-						<equipoVisitante ref="E16"/>
-						<puntosLocal>65</puntosLocal>
+						<equipoLocal ref="E1"/>
+						<equipoVisitante ref="E3"/>
+						<puntosLocal>68</puntosLocal>
+						<puntosVisitante>89</puntosVisitante>
+					</partido>
+					<partido>
+						<equipoLocal ref="E6"/>
+						<equipoVisitante ref="E4"/>
+						<puntosLocal>60</puntosLocal>
 						<puntosVisitante>12</puntosVisitante>
 					</partido>
 				</jornada>
 				<jornada>
 					<partido>
-						<equipoLocal ref="E5"/>
+						<equipoLocal ref="E6"/>
+						<equipoVisitante ref="E1"/>
+						<puntosLocal>30</puntosLocal>
+						<puntosVisitante>25</puntosVisitante>
+					</partido>
+					<partido>
+						<equipoLocal ref="E4"/>
 						<equipoVisitante ref="E2"/>
+						<puntosLocal>10</puntosLocal>
+						<puntosVisitante>39</puntosVisitante>
+					</partido>
+					<partido>
+						<equipoLocal ref="E3"/>
+						<equipoVisitante ref="E5"/>
+						<puntosLocal>40</puntosLocal>
+						<puntosVisitante>12</puntosVisitante>
+					</partido>
+				</jornada>
+				<jornada>
+					<partido>
+						<equipoLocal ref="E2"/>
+						<equipoVisitante ref="E1"/>
+						<puntosLocal>10</puntosLocal>
+						<puntosVisitante>49</puntosVisitante>
+					</partido>
+					<partido>
+						<equipoLocal ref="E6"/>
+						<equipoVisitante ref="E3"/>
+						<puntosLocal>10</puntosLocal>
+						<puntosVisitante>50</puntosVisitante>
+					</partido>
+					<partido>
+						<equipoLocal ref="E4"/>
+						<equipoVisitante ref="E5"/>
 						<puntosLocal>12</puntosLocal>
-						<puntosVisitante>5</puntosVisitante>
+						<puntosVisitante>45</puntosVisitante>
+					</partido>
+				</jornada>
+				<jornada>
+					<partido>
+						<equipoLocal ref="E5"/>
+						<equipoVisitante ref="E1"/>
+						<puntosLocal>30</puntosLocal>
+						<puntosVisitante>60</puntosVisitante>
+					</partido>
+					<partido>
+						<equipoLocal ref="E6"/>
+						<equipoVisitante ref="E2"/>
+						<puntosLocal>50</puntosLocal>
+						<puntosVisitante>10</puntosVisitante>
+					</partido>
+					<partido>
+						<equipoLocal ref="E3"/>
+						<equipoVisitante ref="E4"/>
+						<puntosLocal>43</puntosLocal>
+						<puntosVisitante>12</puntosVisitante>
+					</partido>
+				</jornada>
+				<jornada>
+					<partido>
+						<equipoLocal ref="E4"/>
+						<equipoVisitante ref="E1"/>
+						<puntosLocal>32</puntosLocal>
+						<puntosVisitante>40</puntosVisitante>
+					</partido>
+					<partido>
+						<equipoLocal ref="E2"/>
+						<equipoVisitante ref="E3"/>
+						<puntosLocal>67</puntosLocal>
+						<puntosVisitante>10</puntosVisitante>
+					</partido>
+					<partido>
+						<equipoLocal ref="E6"/>
+						<equipoVisitante ref="E5"/>
+						<puntosLocal>50</puntosLocal>
+						<puntosVisitante>12</puntosVisitante>
+					</partido>
+				</jornada>
+				<jornada>
+					<partido>
+						<equipoLocal ref="E3"/>
+						<equipoVisitante ref="E1"/>
+						<puntosLocal>430</puntosLocal>
+						<puntosVisitante>210</puntosVisitante>
+					</partido>
+					<partido>
+						<equipoLocal ref="E2"/>
+						<equipoVisitante ref="E5"/>
+						<puntosLocal>40</puntosLocal>
+						<puntosVisitante>1</puntosVisitante>
 					</partido>
 					<partido>
 						<equipoLocal ref="E4"/>
 						<equipoVisitante ref="E6"/>
 						<puntosLocal>3</puntosLocal>
-						<puntosVisitante>6</puntosVisitante>
-					</partido>
-					<partido>
-						<equipoLocal ref="E1"/>
-						<equipoVisitante ref="E16"/>
-						<puntosLocal>8</puntosLocal>
-						<puntosVisitante>7</puntosVisitante>
+						<puntosVisitante>10</puntosVisitante>
 					</partido>
 				</jornada>
 				<jornada>
 					<partido>
-						<equipoLocal ref="E4"/>
-						<equipoVisitante ref="E1"/>
-						<puntosLocal>12</puntosLocal>
-						<puntosVisitante>54</puntosVisitante>
-					</partido>
-					<partido>
-						<equipoLocal ref="E6"/>
-						<equipoVisitante ref="E5"/>
-						<puntosLocal></puntosLocal>
-						<puntosVisitante></puntosVisitante>
+						<equipoLocal ref="E5"/>
+						<equipoVisitante ref="E3"/>
+						<puntosLocal>50</puntosLocal>
+						<puntosVisitante>20</puntosVisitante>
 					</partido>
 					<partido>
 						<equipoLocal ref="E2"/>
-						<equipoVisitante ref="E16"/>
-						<puntosLocal></puntosLocal>
-						<puntosVisitante></puntosVisitante>
-					</partido>
-				</jornada>
-				<jornada>
-					<partido>
-						<equipoLocal ref="E4"/>
-						<equipoVisitante ref="E2"/>
-						<puntosLocal></puntosLocal>
-						<puntosVisitante></puntosVisitante>
+						<equipoVisitante ref="E4"/>
+						<puntosLocal>54</puntosLocal>
+						<puntosVisitante>12</puntosVisitante>
 					</partido>
 					<partido>
 						<equipoLocal ref="E1"/>
 						<equipoVisitante ref="E6"/>
-						<puntosLocal></puntosLocal>
-						<puntosVisitante></puntosVisitante>
-					</partido>
-					<partido>
-						<equipoLocal ref="E5"/>
-						<equipoVisitante ref="E16"/>
-						<puntosLocal></puntosLocal>
-						<puntosVisitante></puntosVisitante>
+						<puntosLocal>40</puntosLocal>
+						<puntosVisitante>12</puntosVisitante>
 					</partido>
 				</jornada>
 				<jornada>
 					<partido>
 						<equipoLocal ref="E1"/>
 						<equipoVisitante ref="E2"/>
-						<puntosLocal></puntosLocal>
-						<puntosVisitante></puntosVisitante>
+						<puntosLocal>50</puntosLocal>
+						<puntosVisitante>12</puntosVisitante>
 					</partido>
 					<partido>
 						<equipoLocal ref="E5"/>
 						<equipoVisitante ref="E4"/>
-						<puntosLocal></puntosLocal>
-						<puntosVisitante></puntosVisitante>
+						<puntosLocal>43</puntosLocal>
+						<puntosVisitante>10</puntosVisitante>
 					</partido>
 					<partido>
-						<equipoLocal ref="E6"/>
-						<equipoVisitante ref="E16"/>
-						<puntosLocal></puntosLocal>
-						<puntosVisitante></puntosVisitante>
+						<equipoLocal ref="E3"/>
+						<equipoVisitante ref="E6"/>
+						<puntosLocal>54</puntosLocal>
+						<puntosVisitante>12</puntosVisitante>
+					</partido>
+				</jornada>
+			</jornadas>
+		</temporada>
+		<temporada anoInicio="2027" anoFin="2028">
+			<plantillas>
+				<equipo ref="E1" escudo="">
+					<jugador ref="10000001C" dorsal="54" foto=""/>
+					<jugador ref="20000001B" dorsal="0" foto=""/>
+					<jugador ref="30000001D" dorsal="12" foto=""/>
+					<jugador ref="30000001F" dorsal="43" foto=""/>
+					<jugador ref="40000001C" dorsal="34" foto=""/>
+					<jugador ref="40000001E" dorsal="9" foto=""/>
+					<jugador ref="50000001E" dorsal="84" foto=""/>
+				</equipo>
+				<equipo ref="E2" escudo="">
+					<jugador ref="10000001A" dorsal="98" foto=""/>
+					<jugador ref="10000001E" dorsal="11" foto=""/>
+					<jugador ref="20000001A" dorsal="12" foto=""/>
+					<jugador ref="30000001C" dorsal="23" foto=""/>
+					<jugador ref="50000001C" dorsal="54" foto=""/>
+					<jugador ref="50000001G" dorsal="43" foto=""/>
+					<jugador ref="60000001G" dorsal="30" foto=""/>
+				</equipo>
+				<equipo ref="E3" escudo="">
+					<jugador ref="20000001E" dorsal="54" foto=""/>
+					<jugador ref="40000001G" dorsal="43" foto=""/>
+					<jugador ref="50000001B" dorsal="67" foto=""/>
+					<jugador ref="50000001D" dorsal="89" foto=""/>
+					<jugador ref="60000001B" dorsal="65" foto=""/>
+					<jugador ref="60000001C" dorsal="33" foto=""/>
+					<jugador ref="60000001F" dorsal="12" foto=""/>
+				</equipo>
+				<equipo ref="E4" escudo="">
+					<jugador ref="10000001G" dorsal="93" foto=""/>
+					<jugador ref="30000001A" dorsal="12" foto=""/>
+					<jugador ref="30000001B" dorsal="68" foto=""/>
+					<jugador ref="40000001A" dorsal="56" foto=""/>
+					<jugador ref="40000001B" dorsal="95" foto=""/>
+					<jugador ref="60000001A" dorsal="89" foto=""/>
+					<jugador ref="60000001E" dorsal="32" foto=""/>
+				</equipo>
+				<equipo ref="E5" escudo="">
+					<jugador ref="10000001B" dorsal="20" foto=""/>
+					<jugador ref="10000001D" dorsal="99" foto=""/>
+					<jugador ref="10000001F" dorsal="43" foto=""/>
+					<jugador ref="20000001C" dorsal="65" foto=""/>
+					<jugador ref="30000001G" dorsal="78" foto=""/>
+					<jugador ref="40000001D" dorsal="56" foto=""/>
+					<jugador ref="50000001F" dorsal="34" foto=""/>
+				</equipo>
+				<equipo ref="E6" escudo="">
+					<jugador ref="20000001D" dorsal="95" foto=""/>
+					<jugador ref="20000001F" dorsal="12" foto=""/>
+					<jugador ref="20000001G" dorsal="54" foto=""/>
+					<jugador ref="30000001E" dorsal="48" foto=""/>
+					<jugador ref="40000001F" dorsal="43" foto=""/>
+					<jugador ref="50000001A" dorsal="90" foto=""/>
+					<jugador ref="60000001D" dorsal="76" foto=""/>
+				</equipo>
+			</plantillas>
+			<jornadas>
+				<jornada>
+					<partido>
+						<equipoLocal ref="E4"/>
+						<equipoVisitante ref="E1"/>
+						<puntosLocal>69</puntosLocal>
+						<puntosVisitante>12</puntosVisitante>
+					</partido>
+					<partido>
+						<equipoLocal ref="E2"/>
+						<equipoVisitante ref="E3"/>
+						<puntosLocal>54</puntosLocal>
+						<puntosVisitante>12</puntosVisitante>
+					</partido>
+					<partido>
+						<equipoLocal ref="E5"/>
+						<equipoVisitante ref="E6"/>
+						<puntosLocal>5456</puntosLocal>
+						<puntosVisitante>123</puntosVisitante>
 					</partido>
 				</jornada>
 				<jornada>
 					<partido>
-						<equipoLocal ref="E16"/>
-						<equipoVisitante ref="E4"/>
-						<puntosLocal></puntosLocal>
-						<puntosVisitante></puntosVisitante>
+						<equipoLocal ref="E4"/>
+						<equipoVisitante ref="E2"/>
+						<puntosLocal>30</puntosLocal>
+						<puntosVisitante>20</puntosVisitante>
+					</partido>
+					<partido>
+						<equipoLocal ref="E3"/>
+						<equipoVisitante ref="E5"/>
+						<puntosLocal>98</puntosLocal>
+						<puntosVisitante>40</puntosVisitante>
+					</partido>
+					<partido>
+						<equipoLocal ref="E1"/>
+						<equipoVisitante ref="E6"/>
+						<puntosLocal>84</puntosLocal>
+						<puntosVisitante>12</puntosVisitante>
+					</partido>
+				</jornada>
+				<jornada>
+					<partido>
+						<equipoLocal ref="E6"/>
+						<equipoVisitante ref="E2"/>
+						<puntosLocal>10</puntosLocal>
+						<puntosVisitante>12</puntosVisitante>
+					</partido>
+					<partido>
+						<equipoLocal ref="E4"/>
+						<equipoVisitante ref="E3"/>
+						<puntosLocal>5</puntosLocal>
+						<puntosVisitante>3</puntosVisitante>
 					</partido>
 					<partido>
 						<equipoLocal ref="E1"/>
 						<equipoVisitante ref="E5"/>
-						<puntosLocal></puntosLocal>
-						<puntosVisitante></puntosVisitante>
-					</partido>
-					<partido>
-						<equipoLocal ref="E2"/>
-						<equipoVisitante ref="E6"/>
-						<puntosLocal></puntosLocal>
-						<puntosVisitante></puntosVisitante>
+						<puntosLocal>6</puntosLocal>
+						<puntosVisitante>9</puntosVisitante>
 					</partido>
 				</jornada>
 				<jornada>
 					<partido>
-						<equipoLocal ref="E16"/>
+						<equipoLocal ref="E3"/>
 						<equipoVisitante ref="E1"/>
 						<puntosLocal></puntosLocal>
 						<puntosVisitante></puntosVisitante>
@@ -979,6 +850,126 @@
 					<partido>
 						<equipoLocal ref="E2"/>
 						<equipoVisitante ref="E5"/>
+						<puntosLocal></puntosLocal>
+						<puntosVisitante></puntosVisitante>
+					</partido>
+				</jornada>
+				<jornada>
+					<partido>
+						<equipoLocal ref="E2"/>
+						<equipoVisitante ref="E1"/>
+						<puntosLocal></puntosLocal>
+						<puntosVisitante></puntosVisitante>
+					</partido>
+					<partido>
+						<equipoLocal ref="E6"/>
+						<equipoVisitante ref="E3"/>
+						<puntosLocal></puntosLocal>
+						<puntosVisitante></puntosVisitante>
+					</partido>
+					<partido>
+						<equipoLocal ref="E5"/>
+						<equipoVisitante ref="E4"/>
+						<puntosLocal></puntosLocal>
+						<puntosVisitante></puntosVisitante>
+					</partido>
+				</jornada>
+				<jornada>
+					<partido>
+						<equipoLocal ref="E3"/>
+						<equipoVisitante ref="E2"/>
+						<puntosLocal></puntosLocal>
+						<puntosVisitante></puntosVisitante>
+					</partido>
+					<partido>
+						<equipoLocal ref="E1"/>
+						<equipoVisitante ref="E4"/>
+						<puntosLocal></puntosLocal>
+						<puntosVisitante></puntosVisitante>
+					</partido>
+					<partido>
+						<equipoLocal ref="E6"/>
+						<equipoVisitante ref="E5"/>
+						<puntosLocal></puntosLocal>
+						<puntosVisitante></puntosVisitante>
+					</partido>
+				</jornada>
+				<jornada>
+					<partido>
+						<equipoLocal ref="E6"/>
+						<equipoVisitante ref="E1"/>
+						<puntosLocal></puntosLocal>
+						<puntosVisitante></puntosVisitante>
+					</partido>
+					<partido>
+						<equipoLocal ref="E5"/>
+						<equipoVisitante ref="E3"/>
+						<puntosLocal></puntosLocal>
+						<puntosVisitante></puntosVisitante>
+					</partido>
+					<partido>
+						<equipoLocal ref="E2"/>
+						<equipoVisitante ref="E4"/>
+						<puntosLocal></puntosLocal>
+						<puntosVisitante></puntosVisitante>
+					</partido>
+				</jornada>
+				<jornada>
+					<partido>
+						<equipoLocal ref="E5"/>
+						<equipoVisitante ref="E1"/>
+						<puntosLocal></puntosLocal>
+						<puntosVisitante></puntosVisitante>
+					</partido>
+					<partido>
+						<equipoLocal ref="E3"/>
+						<equipoVisitante ref="E4"/>
+						<puntosLocal></puntosLocal>
+						<puntosVisitante></puntosVisitante>
+					</partido>
+					<partido>
+						<equipoLocal ref="E2"/>
+						<equipoVisitante ref="E6"/>
+						<puntosLocal></puntosLocal>
+						<puntosVisitante></puntosVisitante>
+					</partido>
+				</jornada>
+				<jornada>
+					<partido>
+						<equipoLocal ref="E5"/>
+						<equipoVisitante ref="E2"/>
+						<puntosLocal></puntosLocal>
+						<puntosVisitante></puntosVisitante>
+					</partido>
+					<partido>
+						<equipoLocal ref="E1"/>
+						<equipoVisitante ref="E3"/>
+						<puntosLocal></puntosLocal>
+						<puntosVisitante></puntosVisitante>
+					</partido>
+					<partido>
+						<equipoLocal ref="E4"/>
+						<equipoVisitante ref="E6"/>
+						<puntosLocal></puntosLocal>
+						<puntosVisitante></puntosVisitante>
+					</partido>
+				</jornada>
+				<jornada>
+					<partido>
+						<equipoLocal ref="E1"/>
+						<equipoVisitante ref="E2"/>
+						<puntosLocal></puntosLocal>
+						<puntosVisitante></puntosVisitante>
+					</partido>
+					<partido>
+						<equipoLocal ref="E4"/>
+						<equipoVisitante ref="E5"/>
+						<puntosLocal></puntosLocal>
+						<puntosVisitante></puntosVisitante>
+					</partido>
+					<partido>
+						<equipoLocal ref="E3"/>
+						<equipoVisitante ref="E6"/>
 						<puntosLocal></puntosLocal>
 						<puntosVisitante></puntosVisitante>
 					</partido>
@@ -988,24 +979,34 @@
 	</temporadas>
 	<usuarios>
 		<usuario>
-			<user>Admin</user>
+			<user>admin</user>
 			<pass>12345</pass>
 			<rol>admin</rol>
 		</usuario>
 		<usuario>
-			<user>Invitado</user>
-			<pass></pass>
+			<user>usuario</user>
+			<pass>12345</pass>
 			<rol>user</rol>
 		</usuario>
 		<usuario>
-			<user>Arbitro</user>
+			<user>arbitro</user>
 			<pass>12345</pass>
 			<rol>arbitro</rol>
 		</usuario>
 		<usuario>
+			<user>manager</user>
+			<pass>12345</pass>
+			<rol>manager</rol>
+		</usuario>
+		<usuario>
+			<user>invitado</user>
+			<pass></pass>
+			<rol>user</rol>
+		</usuario>
+		<usuario>
 			<user>txema</user>
 			<pass>12345</pass>
-			<rol>admin</rol>
+			<rol>user</rol>
 		</usuario>
 	</usuarios>
 </federacion>
